@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1"
@@ -27,7 +28,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "nodemailer": "^6.6.1",
-    "nuxt": "^2.15.7",
     "validator": "^13.6.0",
     "vue-gapi": "^1.1.0",
     "vue-plyr": "^7.0.0",
