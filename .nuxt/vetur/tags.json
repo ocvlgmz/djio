@@ -1,0 +1,50 @@
+{
+  "InfoBox": {
+    "description": "Auto imported from components/global/InfoBox.vue"
+  },
+  "Author": {
+    "description": "Auto imported from components/Author.vue"
+  },
+  "Calendar": {
+    "description": "Auto imported from components/Calendar.vue"
+  },
+  "Contact": {
+    "description": "Auto imported from components/Contact.vue"
+  },
+  "Email": {
+    "description": "Auto imported from components/Email.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "Hero": {
+    "description": "Auto imported from components/Hero.vue"
+  },
+  "LoginForm": {
+    "description": "Auto imported from components/LoginForm.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Member": {
+    "description": "Auto imported from components/Member.vue"
+  },
+  "Observer": {
+    "description": "Auto imported from components/Observer.vue"
+  },
+  "PrevNext": {
+    "description": "Auto imported from components/PrevNext.vue"
+  },
+  "Search": {
+    "description": "Auto imported from components/Search.vue"
+  },
+  "Tagline": {
+    "description": "Auto imported from components/Tagline.vue"
+  },
+  "Title": {
+    "description": "Auto imported from components/Title.vue"
+  }
+}

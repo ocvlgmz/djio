@@ -1,0 +1,7 @@
+{"products": [
+    {"id": "1", "cat": "Coaching", "name": "Digital Marketing Solo", "price": "5000", "description": "Digital Marketing Solo (Monthly)"},
+    {"id": "2", "cat": "Training", "name": "Practical Scrum (Remote)", "price": "1500", "description": "A Practical Scrum (Remote Training)."},
+    {"id": "3", "cat": "Training", "name": "Practical Scrum (On Premise)", "price": "2500", "description": "A Practical Scrum (On Premise Training)."},
+    {"id": "4", "cat": "Service", "name": "Digital SWOT Scan", "price": "1000", "description": "An actionable manifesto based on a digital SWOT audit on the client business."}
+    ]
+}

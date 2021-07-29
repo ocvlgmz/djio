@@ -1,0 +1,17 @@
+.fade-enter-active,
+.fade-leaver-active {
+    transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.bounce-enter-active,
+.bounce-leaver-active {
+    transition: opacity 0.5s;
+}
+.bounce-enter,
+.bounce-leave-to {
+    opacity: 0;
+}
