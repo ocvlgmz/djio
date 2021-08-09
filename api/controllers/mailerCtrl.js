@@ -1,14 +1,9 @@
 require('dotenv').config()
-// import nodemailer from 'nodemailer'
-// import validator from 'validator'
-// import xssFilters from 'xss-filters'
 const nodemailer = require('nodemailer')
 const validator = require('validator')
 const xssFilters = require('xss-filters')
 
-
 module.exports.sendForm = async (req, res) => {
-
   // Our three form fields, all required
   console.log('email subj:', req.body.inputs.title)
   const attributes = ['name', 'email', 'purpose']

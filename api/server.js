@@ -25,6 +25,6 @@ app.use('/user', userRoutes)
 app.use('/mailer', mailerRoutes)
 
 module.exports = {
-    path: '/api/',
+    path: '/api',
     handler: app
 }
