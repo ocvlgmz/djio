@@ -1,26 +1,6 @@
 require('dotenv').config()
 const User = require('../models/User')
-
-//Error handler
-const errorHandler = (err) => {
-    console.log(err.message, err.code)
-    let errors = { email: '', password: '' }
-    //validating unique user registration
-    //this check comes first, as if the email is already in use, there is no need to validate it at first place!
-    if (err.code === 11000) {
-        errors.email = 'User already registered.'
-        return errors
-    }
-    //validating inputs errors 
-    if (err.message.includes('User input validation failed')) {
-        Object.values(err.errors).forEach(({ properties }) => {
-            errors[properties.path] = properties.message
-        })
-    } else {
-        errors.null = `User doesn't exist`
-    }
-    return errors
-}
+const errorHandler = require('../utils/errorHandler')
 
 module.exports.user_get = (req, res) => {
     const user = req.cookies['user']
