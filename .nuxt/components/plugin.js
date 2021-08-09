@@ -15,6 +15,7 @@ const components = {
   Member: () => import('../..\\components\\Member.vue' /* webpackChunkName: "components/member" */).then(c => wrapFunctional(c.default || c)),
   Observer: () => import('../..\\components\\Observer.vue' /* webpackChunkName: "components/observer" */).then(c => wrapFunctional(c.default || c)),
   PrevNext: () => import('../..\\components\\PrevNext.vue' /* webpackChunkName: "components/prev-next" */).then(c => wrapFunctional(c.default || c)),
+  ProjectForm: () => import('../..\\components\\ProjectForm.vue' /* webpackChunkName: "components/project-form" */).then(c => wrapFunctional(c.default || c)),
   Search: () => import('../..\\components\\Search.vue' /* webpackChunkName: "components/search" */).then(c => wrapFunctional(c.default || c)),
   Tagline: () => import('../..\\components\\Tagline.vue' /* webpackChunkName: "components/tagline" */).then(c => wrapFunctional(c.default || c)),
   Title: () => import('../..\\components\\Title.vue' /* webpackChunkName: "components/title" */).then(c => wrapFunctional(c.default || c))

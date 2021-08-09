@@ -2,92 +2,92 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\about.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\about.vue",
     "chunkName": "pages/about",
-    "_name": "_a0449b2c"
+    "_name": "_2bda33aa"
   },
   {
     "name": "blog",
     "path": "/blog",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\blog\\\\index.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\index.vue",
     "chunkName": "pages/blog/index",
-    "_name": "_62b7a10d"
+    "_name": "_2f1e324d"
   },
   {
     "name": "client",
     "path": "/client",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\client\\\\index.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\client\\\\index.vue",
     "chunkName": "pages/client/index",
-    "_name": "_e361a7f8"
+    "_name": "_49532578"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\login.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\login.vue",
     "chunkName": "pages/login",
-    "_name": "_cd859f74"
+    "_name": "_1539b186"
   },
   {
     "name": "service",
     "path": "/service",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\service.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\service.vue",
     "chunkName": "pages/service",
-    "_name": "_8752375c"
+    "_name": "_2b381592"
   },
   {
     "name": "store",
     "path": "/store",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\store.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\store.vue",
     "chunkName": "pages/store",
-    "_name": "_6490bdbe"
+    "_name": "_3ee58204"
   },
   {
     "name": "terms-and-privacy",
     "path": "/terms-and-privacy",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\terms-and-privacy.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\terms-and-privacy.vue",
     "chunkName": "pages/terms-and-privacy",
-    "_name": "_ca6dcbae"
+    "_name": "_b864892e"
   },
   {
     "name": "test",
     "path": "/test",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\test.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\test.vue",
     "chunkName": "pages/test",
-    "_name": "_153df276"
+    "_name": "_332f5d85"
   },
   {
     "name": "blog-index copy",
     "path": "/blog/index%20copy",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\blog\\\\index copy.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\index copy.vue",
     "chunkName": "pages/blog/index copy",
-    "_name": "_d6815b50"
+    "_name": "_74018918"
   },
   {
     "name": "blog-author-author",
     "path": "/blog/author/:author?",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\blog\\\\author\\\\_author.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\author\\\\_author.vue",
     "chunkName": "pages/blog/author/_author",
-    "_name": "_94c4100c"
+    "_name": "_7ceff93a"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\blog\\\\_slug.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\_slug.vue",
     "chunkName": "pages/blog/_slug",
-    "_name": "_6100ffc5"
+    "_name": "_2d679105"
   },
   {
     "name": "client-project",
     "path": "/client/:project",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\client\\\\_project.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\client\\\\_project.vue",
     "chunkName": "pages/client/_project",
-    "_name": "_41717f98"
+    "_name": "_20b3b658"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\djio\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_60d4e5a2"
+    "_name": "_4b920e6f"
   }
 ]

@@ -38,6 +38,9 @@
   "PrevNext": {
     "description": "Auto imported from components/PrevNext.vue"
   },
+  "ProjectForm": {
+    "description": "Auto imported from components/ProjectForm.vue"
+  },
   "Search": {
     "description": "Auto imported from components/Search.vue"
   },

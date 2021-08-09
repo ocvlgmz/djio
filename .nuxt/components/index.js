@@ -13,6 +13,7 @@ export { default as Logo } from '../..\\components\\Logo.vue'
 export { default as Member } from '../..\\components\\Member.vue'
 export { default as Observer } from '../..\\components\\Observer.vue'
 export { default as PrevNext } from '../..\\components\\PrevNext.vue'
+export { default as ProjectForm } from '../..\\components\\ProjectForm.vue'
 export { default as Search } from '../..\\components\\Search.vue'
 export { default as Tagline } from '../..\\components\\Tagline.vue'
 export { default as Title } from '../..\\components\\Title.vue'
@@ -30,6 +31,7 @@ export const LazyLogo = import('../..\\components\\Logo.vue' /* webpackChunkName
 export const LazyMember = import('../..\\components\\Member.vue' /* webpackChunkName: "components/member" */).then(c => wrapFunctional(c.default || c))
 export const LazyObserver = import('../..\\components\\Observer.vue' /* webpackChunkName: "components/observer" */).then(c => wrapFunctional(c.default || c))
 export const LazyPrevNext = import('../..\\components\\PrevNext.vue' /* webpackChunkName: "components/prev-next" */).then(c => wrapFunctional(c.default || c))
+export const LazyProjectForm = import('../..\\components\\ProjectForm.vue' /* webpackChunkName: "components/project-form" */).then(c => wrapFunctional(c.default || c))
 export const LazySearch = import('../..\\components\\Search.vue' /* webpackChunkName: "components/search" */).then(c => wrapFunctional(c.default || c))
 export const LazyTagline = import('../..\\components\\Tagline.vue' /* webpackChunkName: "components/tagline" */).then(c => wrapFunctional(c.default || c))
 export const LazyTitle = import('../..\\components\\Title.vue' /* webpackChunkName: "components/title" */).then(c => wrapFunctional(c.default || c))
