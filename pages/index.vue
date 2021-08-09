@@ -49,17 +49,17 @@
               >
                 <source
                   size="360"
-                  :src="require('../assets/vid/call-v5.mp4')"
+                  :src="require('../assets/img/cover.png')"
                   type="video/mp4"
                 />
                 <source
                   size="720"
-                  :src="require('../assets/vid/call-v5.mp4')"
+                  :src="require('../assets/img/cover.png')"
                   type="video/mp4"
                 />
                 <source
                   size="1080"
-                  :src="require('../assets/vid/call-v5.mp4')"
+                  :src="require('../assets/img/cover.png')"
                   type="video/mp4"
                 />
               </video>
@@ -116,17 +116,17 @@
               >
                 <source
                   size="360"
-                  :src="require('../assets/vid/call-v5.mp4')"
+                  :src="require('../assets/img/cover.png')"
                   type="video/mp4"
                 />
                 <source
                   size="720"
-                  :src="require('../assets/vid/call-v5.mp4')"
+                  :src="require('../assets/img/cover.png')"
                   type="video/mp4"
                 />
                 <source
                   size="1080"
-                  :src="require('../assets/vid/call-v5.mp4')"
+                  :src="require('../assets/img/cover.png')"
                   type="video/mp4"
                 />
               </video>
