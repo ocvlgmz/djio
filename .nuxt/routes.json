@@ -3,78 +3,91 @@
     "name": "about",
     "path": "/about",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\about.vue",
-    "chunkName": "pages/about"
+    "chunkName": "pages/about",
+    "_name": "_2bda33aa"
   },
   {
     "name": "blog",
     "path": "/blog",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index"
+    "chunkName": "pages/blog/index",
+    "_name": "_2f1e324d"
   },
   {
     "name": "client",
     "path": "/client",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\client\\\\index.vue",
-    "chunkName": "pages/client/index"
+    "chunkName": "pages/client/index",
+    "_name": "_49532578"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_1539b186"
   },
   {
     "name": "service",
     "path": "/service",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\service.vue",
-    "chunkName": "pages/service"
+    "chunkName": "pages/service",
+    "_name": "_2b381592"
   },
   {
     "name": "store",
     "path": "/store",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\store.vue",
-    "chunkName": "pages/store"
+    "chunkName": "pages/store",
+    "_name": "_3ee58204"
   },
   {
     "name": "terms-and-privacy",
     "path": "/terms-and-privacy",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\terms-and-privacy.vue",
-    "chunkName": "pages/terms-and-privacy"
+    "chunkName": "pages/terms-and-privacy",
+    "_name": "_b864892e"
   },
   {
     "name": "test",
     "path": "/test",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\test.vue",
-    "chunkName": "pages/test"
+    "chunkName": "pages/test",
+    "_name": "_332f5d85"
   },
   {
     "name": "blog-index copy",
     "path": "/blog/index%20copy",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\index copy.vue",
-    "chunkName": "pages/blog/index copy"
+    "chunkName": "pages/blog/index copy",
+    "_name": "_74018918"
   },
   {
     "name": "blog-author-author",
     "path": "/blog/author/:author?",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\author\\\\_author.vue",
-    "chunkName": "pages/blog/author/_author"
+    "chunkName": "pages/blog/author/_author",
+    "_name": "_7ceff93a"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\blog\\\\_slug.vue",
-    "chunkName": "pages/blog/_slug"
+    "chunkName": "pages/blog/_slug",
+    "_name": "_2d679105"
   },
   {
     "name": "client-project",
     "path": "/client/:project",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\client\\\\_project.vue",
-    "chunkName": "pages/client/_project"
+    "chunkName": "pages/client/_project",
+    "_name": "_20b3b658"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\olive\\\\Documents\\\\Dev\\\\bb\\\\djio\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_4b920e6f"
   }
 ]

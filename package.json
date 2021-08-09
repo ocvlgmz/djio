@@ -6,7 +6,7 @@
     "nodemon": "nodemon --exec node node_modules/nuxt/bin/nuxt.js dev",
     "devMax": "node --max-old-space-size=8192 node_modules/nuxt/bin/nuxt.js",
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt generate",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
