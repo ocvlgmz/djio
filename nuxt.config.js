@@ -96,7 +96,8 @@ export default {
     // transpile: ['vue-google-api']
   },
   ssr: true,
-  //auth config
+  //auth config,
+  target: 'static',
   auth: {
     localStorage: false,
     strategies: {
