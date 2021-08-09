@@ -17,21 +17,19 @@
       <v-btn depressed text color="#4C6070" class="mx-1" to="/service"
         >Service</v-btn
       >
-      <v-btn depressed text color="#FABB28" class="mx-1" to="/store"
+      <v-btn depressed text color="#4C6070" class="mx-1" to="/store"
         >Store</v-btn
       >
       <div v-if="isAuthenticated">
-        <v-btn depressed text color="#4C6070" class="mx-1" to="/client"
+        <v-btn depressed text color="#FABB28" class="mx-1" to="/client"
           >My Area</v-btn
         >
-        <v-btn outlined color="#4C6070" class="mx-1" @click="logout"
-          >Logout<v-icon color="red" right>mdi-account</v-icon></v-btn
+        <v-btn outlined color="#FABB28" class="mx-1" @click="logout"
+          >Logout</v-btn
         >
       </div>
       <div v-else>
-        <v-btn outlined color="#4C6070" class="mx-1" to="/login"
-          >Login<v-icon right>mdi-account</v-icon></v-btn
-        >
+        <v-btn outlined color="#4C6070" class="mx-1" to="/login">Login</v-btn>
       </div>
     </v-app-bar>
     <v-app-bar app elevate-on-scroll color="white" class="hidden-md-and-up">
@@ -45,16 +43,28 @@
       <v-btn icon small depressed text color="#4C6070" class="mx-1" to="/blog"
         ><v-icon small>mdi-message-text</v-icon></v-btn
       >
-      <v-btn icon small depressed text color="#4C6070" class="mx-1" to="/service"
+      <v-btn
+        icon
+        small
+        depressed
+        text
+        color="#4C6070"
+        class="mx-1"
+        to="/service"
         ><v-icon small>mdi-offer</v-icon></v-btn
       >
-      <v-btn icon small depressed text color="#FABB28" class="mx-1" to="/store"
+      <v-btn icon small depressed text color="#4C6070" class="mx-1" to="/store"
         ><v-icon small>mdi-cart</v-icon></v-btn
       >
       <div v-if="$auth.loggedIn">
-        <v-btn icon small outlined color="#4C6070" class="mx-1" @click="logout"
-          ><v-icon small color="red">mdi-account</v-icon></v-btn
-        >{{ $auth.user.name }}
+        <v-btn icon small depressed color="#FABB28" class="mx-1" to="/client"
+          ><v-icon small color="#FABB28"
+            >mdi-message-lock-outline</v-icon
+          ></v-btn
+        >
+        <v-btn icon small depressed color="#4C6070" class="mx-1" @click="logout"
+          ><v-icon small color="#FABB28">mdi-location-exit</v-icon></v-btn
+        >
       </div>
       <div v-else>
         <v-btn icon small outlined color="#4C6070" class="mx-1" to="/login"

@@ -163,12 +163,12 @@ export default {
     validate(e) {
       e.preventDefault();
       if (this.$refs.loginForm.validate()) {
-        console.log("login");
+        console.log("submitting loginForm...");
         // submit form to server/API here...
         this.submitAuth(e, this.userLogInfo);
         return;
       }
-      console.log("register");
+      console.log("submitting registerForm...");
       this.submitAuth(e, this.userRegInfo);
     },
     reset() {
