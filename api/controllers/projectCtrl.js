@@ -22,39 +22,39 @@ const errorHandler = (err) => {
     return errors
 }
 
-module.exports.project_get = (req, res) => {
-    res.send('Project page')
-}
-module.exports.project_post = async (req, res) => {
-    const { title, description } = req.body
-    try {
-        const project = await Project.create({ title, description })
-        res.status(201).json({ project: project._id })
-    } catch (err) {
-        const errors = errorHandler(err)
-        res.status(400).json({ errors })
-    }
-}
-module.exports.project_put = async (req, res) => {
-    // const { title, description, cost, status, health, priority } = req.body
-    try {
-        const project = await Project.findOneAndUpdate(req.body._id, req.body, { new: true })
-        res.status(201).json({ project })
-    } catch (err) {
-        const errors = errorHandler(err)
-        res.status(400).json({ errors })
-    }
-}
-module.exports.project_del = async (req, res) => {
-    // const { title, description, cost, status, health, priority } = req.body
-    try {
-        const project = await Project.findOneAndDelete(req.body._id, { new: true })
-        res.status(201).json({ project })
-    } catch (err) {
-        const errors = errorHandler(err)
-        res.status(400).json({ errors })
-    }
-}
+//module.exports.project_get = (req, res) => {
+//    res.send('Project page')
+//}
+//module.exports.project_post = async (req, res) => {
+//    const { title, description } = req.body
+//    try {
+//        const project = await Project.create({ title, description })
+//        res.status(201).json({ project: project._id })
+//    } catch (err) {
+//        const errors = errorHandler(err)
+//        res.status(400).json({ errors })
+//    }
+//}
+//module.exports.project_put = async (req, res) => {
+//    // const { title, description, cost, status, health, priority } = req.body
+//    try {
+//        const project = await Project.findOneAndUpdate(req.body._id, req.body, { new: true })
+//        res.status(201).json({ project })
+//    } catch (err) {
+//        const errors = errorHandler(err)
+//        res.status(400).json({ errors })
+//    }
+//}
+//module.exports.project_del = async (req, res) => {
+//    // const { title, description, cost, status, health, priority } = req.body
+//    try {
+//        const project = await Project.findOneAndDelete(req.body._id, { new: true })
+//        res.status(201).json({ project })
+//    } catch (err) {
+//        const errors = errorHandler(err)
+//        res.status(400).json({ errors })
+//    }
+//}
 // module.exports.project_patch = (req, res) => {
 //     try {
 //         const project = await Project.findOneAndUpdate(req.body._id, req.body, { new: true })
