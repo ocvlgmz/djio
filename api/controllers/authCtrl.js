@@ -25,6 +25,7 @@ module.exports.login = async (req, res) => {
         console.log('uid:', user._id)
         const token = createToken(user._id)
         res.cookie('user', user, { httpOnly: true })
+        res.setHeader('Access-Control-Allow-Origin', '*')
         res.status(200).json({ token: token })
     } catch (err) {
         const errors = errorHandler(err)
