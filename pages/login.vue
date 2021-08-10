@@ -16,13 +16,13 @@ export default {
         this.registerUser(userInfo);
       }
     },
-    async loginUser({ loginEmail, loginPassword }) {
+    loginUser({ loginEmail, loginPassword }) {
       const user = {
         email: loginEmail,
         password: loginPassword,
       };
       try {
-        await this.$auth
+        this.$auth
           .loginWith("local", {
             data: user,
           })
