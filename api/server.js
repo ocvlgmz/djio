@@ -1,6 +1,5 @@
 //Packages
 const express = require('express')
-// const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 //Internal Resources
@@ -30,7 +29,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 // })
 app.use(cookieParser())
 app.use(express.json())
-// app.options('/auth', cors())
 app.use('/auth', authRoutes)
 app.use('/user', userRoutes)
 // app.use('/project', projectRoutes)

@@ -22,7 +22,7 @@ export default {
         password: loginPassword,
       };
       try {
-        this.$auth
+        await this.$auth
           .loginWith("local", {
             data: user,
           })
