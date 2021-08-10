@@ -64,7 +64,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://localhost:3000/api/',
-    baseURL: process.env.API_URL,
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://digitaljam.io/api' : 'http://localhost:3000/api',
     credentials: true
   },
 
@@ -95,9 +95,7 @@ export default {
   build: {
     // transpile: ['vue-google-api']
   },
-  ssr: true,
   //auth config,
-  target: 'static',
   auth: {
     localStorage: false,
     strategies: {
@@ -113,4 +111,12 @@ export default {
   // router: {
   //   middleware: ['auth']
   // }
+  ssr: true,
+  target: 'static',
+  publicRuntimeConfig: {
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://digitaljam.io' : 'http://locahost:3000',
+  },
+  privateRuntimeConfig: {
+    // apiSecret: process.env.API_SECRET
+  }  
 }

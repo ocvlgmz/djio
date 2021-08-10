@@ -651,7 +651,6 @@
 </template>
 <script>
 export default {
-  // layout: "default",
   data: () => ({
     observer: null,
     refs: [
@@ -764,7 +763,6 @@ export default {
         if (entry.isIntersecting) {
           switch (entry.target.classList.contains("anim")) {
             case entry.target.classList.contains("head-shake"):
-              console.log("case = fil");
               entry.target.classList.add(
                 "animate__animated",
                 "animate__headShake"
@@ -773,7 +771,6 @@ export default {
               observer.unobserve(entry.target);
               break;
             case entry.target.classList.contains("fade-in-left"):
-              console.log("case = fil");
               entry.target.classList.add(
                 "animate__animated",
                 "animate__fadeInLeft"
@@ -782,7 +779,6 @@ export default {
               observer.unobserve(entry.target);
               break;
             case entry.target.classList.contains("fade-in-right"):
-              console.log("case = fir");
               entry.target.classList.add(
                 "animate__animated",
                 "animate__fadeInRight"
@@ -791,7 +787,6 @@ export default {
               observer.unobserve(entry.target);
               break;
             case entry.target.classList.contains("fade-in"):
-              console.log("case = fi");
               entry.target.classList.add(
                 "animate__animated",
                 "animate__fadeIn"
@@ -800,7 +795,6 @@ export default {
               observer.unobserve(entry.target);
               break;
             case entry.target.classList.contains("fade-in-up"):
-              console.log("case = fiu");
               entry.target.classList.add(
                 "animate__animated",
                 "animate__fadeInUp",
@@ -810,7 +804,6 @@ export default {
               observer.unobserve(entry.target);
               break;
             case entry.target.classList.contains("fade-in-down"):
-              console.log("case = fid");
               entry.target.classList.add(
                 "animate__animated",
                 "animate__fadeInDown",

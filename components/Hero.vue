@@ -12,11 +12,6 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    page: "",
-    ftColor: "",
-    bgColor: "",
-  }),
   mounted() {
     this.page = this.$route.name;
     switch (this.page) {
