@@ -2,7 +2,7 @@ const { Router } = require('express')
 const authCtrl = require('../controllers/authCtrl')
 
 const router = Router()
-
+console.log('looking for authRoutes')
 //Getter Routes
 // "/register" route is not in use.
 // router.get('/register', authCtrl.register_get)

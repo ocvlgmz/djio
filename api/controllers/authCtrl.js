@@ -18,7 +18,7 @@ module.exports.register = async (req, res) => {
 // login is finding one user from the collection and checking if credentials are ok.
 // can stay here since we create a token when user is verified
 module.exports.login = async (req, res) => {
-    // console.log('entering login post route')
+    console.log('triggering auth login function')
     const { email } = req.body
     try {
         const user = await User.findOne({ email: email })
