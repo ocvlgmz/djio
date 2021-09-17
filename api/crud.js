@@ -1,6 +1,6 @@
 let people = [{ name: 'Patrick' }, { name: 'Sandy' }, { name: 'Bob' }]
 
-module.exports = function (req, res) {
+module.exports = (req, res) => {
     if (req.method === 'GET') {
         res.status(200).json(people);
     } else if (req.method === 'POST') {
