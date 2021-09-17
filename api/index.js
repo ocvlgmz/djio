@@ -7,7 +7,7 @@ const authRoutes = require('./routes/authRoutes')
 // const userRoutes = require('./routes/userRoutes')
 // const projectRoutes = require('./routes/projectRoutes')
 // const contentRoutes = require('./routes/contentRoutes')
-const mailerRoutes = require('./routes/mailerRoutes')
+// const mailerRoutes = require('./routes/mailerRoutes')
 
 const app = express()
 //MongoDB connexion
