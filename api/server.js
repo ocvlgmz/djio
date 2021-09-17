@@ -4,8 +4,9 @@ const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 //Internal Resources
 const authRoutes = require('./routes/authRoutes')
-const userRoutes = require('./routes/userRoutes')
+// const userRoutes = require('./routes/userRoutes')
 // const projectRoutes = require('./routes/projectRoutes')
+// const contentRoutes = require('./routes/contentRoutes')
 const mailerRoutes = require('./routes/mailerRoutes')
 
 const app = express()
@@ -18,10 +19,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 //Middleware resources
 app.use(cookieParser())
 app.use(express.json())
-app.use('/auth', authRoutes)
-app.use('/user', userRoutes)
-// app.use('/project', projectRoutes)
-// app.use('/post', postRoutes)
+app.use('/api/auth', authRoutes)
+app.use('/api/user', userRoutes)
+// app.use('/api/project', projectRoutes)
+// app.use('/api/content', contentRoutes)
 app.use('/mailer', mailerRoutes)
 
 module.exports = {
