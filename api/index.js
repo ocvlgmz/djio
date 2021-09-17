@@ -23,7 +23,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 // app.use('/api/project', projectRoutes)
 // app.use('/api/content', contentRoutes)
-app.use('/mailer', mailerRoutes)
+// app.use('/mailer', mailerRoutes)
 
 module.exports = {
     path: '/api',
