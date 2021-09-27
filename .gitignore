@@ -48,7 +48,13 @@ Thumbs.db
 *.mov
 *.wmv
 
-#Project folders to ignore
+# Project folders to ignore
 assets/img/*
 assets/vid/*
 
+# local & backup files
+.env
+*.bck
+
+# Api files
+api/
