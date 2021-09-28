@@ -7,8 +7,7 @@
       <v-card tile color="#f1f1f1">
         <v-card-title>
           <span class="headline text-h2 dj-blue text-capitalize"
-            ><span class="gf-geo">{{ title }}</span></span
-          >
+            ><span class="gf-geo">{{ title }}</span></span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -45,10 +44,8 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6">
-                <small
-                  ><v-icon small left color="red">mdi-alert-circle</v-icon>All
-                  fields required</small
-                >
+                <small>
+                  <v-icon small left color="red">mdi-alert-circle</v-icon>All fields required</small>
               </v-col>
             </v-row>
           </v-container>
@@ -68,48 +65,46 @@
     </form>
   </v-dialog>
 </template>
+
 <script>
-export default {
-    props: {
-      name: { type: String },
-      title: { type: String },
-      interest: { type: Array },
-    },
-  // props: ["title"],
-  data: () => ({
-    dialog: false,
-    form: { title: "Marketing", name: "", email: "", job: "", purpose: "" },
-  }),
-  methods: {
-    send() {
-      const inputs = {
-        title: this.form.title,
-        name: this.form.name,
-        email: this.form.email,
-        job: this.form.job,
-        purpose: this.form.purpose,
-        // date:this.date,
-        // time:this.time,
-      };
-      // console.log('inputs:',inputs)
-      fetch("../api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          inputs,
-        }),
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          console.log("Success:", inputs);
+  export default {
+      props: {
+        name: { type: String },
+        title: { type: String },
+        interest: { type: Array },
+      },
+    // props: ["title"],
+    data: () => ({
+      dialog: false,
+      form: { title: "Marketing", name: "", email: "", job: "", purpose: "" },
+    }),
+    methods: {
+      send() {
+        const inputs = {
+          title: this.form.title,
+          name: this.form.name,
+          email: this.form.email,
+          job: this.form.job,
+          purpose: this.form.purpose,
+        }
+        fetch("../api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            inputs,
+          }),
         })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+          .then((response) => response.json())
+          .then((response) => {
+            console.log("Success:", inputs);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      },
     },
-  },
-};
+  }
 </script>

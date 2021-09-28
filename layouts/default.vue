@@ -11,7 +11,5 @@
 <script>
   export default {
     name: 'default'
-  };
+  }
 </script>
-<style scope>
-</style>

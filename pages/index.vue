@@ -134,10 +134,7 @@
   </v-container>
 </template>
 <script>
-import Calendar from '../components/Calendar.vue';
-import Contact from '../components/Contact.vue';
 export default {
-  components: { Calendar, Contact },
   layout: "landing",
   data: () => ({
     title: "Schedule Call",
@@ -210,7 +207,7 @@ export default {
         //     console.log(' > playing')
         //   // console.log(' ??? ')
         // }
-      });
+      })
     },
   },
   computed: {
@@ -238,7 +235,6 @@ export default {
 .logo {
   font-family: "Geo";
   font-size: 28px;
-  /* font-weight: 100; */
 }
 .rwh {
   height: 50px;
@@ -248,8 +244,6 @@ export default {
 }
 .tmp {
   border: 1px solid red;
-  /* min-height:20px; */
-  /* margin-top:60px; */
 }
 .bg-landing {
   /* width:100%;
