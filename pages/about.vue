@@ -50,8 +50,6 @@
               efficient approach when it comes to engage the right resources for
               each particular challenge.
             </p>
-            <!-- </v-card-text>
-          <v-card-text class="overline text-h5 dj-blue "> -->
             <p class="anim fade-in-left hidden overline text-h5 dj-blue">
               <span class="dj-yellow">Bottom line:</span> Our mission is to
               enhance your value proposition, placing your business in a leading
@@ -169,14 +167,14 @@
     <!-- Included Components -->
     <!-- ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------  -->
 
-    <Observer targer="" />
+    <Observer target="" />
   </v-container>
 </template>
 
 <script>
 // No need to register components with Nuxt: it works out of the box!
 export default {
-  layout: "default",
+  // layout: "default",
   data: () => ({
     dialog: false,
   }),

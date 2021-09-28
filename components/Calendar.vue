@@ -77,6 +77,12 @@
             startTime: null,
             endTime: null
         }),
+        mounted() {
+            this.$gapi.listenUserSignIn((isSignedIn) => {
+                this.isSignedIn = isSignedIn
+                console.log('Value of isSignedIn',isSignedIn)
+            })
+        },
         watch:{
             date:function(){
                 return this.calendarSlot()
@@ -240,12 +246,6 @@
             reqDate(){
                 return this.date + this.slot
             }
-        },
-        mounted() {
-            this.$gapi.listenUserSignIn((isSignedIn) => {
-                this.isSignedIn = isSignedIn
-                console.log('Value of isSignedIn',isSignedIn)
-            })
         },
     }
 </script>

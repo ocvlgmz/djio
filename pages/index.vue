@@ -24,11 +24,7 @@
                 <Contact
                   title="Schedule Your Call"
                   name="Call Invitation"
-                  :interest="[
-                    'digital transformation',
-                    'customer experience',
-                    'data intelligence',
-                  ]"
+                  :interest="interest"
                 >
                   <template v-slot>
                     <Calendar />
@@ -138,7 +134,10 @@
   </v-container>
 </template>
 <script>
+import Calendar from '../components/Calendar.vue';
+import Contact from '../components/Contact.vue';
 export default {
+  components: { Calendar, Contact },
   layout: "landing",
   data: () => ({
     title: "Schedule Call",

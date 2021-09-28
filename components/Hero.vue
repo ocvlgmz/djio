@@ -6,13 +6,17 @@
           <h1>{{ this.page }}</h1>
         </v-card-title>
       </v-col>
-      <!-- <v-col v-show="this.page == ''"></v-col> -->
     </v-row>
   </v-card>
 </template>
 <script>
 export default {
-  mounted() {
+  data () {
+    return {
+      bgColor: '',
+    }
+  },
+  created() {
     this.page = this.$route.name;
     switch (this.page) {
       case "about":

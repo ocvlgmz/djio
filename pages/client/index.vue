@@ -2,11 +2,9 @@
   <v-container fluid>
     <Hero />
     <v-card flat class="mx-10">
-      <v-card-title class="text-h5 font-weight-light dj-blue"
-        >{{ greeting }}
-        <span class="text-capitalize"
-          >&nbsp;{{ this.$auth.user.firstname }}</span
-        >
+      <v-card-title class="text-h5 font-weight-light dj-blue">
+        {{ greeting }}
+        <span class="text-capitalize">,&nbsp;{{ this.$auth.user.firstname }}</span>
       </v-card-title>
       <v-card-text style="background: #f2f2f2" class="text-overline">
         <v-card-subtitle>Account Summary</v-card-subtitle>
@@ -108,43 +106,31 @@ export default {
     };
   },
   computed: {
-    // ...mapGetters(["isAuthenticated", "isLoggedIn"]),
+    ...mapGetters(["isAuthenticated", "loggedInUser"]),
     greeting() {
-      const moment = new Date();
-      let time = moment.getHours();
+      const moment = new Date()
+      let time = moment.getHours()
       return time < 12
-        ? (this.greeting = "Good morning")
+        ? "Good morning"
         : time > 18
-        ? (this.greeting = "Good evening")
-        : (this.greeting = "Good afternoon");
+        ? "Good evening"
+        : "Good afternoon"
     },
     countRequests() {
-      return this.requests.length;
+      return this.requests.length
     },
     countProjects() {
-      // console.log(typeof this.projects.length);
-      return this.projects.length;
+      return this.projects.length
     },
     countAlerts() {
-      return this.alerts;
+      return this.alerts
     },
     countCredits() {
-      return this.credits;
+      return this.credits
     },
     getProject() {
-      return null;
+      return null
     },
   },
-  methods: {
-    // dummy() {
-    //   const pr = this.projects;
-    //   pr.forEach((itm) => {
-    //     return itm.status;
-    //   });
-    //   console.log(pr);
-    // },
-  },
-  mounted() {},
 };
 </script>
-

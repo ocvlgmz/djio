@@ -70,12 +70,12 @@
 </template>
 <script>
 export default {
-  //   props: {
-  //     name: { type: String },
-  //     title: { type: String },
-  //     interest: { type: Array },
-  //   },
-  props: ["title"],
+    props: {
+      name: { type: String },
+      title: { type: String },
+      interest: { type: Array },
+    },
+  // props: ["title"],
   data: () => ({
     dialog: false,
     form: { title: "Marketing", name: "", email: "", job: "", purpose: "" },

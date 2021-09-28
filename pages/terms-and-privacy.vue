@@ -124,11 +124,7 @@
 </template>
 
 <script>
-// import Hero from '@/components/Hero.vue'
 export default {
-  // layout: 'default',
-  // components: { Hero },
-  data: () => ({}),
   computed: {
     dateNow: function () {
       const time = new Date().toUTCString().split(" ");

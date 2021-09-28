@@ -13,14 +13,14 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_b9a278e8 from 'nuxt_plugin_plugin_b9a278e8' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_plugin_6302f830 from 'nuxt_plugin_plugin_6302f830' // Source: .\\vuetify\\plugin.js (mode: 'all')
-import nuxt_plugin_pluginclient_b1a9037c from 'nuxt_plugin_pluginclient_b1a9037c' // Source: .\\content\\plugin.client.js (mode: 'client')
-import nuxt_plugin_pluginserver_0ce4efca from 'nuxt_plugin_pluginserver_0ce4efca' // Source: .\\content\\plugin.server.js (mode: 'server')
-import nuxt_plugin_axios_ddb3aca2 from 'nuxt_plugin_axios_ddb3aca2' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_plugin_93eaad2c from 'nuxt_plugin_plugin_93eaad2c' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_plugin_bbacca6c from 'nuxt_plugin_plugin_bbacca6c' // Source: .\\vuetify\\plugin.js (mode: 'all')
+import nuxt_plugin_pluginclient_7bc54520 from 'nuxt_plugin_pluginclient_7bc54520' // Source: .\\content\\plugin.client.js (mode: 'client')
+import nuxt_plugin_pluginserver_3d0292b0 from 'nuxt_plugin_pluginserver_3d0292b0' // Source: .\\content\\plugin.server.js (mode: 'server')
+import nuxt_plugin_axios_b59526e6 from 'nuxt_plugin_axios_b59526e6' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_vueplyr_9db9a11c from 'nuxt_plugin_vueplyr_9db9a11c' // Source: ..\\plugins\\vue-plyr (mode: 'client')
 import nuxt_plugin_vuegapi_9dc224a0 from 'nuxt_plugin_vuegapi_9dc224a0' // Source: ..\\plugins\\vue-gapi (mode: 'client')
-import nuxt_plugin_plugin_52b5da1e from 'nuxt_plugin_plugin_52b5da1e' // Source: .\\auth\\plugin.js (mode: 'all')
+import nuxt_plugin_auth_a39011fa from 'nuxt_plugin_auth_a39011fa' // Source: .\\auth.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -217,24 +217,24 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_b9a278e8 === 'function') {
-    await nuxt_plugin_plugin_b9a278e8(app.context, inject)
+  if (typeof nuxt_plugin_plugin_93eaad2c === 'function') {
+    await nuxt_plugin_plugin_93eaad2c(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_6302f830 === 'function') {
-    await nuxt_plugin_plugin_6302f830(app.context, inject)
+  if (typeof nuxt_plugin_plugin_bbacca6c === 'function') {
+    await nuxt_plugin_plugin_bbacca6c(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_pluginclient_b1a9037c === 'function') {
-    await nuxt_plugin_pluginclient_b1a9037c(app.context, inject)
+  if (process.client && typeof nuxt_plugin_pluginclient_7bc54520 === 'function') {
+    await nuxt_plugin_pluginclient_7bc54520(app.context, inject)
   }
 
-  if (process.server && typeof nuxt_plugin_pluginserver_0ce4efca === 'function') {
-    await nuxt_plugin_pluginserver_0ce4efca(app.context, inject)
+  if (process.server && typeof nuxt_plugin_pluginserver_3d0292b0 === 'function') {
+    await nuxt_plugin_pluginserver_3d0292b0(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_ddb3aca2 === 'function') {
-    await nuxt_plugin_axios_ddb3aca2(app.context, inject)
+  if (typeof nuxt_plugin_axios_b59526e6 === 'function') {
+    await nuxt_plugin_axios_b59526e6(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vueplyr_9db9a11c === 'function') {
@@ -245,8 +245,8 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_vuegapi_9dc224a0(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_52b5da1e === 'function') {
-    await nuxt_plugin_plugin_52b5da1e(app.context, inject)
+  if (typeof nuxt_plugin_auth_a39011fa === 'function') {
+    await nuxt_plugin_auth_a39011fa(app.context, inject)
   }
 
   // Lock enablePreview in context
@@ -258,12 +258,14 @@ async function createApp(ssrContext, config = {}) {
 
   // Wait for async component to be resolved first
   await new Promise((resolve, reject) => {
-    const { route } = router.resolve(app.context.route.fullPath)
-    // Ignore 404s rather than blindly replacing URL
-    if (!route.matched.length && process.client) {
-      return resolve()
+    // Ignore 404s rather than blindly replacing URL in browser
+    if (process.client) {
+      const { route } = router.resolve(app.context.route.fullPath)
+      if (!route.matched.length) {
+        return resolve()
+      }
     }
-    router.replace(route, resolve, (err) => {
+    router.replace(app.context.route.fullPath, resolve, (err) => {
       // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
       if (!err._isRouter) return reject(err)
       if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()

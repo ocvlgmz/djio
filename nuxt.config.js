@@ -30,16 +30,14 @@ export default {
   plugins: [
     { src: '~/plugins/vue-plyr', mode: 'client' },
     { src: '~/plugins/vue-gapi', mode: 'client' },
-    // '~/plugins/api-client.js',
-
   ],
   //added section to test nodemailer through middleware as suggested here:
   //https://blog.lichter.io/posts/emails-through-nuxtjs/
   serverMiddleware: [
-    { path: '/api', handler: '~/api/server.js' },
+    { path: '/api', handler: '~/api/index.js' },
     // { path: '/contact', handler: '~/api/contact.js' },
     // '~/api/contact',
-    // '~/api/auth',
+    // '~/api/index',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -58,13 +56,13 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // nuxt auth library
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://localhost:3000/api/',
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api' : 'http://localhost:3000/api',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
     credentials: true
   },
 
@@ -112,7 +110,7 @@ export default {
   //   middleware: ['auth']
   // }
   ssr: true,
-  target: 'static',
+  target: 'server',
   publicRuntimeConfig: {
     baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io' : 'http://locahost:3000',
   },

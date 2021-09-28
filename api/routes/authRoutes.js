@@ -1,4 +1,6 @@
-const router = require('express').Router()
+// const router = require('express').Router()
+const { Router } = require('express')
+const router = Router()
 
 // Auth required files
 const jwt = require('jsonwebtoken')
@@ -18,7 +20,7 @@ router.get('/register', async (req, res) => {
         res.status(400).json({ errors })
     }
 })
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     // console.log('triggering auth login function')
     const { email } = req.body
     try {

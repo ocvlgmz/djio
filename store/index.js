@@ -5,14 +5,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  SET_USERS(state, users) {
-    state.users = users;
+  SET_USER(state, user) {
+    state.user = user;
   },
 }
 
 export const actions = {
   user({ commit }, user) {
-    commit(SET_USERS, user)
+    commit(SET_USER, user)
   }
 }
 
