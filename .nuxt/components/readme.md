@@ -22,4 +22,3 @@ You can directly use them in pages and other components without the need to impo
 - `<ProjectForm>` | `<project-form>` (components/ProjectForm.vue)
 - `<Search>` | `<search>` (components/Search.vue)
 - `<Tagline>` | `<tagline>` (components/Tagline.vue)
-- `<Title>` | `<title>` (components/Title.vue)

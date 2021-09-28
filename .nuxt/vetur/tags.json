@@ -46,8 +46,5 @@
   },
   "Tagline": {
     "description": "Auto imported from components/Tagline.vue"
-  },
-  "Title": {
-    "description": "Auto imported from components/Title.vue"
   }
 }

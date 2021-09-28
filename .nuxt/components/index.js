@@ -14,7 +14,6 @@ export { default as PrevNext } from '../..\\components\\PrevNext.vue'
 export { default as ProjectForm } from '../..\\components\\ProjectForm.vue'
 export { default as Search } from '../..\\components\\Search.vue'
 export { default as Tagline } from '../..\\components\\Tagline.vue'
-export { default as Title } from '../..\\components\\Title.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

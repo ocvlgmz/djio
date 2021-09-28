@@ -1,1 +1,0 @@
-#Local source folder: C:\Users\olive\Documents\Dev\bb\djio\
