@@ -114,10 +114,10 @@ export default {
   //   middleware: ['auth']
   // }
   
-  publicRuntimeConfig: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io' : 'http://locahost:3000',
-  },
-  privateRuntimeConfig: {
-    // apiSecret: process.env.API_SECRET
-  }
+  // publicRuntimeConfig: {
+  //   baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io' : 'http://locahost:3000',
+  // },
+  // privateRuntimeConfig: {
+  //   // apiSecret: process.env.API_SECRET
+  // }
 }
