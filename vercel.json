@@ -24,7 +24,6 @@
             "use": "@nuxtjs/vercel-builder",
             "config": {
                 "serverFiles": [
-                    "package.json",
                     "api/**"
                 ]
             }
