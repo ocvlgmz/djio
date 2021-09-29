@@ -60,7 +60,7 @@ export default {
   //added section to test nodemailer through middleware as suggested here:
   //https://blog.lichter.io/posts/emails-through-nuxtjs/
   serverMiddleware: [
-    { path: '/api', handler: '~/api/crud.js' },
+    { path: '/api', handler: '~/api/index.js' },
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
