@@ -1,7 +1,4 @@
-// require('dotenv').config()
 import { dbConnect } from '../lib/db'
-
-// let people = [{ name: 'Patrick' }, { name: 'Sandy' }, { name: 'Bob' }]
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
