@@ -57,7 +57,7 @@ assets/vid/*
 *.bck
 
 # Api files
-api/
+# api/
 
 # nuxt.js build output
 .nuxt
