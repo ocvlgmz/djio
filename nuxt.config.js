@@ -70,17 +70,16 @@ export default {
   
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/eslint-config',
+    '@nuxtjs/eslint-module',
+    '@babel/eslint-parser',
   ],
   
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    // nuxt auth library
+    '@nuxtjs/axios',
     '@nuxtjs/auth-next',
   ],
 
