@@ -6,8 +6,9 @@ const mongoose = require('mongoose')
 const app = express()
 
 // MongoDB connexion
-const dbURI = process.env.MONGO_DB_URI
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
+// const dbURI = process.env.MONGO_DB_URI
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
+mongoose.connect(process.env.MONGO_DB_URI)
     .then((result) => { console.log('Successfully connected to DJIO database') })
     .catch((err) => console.log('db conn err:', err))
 
