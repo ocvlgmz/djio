@@ -42,7 +42,7 @@ app.post('/api/auth/login', async (req, res) => {
   try {
       const user = await User.findOne({ email })
       const token = createToken(user._id)
-      res.cookie('user', user, { httpOnly: true })
+      res.cookies('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
       const errors = errorHandler(err)
