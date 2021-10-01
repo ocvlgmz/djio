@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const { createToken } = require('./utils/jwtAuth')
 const errorHandler = require('./utils/errorHandler')
-const User = require('../models/User')
+const User = require('./models/User')
 
 
 // MongoDB connexion
