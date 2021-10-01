@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cookieParser = require('cookie-parser')
 
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
@@ -7,33 +8,33 @@ const { createToken } = require('./utils/jwtAuth')
 const errorHandler = require('./utils/errorHandler')
 const User = require('./models/User')
 
-app.use(express.urlencoded());
-app.use(express.json());
+app.use(express.urlencoded())
+app.use(express.json())
+app.use(cookieParser())
 
 // MongoDB connexion
 mongoose.connect(process.env.MONGO_DB_URI)
     .then((result) => { console.log('Successfully connected to DJIO database') })
     .catch((err) => console.log('db conn err:', err))
 
-const number = 123456;
+const number = 123456
 
 app.get('/api', (req, res) => {
-  const path = `/api/item/${number}`;
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+  const path = `/api/item/${number}`
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
+  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`)
 })
 
 app.get('/api/item/:slug', (req, res) => {
-  const { slug } = req.params;
-  
-  res.end(`Item: ${slug}`);
+  const { slug } = req.params
+  res.end(`Item: ${slug}`)
 })
 
 app.post('/api/item', (req, res) => {
-  const { item } = req.body;
+  const { item } = req.body
   
-  res.end(`Body: ${item}`);
+  res.end(`Body: ${item}`)
 })
 
 app.post('/api/auth/login', async (req, res) => {
@@ -42,7 +43,7 @@ app.post('/api/auth/login', async (req, res) => {
   try {
       const user = await User.findOne({ email })
       const token = createToken(user._id)
-      res.cookies('user', user, { httpOnly: true })
+      res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
       const errors = errorHandler(err)
@@ -56,4 +57,4 @@ app.get('/api/user', (req, res) => {
   res.status(200).json({ user: user })
 })
 
-module.exports = app;
+module.exports = app
