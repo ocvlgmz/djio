@@ -22,7 +22,9 @@ app.get('/api', (req, res) => {
 
 app.get('/api/item/:slug', (req, res) => {
   const { slug } = req.params;
-  res.end(`Item: ${slug}`);
+  const { item } = req.body;
+
+  res.end({Item: slug, Body: item});
 })
 
 app.post('/api/auth/login', async (req, res) => {
