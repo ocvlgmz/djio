@@ -25,7 +25,7 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 })
 
-app.get('/api/auth/login', async (req, res) => {
+app.post('/api/auth/login', async (req, res) => {
   // console.log('triggering auth login function')
   const { email } = req.body
   try {
