@@ -25,7 +25,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/global.css', '@/assets/css/transitions.css', 'animate.css/animate.min.css'
+    '@/assets/css/global.css', '@/assets/css/googlefonts.css', '@/assets/css/transitions.css', 'animate.css/animate.min.css'
   ],
   pageTransition: 'fade',
   layoutTransition: 'fade',
