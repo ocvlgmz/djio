@@ -1,10 +1,13 @@
 const app = require('express')();
+
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const { createToken } = require('./utils/jwtAuth')
 const errorHandler = require('./utils/errorHandler')
 const User = require('./models/User')
 
+app.use(express.urlencoded());
+app.use(express.json());
 
 // MongoDB connexion
 mongoose.connect(process.env.MONGO_DB_URI)
