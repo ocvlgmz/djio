@@ -1,31 +1,16 @@
-//Packages
-const express = require('express')
-const cookieParser = require('cookie-parser')
-const mongoose = require('mongoose')
+const app = require('express')();
+const number = 123456;
 
-const app = express()
+app.get('/api', (req, res) => {
+  const path = `/api/item/${number}`;
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+});
 
-// MongoDB connexion
-// const dbURI = process.env.MONGO_DB_URI
-// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
-mongoose.connect(process.env.MONGO_DB_URI)
-    .then((result) => { console.log('Successfully connected to DJIO database') })
-    .catch((err) => console.log('db conn err:', err))
+app.get('/api/item/:slug', (req, res) => {
+  const { slug } = req.params;
+  res.end(`Item: ${slug}`);
+});
 
-// Internal Resources
-const authRoutes = require('./routes/authRoutes')
-const userRoutes = require('./routes/userRoutes')
-// const projectRoutes = require('./routes/projectRoutes')
-// const contentRoutes = require('./routes/contentRoutes')
-// const mailerRoutes = require('./routes/mailerRoutes')
-
-// Middleware resources
-app.use(cookieParser())
-app.use(express.json())
-app.use('/auth', authRoutes)
-app.use('/user', userRoutes)
-// app.use('/project', projectRoutes)
-// app.use('/content', contentRoutes)
-// app.use('/mailer', mailerRoutes)
-
-module.exports = { path: '/api', handler: app }
+module.exports = app;
