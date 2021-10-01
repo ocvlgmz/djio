@@ -1,6 +1,19 @@
 {
     "version": 2,
-    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
+    "routes": [
+        {
+            "src": "/api/auth/register",
+            "dest": "/api/index.js"
+        },
+        {
+            "src": "/api/auth/login",
+            "dest": "/api/index.js"
+        },
+        {
+            "src": "/api/auth/logout",
+            "dest": "/api/index.js"
+        }
+    ],
     "builds": [
         {
             "src": "api/**/*.js",
