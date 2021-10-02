@@ -57,8 +57,8 @@ app.post('/api/login', async (req, res) => {
     //   res.status(200).json({ token })
     // }
   } catch (err) {
-      const errors = errorHandler(err)
-      res.status(400).json({ message: 'catched error' })
+      // const errors = errorHandler(err)
+      res.status(400).json({ err })
   }
 })
 app.get('/api/logout', (req, res) => {
