@@ -31,32 +31,23 @@ app.post('/api/register', async (req, res) => {
 })
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body
+  // if (!(email && password)) {
+  //   res.status(400).send("All input is required")
+  // }
   try {
-    if (!(email && password)) {
-      res.status(400).send("All input is required")
-    }
-    const user = await User.findOne({ email })
-    console.log('user exists?')
-    if (!user) return res.status(400).json({message: "Invalid Email or Password"})
-    
-    const validPassword = await bcrypt.compare(password, user.password)
-    console.log('pwd valid?')
-    if (!validPassword) return res.status(400).json({message: "Invalid Email or Password"})
-    
-    const token = createToken(user._id)
-    res.cookie('user', user, { httpOnly: true })
-    res.status(200).json({ token })
-   
-    // const user = await User.findOne({ email })
-    // console.log('comparing password validity...')
-    // if (user && (await bcrypt.compare(password, user.password))) {
-    //   const token = createToken(user._id)
-    //   res.cookie('user', user, { httpOnly: true })
-    //   res.status(200).json({ token })
-    // } else {
-    //   res.status(200).json({ token })
-    // }
+      const user = await User.findOne({ email })
+      console.log('user exists?')
+      if (!user) return res.status(400).json({message: "Invalid Email or Password"})
+      
+      const validPassword = await bcrypt.compare(password, user.password)
+      console.log('pwd valid?')
+      if (!validPassword) return res.status(400).send({message: "Invalid Email or Password"})
+      
+      const token = createToken(user._id)
+      res.cookie('user', user, { httpOnly: true })
+      res.status(200).json({ token })
   } catch (err) {
+    console.log('catching error!')
       // const errors = errorHandler(err)
       res.status(400).json({ err })
   }
