@@ -26,11 +26,11 @@ export default {
           .loginWith("local", {
             data: user,
           })
-          .then((res) => {
-            this.$router.push("/client");
-          });
+          // .then((res) => {
+          //   this.$router.push("/client");
+          // })
       } catch (err) {
-        alert("Wrong credentials. Try again.");
+        alert("Wrong credentials. Try again.")
       }
     },
     async registerUser({ email, password }) {

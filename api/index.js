@@ -41,15 +41,16 @@ app.post('/api/login', async (req, res) => {
       
       const validPassword = await bcrypt.compare(password, user.password)
       console.log('pwd valid?')
-      if (!validPassword) return res.status(400).end({message: "Invalid Email or Password"})
+      if (!validPassword) return res.status(400).json({message: "Invalid Email or Password"})
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
+      res.redirect('/client')
   } catch (err) {
     console.log('catching error!')
-      // const errors = errorHandler(err)
-      res.status(400).json({ err })
+      const errors = errorHandler(err)
+      res.status(400).json({ errors })
   }
 })
 app.get('/api/logout', (req, res) => {
