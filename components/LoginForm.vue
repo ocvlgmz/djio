@@ -145,7 +145,7 @@
 <script>
 export default {
   mounted() {
-    const val = this.validate;
+    const val = this.validate
     const lb = document
       .getElementById("btn-login")
       .addEventListener("click", (e) => val, { once: true })
@@ -161,14 +161,13 @@ export default {
   },
   methods: {
     validate(e) {
-      e.preventDefault();
+      e.preventDefault()
       if (this.$refs.loginForm.validate()) {
-        // console.log("login")
-        // submit form to server/API here...
+        // console.log('login')
         this.submitAuth(e, this.userLogInfo)
-        return;
+        return
       }
-      console.log("register")
+      // console.log('register')
       this.submitAuth(e, this.userRegInfo)
     },
     reset() {

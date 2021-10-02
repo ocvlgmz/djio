@@ -42,7 +42,27 @@ UserSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, salt)
     next()
 })
+// const User = mongoose.model('user', UserSchema)
+module.exports.User = mongoose.model('user', UserSchema)
 
-const User = mongoose.model('user', UserSchema)
+const PostSchema = new mongoose.Schema({
+    title: {type: String},
+    body: {type: String},
+    date: {type: Date},
+    tags:[{type: String}],
+    _author: {type: Schema.Types.ObjectId, ref: 'author'}
+});
+const Post = mongoose.model('post', PostSchema)
+module.exports = Post
 
-module.exports = User
+const AuthorSchema = new mongoose.Schema({
+    name: {type: String},
+    photo: {type: String},
+    bio: {type: String},
+    username: {type: String, index: true},
+    posts:[{type: Schema.Types.ObjectId, ref: 'post'}],
+    password: {type: String}
+});
+
+const Author = mongoose.model('author', AuthorSchema)
+module.exports = Author

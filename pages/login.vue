@@ -32,23 +32,6 @@ export default {
         alert('Wrong credentials. Try again.')
       }
     }, 
-    // loginUser({ loginEmail, loginPassword }) {
-    //   const user = {
-    //     email: loginEmail,
-    //     password: loginPassword,
-    //   }
-    //   try {
-    //     this.$auth
-    //       .loginWith("local", {
-    //         data: user,
-    //       })
-    //       .then((res) => {
-    //         this.$router.push("/client")
-    //       })
-    //   } catch (err) {
-    //     alert("Wrong credentials. Try again.")
-    //   }
-    // },
     async registerUser({ email, password }) {
       const user = {
         email: email,
@@ -57,7 +40,7 @@ export default {
       try {
         await this.$axios.post('/register', user)
         // console.log("Proceeding with login request...")
-        this.$auth.loginWith('local', { data: user });
+        this.$auth.loginWith('local', { data: user })
       } catch (err) {
         console.log('Registration error:', err.response.status)
       }
