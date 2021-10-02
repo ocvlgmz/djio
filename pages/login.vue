@@ -27,8 +27,6 @@ export default {
             data: user,
           })
           .then((res) => {
-            // this.$auth.setUser(user);
-            // console.log("auth.user", this.$auth.user);
             this.$router.push("/client");
           });
       } catch (err) {
