@@ -36,13 +36,14 @@ app.post('/api/login', async (req, res) => {
       res.status(400).send("All input is required")
     }
     const user = await User.findOne({ email })
+    console.log('comparing password validity...')
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
     }
-    // res.status(400).send("Invalid Credentials")
+    res.status(400).send("Invalid Credentials")
   } catch (err) {
       const errors = errorHandler(err)
       res.status(400).json({ errors })
