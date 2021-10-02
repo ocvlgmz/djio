@@ -36,9 +36,11 @@ app.post('/api/login', async (req, res) => {
       res.status(400).send("All input is required")
     }
     const user = await User.findOne({ email })
+    console.log('user exists?')
     if (!user) return res.status(400).json({message: "Invalid Email or Password"})
     
     const validPassword = await bcrypt.compare(password, user.password)
+    console.log('pwd valid?')
     if (!validPassword) return res.status(400).json({message: "Invalid Email or Password"})
     
     const token = createToken(user._id)
