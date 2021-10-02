@@ -98,9 +98,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/auth/login', method: 'post', propertyName: 'token' },
-          logout: { url: '/auth/logout', method: 'get' },
-          user: { url: '/user', method: 'get', propertyName: 'user' }
+          login: { url: '/api/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/logout', method: 'get' },
+          user: { url: '/api/user', method: 'get', propertyName: 'user' }
         }
       }
     }

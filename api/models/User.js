@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 const { isEmail } = require('validator')
 const bcrypt = require('bcrypt')
 
-const userSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const UserSchema = Schema({
     firstname: {
         type: String,
         required: [true, 'Please enter your first name or nickname'],
@@ -35,12 +37,12 @@ const userSchema = new mongoose.Schema({
 // 1st arg = hook name (check Mongoose doc for hooks)
 // 2nd arg = next (typical function to call when using hooks to let the program move on to the next thing to do)
 // Note: since we are using a function that does sthg BEFORE we save sthg in the db, we don't have any other arg inside the 2nd function (which will only contain the next function arg) arg
-userSchema.pre('save', async function (next) {
+UserSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt()
     this.password = await bcrypt.hash(this.password, salt)
     next()
 })
 
-const User = mongoose.model('user', userSchema)
+const User = mongoose.model('user', UserSchema)
 
 module.exports = User
