@@ -36,17 +36,14 @@ app.post('/api/login', async (req, res) => {
   // }
   try {
       const user = await User.findOne({ email })
-      console.log('user exists?')
-      if (!user) return res.status(400).json({message: "Invalid Email or Password"})
+      if (!user) return res.status(400).json({message: "User doesn't exist"})
       
       const validPassword = await bcrypt.compare(password, user.password)
-      console.log('pwd valid?')
-      if (!validPassword) return res.status(400).json({message: "Invalid Email or Password"})
+      if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
-      res.redirect('/client')
   } catch (err) {
     console.log('catching error!')
       const errors = errorHandler(err)

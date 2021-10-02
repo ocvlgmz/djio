@@ -16,36 +16,50 @@ export default {
         this.registerUser(userInfo);
       }
     },
-    loginUser({ loginEmail, loginPassword }) {
+    async loginUser({ loginEmail, loginPassword }) {
       const user = {
         email: loginEmail,
-        password: loginPassword,
-      };
-      try {
-        this.$auth
-          .loginWith("local", {
-            data: user,
-          })
-          // .then((res) => {
-          //   this.$router.push("/client");
-          // })
-      } catch (err) {
-        alert("Wrong credentials. Try again.")
+        password: loginPassword
       }
-    },
+      try {
+        await this.$axios.post('/login', user)
+        this.$auth.loginWith('local', { data: user })
+          .then((res) => {
+            console.log('Res:', res)
+            this.$router.push("/client")
+          })
+      } catch (err) {
+        alert('Wrong credentials. Try again.')
+      }
+    }, 
+    // loginUser({ loginEmail, loginPassword }) {
+    //   const user = {
+    //     email: loginEmail,
+    //     password: loginPassword,
+    //   }
+    //   try {
+    //     this.$auth
+    //       .loginWith("local", {
+    //         data: user,
+    //       })
+    //       .then((res) => {
+    //         this.$router.push("/client")
+    //       })
+    //   } catch (err) {
+    //     alert("Wrong credentials. Try again.")
+    //   }
+    // },
     async registerUser({ email, password }) {
       const user = {
         email: email,
-        password: password,
-      };
+        password: password
+      }
       try {
-        await this.$axios.post("/register", user);
-        // console.log("Proceeding with login request...");
-        this.$auth.loginWith("local", {
-          data: user,
-        });
+        await this.$axios.post('/register', user)
+        // console.log("Proceeding with login request...")
+        this.$auth.loginWith('local', { data: user });
       } catch (err) {
-        console.log("Registration error:", err.response.status);
+        console.log('Registration error:', err.response.status)
       }
     },
   },
