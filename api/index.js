@@ -29,12 +29,19 @@ app.post('/api/register', async (req, res) => {
   }
 })
 app.post('/api/login', async (req, res) => {
-  const { email,password } = req.body
   try {
-      const user = await User.findOne({ email })
+    const { email,password } = req.body
+    if (!(email && password)) {
+      res.status(400).send("All input is required")
+    }
+    const user = await User.findOne({ email })
+    if (user && (await bcrypt.compare(password, user.password))) {
+      // Create token
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
+    }
+    // res.status(400).send("Invalid Credentials")
   } catch (err) {
       const errors = errorHandler(err)
       res.status(400).json({ errors })
