@@ -56,7 +56,7 @@ app.post('/api/login', async (req, res) => {
     // }
   } catch (err) {
       const errors = errorHandler(err)
-      res.status(400).json({ errors })
+      res.status(400).json({ message: 'catched error' })
   }
 })
 app.get('/api/logout', (req, res) => {
