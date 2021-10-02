@@ -28,7 +28,7 @@ app.post('/api/register', async (req, res) => {
       res.status(400).json({ errors })
   }
 })
-app.post('/api/login', async (req, res) => {
+app.post('/api/auth/login', async (req, res) => {
   try {
     const { email,password } = req.body
     if (!(email && password)) {
