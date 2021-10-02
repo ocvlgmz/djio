@@ -31,18 +31,29 @@ app.post('/api/register', async (req, res) => {
 })
 app.post('/api/login', async (req, res) => {
   try {
-    const { email,password } = req.body
+    const { email, password } = req.body
     if (!(email && password)) {
       res.status(400).send("All input is required")
     }
-    const user = await User.findOne({ email })
-    console.log('comparing password validity...')
-    if (user && (await bcrypt.compare(password, user.password))) {
-      // Create token
-      const token = createToken(user._id)
-      res.cookie('user', user, { httpOnly: true })
-      res.status(200).json({ token })
-    }
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).send({status:400, message: "Invalid Email or Password"});
+    
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if (!validPassword) return res.status(400).send({status:400, message: "Invalid Email or Password"});
+    
+    const token = createToken(user._id)
+    res.cookie('user', user, { httpOnly: true })
+    res.status(200).json({ token })
+   
+    // const user = await User.findOne({ email })
+    // console.log('comparing password validity...')
+    // if (user && (await bcrypt.compare(password, user.password))) {
+    //   const token = createToken(user._id)
+    //   res.cookie('user', user, { httpOnly: true })
+    //   res.status(200).json({ token })
+    // } else {
+    //   res.status(200).json({ token })
+    // }
   } catch (err) {
       const errors = errorHandler(err)
       res.status(400).json({ errors })
