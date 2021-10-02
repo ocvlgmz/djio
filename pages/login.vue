@@ -41,7 +41,7 @@ export default {
         password: password,
       };
       try {
-        await this.$axios.post("/auth/register", user);
+        await this.$axios.post("/register", user);
         // console.log("Proceeding with login request...");
         this.$auth.loginWith("local", {
           data: user,
