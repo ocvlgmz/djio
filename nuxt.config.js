@@ -92,7 +92,7 @@ export default {
     nestedProperties: ['author.name']
   },
 
-  //auth config,
+  // Auth config
   auth: {
     localStorage: false,
     strategies: {
@@ -104,16 +104,5 @@ export default {
         }
       }
     }
-  },
-  
-  // router: {
-  //   middleware: ['auth']
-  // }
-  
-  // publicRuntimeConfig: {
-  //   baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io' : 'http://locahost:3000',
-  // },
-  // privateRuntimeConfig: {
-  //   // apiSecret: process.env.API_SECRET
-  // }
+  }
 }

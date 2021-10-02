@@ -148,34 +148,34 @@ export default {
     const val = this.validate;
     const lb = document
       .getElementById("btn-login")
-      .addEventListener("click", (e) => val, { once: true });
+      .addEventListener("click", (e) => val, { once: true })
     const rb = document
       .getElementById("btn-register")
-      .addEventListener("click", (e) => val, { once: true });
+      .addEventListener("click", (e) => val, { once: true })
   },
   computed: {
     passwordMatch() {
       return () =>
-        this.userRegInfo.password === this.verify || "Password must match";
+        this.userRegInfo.password === this.verify || "Password must match"
     },
   },
   methods: {
     validate(e) {
       e.preventDefault();
       if (this.$refs.loginForm.validate()) {
-        console.log("login");
+        console.log("login")
         // submit form to server/API here...
-        this.submitAuth(e, this.userLogInfo);
+        this.submitAuth(e, this.userLogInfo)
         return;
       }
-      console.log("register");
-      this.submitAuth(e, this.userRegInfo);
+      console.log("register")
+      this.submitAuth(e, this.userRegInfo)
     },
     reset() {
-      this.$refs.form.reset();
+      this.$refs.form.reset()
     },
     resetValidation() {
-      this.$refs.form.resetValidation();
+      this.$refs.form.resetValidation()
     },
   },
   data: () => ({

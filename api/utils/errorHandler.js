@@ -18,4 +18,4 @@ const errorHandler = (err) => {
     return errors
 }
 
-module.exports = { errorHandler }
+module.exports = errorHandler
