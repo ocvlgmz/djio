@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
+const bcrypt = require('bcrypt')
 
 const mongoose = require('mongoose')
 // const jwt = require('jsonwebtoken')
