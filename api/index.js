@@ -41,7 +41,7 @@ app.post('/api/login', async (req, res) => {
       
       const validPassword = await bcrypt.compare(password, user.password)
       console.log('pwd valid?')
-      if (!validPassword) return res.status(400).send({message: "Invalid Email or Password"})
+      if (!validPassword) return res.status(400).end({message: "Invalid Email or Password"})
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
