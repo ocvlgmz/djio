@@ -43,7 +43,6 @@ app.post('/api/login', async (req, res) => {
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
     }
-    res.status(400).send("Invalid Credentials")
   } catch (err) {
       const errors = errorHandler(err)
       res.status(400).json({ errors })
