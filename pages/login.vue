@@ -10,15 +10,15 @@ export default {
   layout: "default",
   methods: {
     authUser(e, userInfo) {
-      console.log(e.currentTarget.id)
-      if (e.currentTarget.id == "btn-login") {
-        console.log('btn-login')
-        this.loginUser(userInfo)
-      } else {
-        console.log('btn-reg')
-        this.registerUser(userInfo)
-      }
-      // e.currentTarget.id === "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
+      // console.log(e.currentTarget.id)
+      // if (e.currentTarget.id == "btn-login") {
+      //   console.log('btn-login')
+      //   this.loginUser(userInfo)
+      // } else {
+      //   console.log('btn-reg')
+      //   this.registerUser(userInfo)
+      // }
+      this.registerUser(userInfo)
     },
     async loginUser({ loginEmail, loginPassword }) {
       const user = {
