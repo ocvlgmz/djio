@@ -44,7 +44,12 @@ export default {
         await this.$axios.post('/register', user)
         // console.log("Proceeding with login request...")
         this.$auth.loginWith('local', { data: user })
+          .then((res) => {
+            console.log('Res:', res)
+            this.$router.push("/client")
+          })
       } catch (err) {
+        alert(`Error during registration: ${err.response.status} \n Please try again.`)
         console.log('Registration error:', err.response.status)
       }
     },

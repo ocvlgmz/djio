@@ -162,14 +162,6 @@ export default {
   methods: {
     validate(e) {
       e.preventDefault()
-      // if (this.$refs.loginForm.validate()) {
-      //   console.log('login')
-      //   this.submitAuth(e, this.userLogInfo)
-      //   return
-      // }
-      // console.log('register')
-      // this.submitAuth(e, this.userRegInfo)
-
       this.$refs.loginForm.validate() ? this.submitAuth(e, this.userLogInfo) : this.submitAuth(e, this.userRegInfo)
     },
     reset() {
