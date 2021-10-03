@@ -1,5 +1,11 @@
 <template>
   <v-container fluid>
+    <v-alert
+        :value="alert"
+        dismissible
+        type="success"
+        icon="mdi-information"
+      >Registration successful!</v-alert>
     <LoginForm :submitAuth="authUser" />
   </v-container>
 </template>
@@ -8,16 +14,13 @@
 // No need to register components with Nuxt: it works out of the box!
 export default {
   layout: "default",
+  data() {
+    return {
+      alert: false
+    }
+  },
   methods: {
     authUser(e, userInfo) {
-      // console.log(e.currentTarget.id)
-      // if (e.currentTarget.id == "btn-login") {
-      //   console.log('btn-login')
-      //   this.loginUser(userInfo)
-      // } else {
-      //   console.log('btn-reg')
-      //   this.registerUser(userInfo)
-      // }
       e.currentTarget.id == "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
     },
     async loginUser({ loginEmail, loginPassword }) {
@@ -37,22 +40,26 @@ export default {
       }
     }, 
     async registerUser({ firstname, lastname, email, password }) {
-      const user = {
-        firstname : firstname,
-        lastname : lastname,
-        email: email,
-        password: password,
-      }
+      // const user = {
+      //   firstname : firstname,
+      //   lastname : lastname,
+      //   email: email,
+      //   password: password,
+      // }
+      const user = {firstname,lastname,email,password}
       try {
         await this.$axios.post('/register', user)
-        // console.log("Proceeding with login request...")
         this.$auth.loginWith('local', { data: user })
           .then((res) => {
             console.log('Res:', res)
+            setTimeout(() => {
+              this.alert = true
+            }, 3000)
+            this.alert = false
             this.$router.push("/client")
           })
       } catch (err) {
-        alert(`Error during registration: ${err.response.status} \n Please try again.`)
+        alert(`Error during registration: ${err.response.status}.\nPlease try again.`)
         console.log('Registration error:', err.response.status)
       }
     },
