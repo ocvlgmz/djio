@@ -55,7 +55,6 @@ export default {
             setTimeout(() => {
               this.alert = true
             }, 3000)
-            this.alert = false
             this.$router.push("/client")
           })
       } catch (err) {
