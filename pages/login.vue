@@ -33,10 +33,12 @@ export default {
         alert('Wrong credentials. Try again.')
       }
     }, 
-    async registerUser({ email, password }) {
+    async registerUser({ firstname, lastname, email, password }) {
       const user = {
+        firstname : firstname,
+        lastname : lastname,
         email: email,
-        password: password
+        password: password,
       }
       try {
         await this.$axios.post('/register', user)
