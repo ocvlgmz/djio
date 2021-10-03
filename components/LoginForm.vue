@@ -12,7 +12,6 @@
         >
           <v-tabs-slider color="#FABB28"></v-tabs-slider>
           <v-tab v-for="tab in tabs" :key="tab.name">
-            <!-- <v-icon >{{ tab.icon }}</v-icon> -->
             <v-card-title class="gf-geo py-1">{{ tab.name }}</v-card-title>
           </v-tab>
           <v-tab-item>
@@ -128,8 +127,8 @@
                         :disabled="!valid"
                         color="grey lighten-4"
                         @click="validate"
-                        >Submit</v-btn
-                      >
+                        >Submit
+                      </v-btn>
                     </v-col>
                   </v-row>
                 </v-form>

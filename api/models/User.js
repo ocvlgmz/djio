@@ -9,13 +9,11 @@ const UserSchema = new Schema({
         type: String,
         required: [true, 'Please enter your first name or nickname'],
         lowercase: true,
-        // validate: [isEmail, 'Please enter a valid email']
     },
     lastname: {
         type: String,
         required: [true, 'Please enter your last name'],
         lowercase: true,
-        // validate: [isEmail, 'Please enter a valid email']
     },
     email: {
         type: String,

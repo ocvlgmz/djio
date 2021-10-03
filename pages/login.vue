@@ -10,12 +10,12 @@ export default {
   layout: "default",
   methods: {
     authUser(e, userInfo) {
-      // if (e.currentTarget.id == "btn-login") {
-      //   this.loginUser(userInfo)
-      // } else {
-      //   this.registerUser(userInfo)
-      // }
-      e.currentTarget.id == "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
+      if (e.currentTarget.id == "btn-login") {
+        this.loginUser(userInfo)
+      } else {
+        this.registerUser(userInfo)
+      }
+      // e.currentTarget.id == "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
     },
     async loginUser({ loginEmail, loginPassword }) {
       const user = {
