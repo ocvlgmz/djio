@@ -187,8 +187,8 @@ export default {
     ],
     valid: true,
     userRegInfo: {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       password: "",
     },
