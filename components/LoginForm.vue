@@ -67,7 +67,7 @@
                   <v-row>
                     <v-col cols="12" sm="6" xsm="8">
                       <v-text-field
-                        v-model="userRegInfo.firstName"
+                        v-model="userRegInfo.firstname"
                         :rules="[rules.required]"
                         label="First Name"
                         maxlength="20"
@@ -76,7 +76,7 @@
                     </v-col>
                     <v-col cols="12" sm="6" md="6">
                       <v-text-field
-                        v-model="userRegInfo.lastName"
+                        v-model="userRegInfo.lastname"
                         :rules="[rules.required]"
                         label="Last Name"
                         maxlength="20"
