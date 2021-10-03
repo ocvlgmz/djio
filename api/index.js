@@ -20,8 +20,8 @@ mongoose.connect(process.env.MONGO_DB_URI)
 
 // Auth routes
 app.post('/api/register', async (req, res) => {
-  const { email, password } = req.body
-  console.log(req.body)
+  const { firstname, lastname, email, password } = req.body
+  // console.log(req.body)
   try {
       const user = await User.create({ firstname, lastname, email, password })
       if (user) return res.status(201).json({ user: user._id })
