@@ -18,7 +18,7 @@ export default {
       //   console.log('btn-reg')
       //   this.registerUser(userInfo)
       // }
-      e.target.id == "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
+      e.currentTarget.id == "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
     },
     async loginUser({ loginEmail, loginPassword }) {
       const user = {
