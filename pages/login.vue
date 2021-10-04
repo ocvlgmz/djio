@@ -36,24 +36,19 @@ export default {
             this.$router.push("/client")
           })
       } catch (err) {
-        alert('Wrong credentials. Try again.')
+        alert('Wrong credentials. Please try again.')
       }
     }, 
     async registerUser({ firstname, lastname, email, password }) {
-      // const user = {
-      //   firstname : firstname,
-      //   lastname : lastname,
-      //   email: email,
-      //   password: password,
-      // }
       const user = {firstname,lastname,email,password}
       try {
         await this.$axios.post('/register', user)
         this.$auth.loginWith('local', { data: user })
           .then((res) => {
             console.log('Res:', res)
+            this.alert = true
             setTimeout(() => {
-              this.alert = true
+              this.alert = false
             }, 3000)
             this.$router.push("/client")
           })
