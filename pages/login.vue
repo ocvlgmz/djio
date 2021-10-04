@@ -26,13 +26,13 @@ export default {
     async loginUser({ loginEmail, loginPassword }) {
       const user = { email: loginEmail, password: loginPassword }
       try {
-        // await this.$axios.post('/login', user)
-        //   .then((res) => {
-        //     // console.log(res)  
-        //       // this.$router.push("/client")
-        //   })
-        await this.$auth.loginWith('local', { data: user })
-        this.$router.push("/client")
+        await this.$axios.post('/login', user)
+          .then((res) => {
+            // console.log(res)  
+              this.$router.push("/client")
+          })
+        // await this.$auth.loginWith('local', { data: user })
+        // this.$router.push("/client")
       } catch (err) {
         this.err = true
         this.type = 'warning'
