@@ -99,7 +99,7 @@ export default {
       local: {
         endpoints: {
           login: { url: '/login', method: 'post', propertyName: 'token' },
-          logout: { url: '/logout', method: 'get' },
+          logout: false,
           user: { url: '/user', method: 'get', propertyName: 'user' }
         }
       }
