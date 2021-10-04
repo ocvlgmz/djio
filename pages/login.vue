@@ -31,8 +31,8 @@ export default {
             // console.log(res)  
               this.$router.push("/client")
           })
-        // await this.$auth.loginWith('local', { data: user })
-        // this.$router.push("/client")
+        await this.$auth.loginWith('local', { data: user })
+        this.$router.push("/client")
       } catch (err) {
         this.err = true
         this.type = 'warning'
