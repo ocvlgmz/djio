@@ -33,10 +33,10 @@ app.post('/api/login', async (req, res) => {
   const { email, password } = req.body
   try {
       const user = await User.findOne({ email })
-      if (!user) return res.status(400).json({message: "User doesn't exist"})
+      // if (!user) return res.status(400).json({message: "User doesn't exist"})
       
       const validPassword = bcrypt.compare(password, user.password)
-      if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
+      // if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
