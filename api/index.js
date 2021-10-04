@@ -21,7 +21,6 @@ mongoose.connect(process.env.MONGO_DB_URI)
 // Auth routes
 app.post('/api/register', async (req, res) => {
   const { firstname, lastname, email, password } = req.body
-  console.log(req.body)
   try {
       const user = await User.create({ firstname, lastname, email, password })
       if (user) return res.status(201).json({ user: user._id })
@@ -41,7 +40,7 @@ app.post('/api/login', async (req, res) => {
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
-      res.status(200).json({ message: 'Token saved in cookie.' })
+      res.status(200).json({ message: 'User saved in cookie.' })
   } catch (err) {
     console.log('catching error!')
       const errors = errorHandler(err)
@@ -57,6 +56,7 @@ app.get('/api/user', (req, res) => {
 })
 
 // User crud operations
+
 app.patch("/api/user/:id", async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(req.params.id, req.body);
