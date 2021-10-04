@@ -47,7 +47,6 @@ export default {
         await this.$axios.post('/register', user)
         this.$auth.loginWith('local', { data: user })
           .then((res) => {
-            // console.log('Res:', res)
             this.$router.push("/client")
           })
       } catch (err) {
