@@ -32,9 +32,6 @@ app.post('/api/register', async (req, res) => {
 })
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body
-  // if (!(email && password)) {
-  //   res.status(400).send("All input is required")
-  // }
   try {
       const user = await User.findOne({ email })
       if (!user) return res.status(400).json({message: "User doesn't exist"})
@@ -57,6 +54,30 @@ app.get('/api/logout', (req, res) => {
 app.get('/api/user', (req, res) => {
   const user = req.cookies['user']
   res.status(200).json({ user: user })
+})
+
+// User crud operations
+app.patch("/api/user/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, res.body);
+    await user.save()
+    res.status(200).json({ user })
+  } catch (err) {
+    console.log('Update error')
+    const errors = errorHandler(err)
+    res.status(502).json({ errors })
+  }
+})
+app.delete("/api/user/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) res.status(400).json({message: "No user found"});
+    res.status(204).json({ status: 'OK' })
+  } catch (err) {
+    console.log('Delete error')
+    const errors = errorHandler(err)
+    res.status(500).json({ errors })
+  }
 })
 
 module.exports = app

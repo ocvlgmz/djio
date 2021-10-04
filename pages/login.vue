@@ -50,7 +50,7 @@ export default {
             setTimeout(() => {
               this.alert = false
             }, 3000)
-            this.$router.push("/client")
+            // this.$router.push("/client")
           })
       } catch (err) {
         alert(`Error during registration: ${err.response.status}.\nPlease try again.`)
