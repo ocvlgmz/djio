@@ -49,9 +49,6 @@ export default {
           .then((res) => {
             console.log('Res:', res)
             this.alert = true
-            setTimeout(() => {
-              this.alert = false
-            }, 6000)
             // this.$router.push("/client")
           })
       } catch (err) {
