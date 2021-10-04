@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 // const jwt = require('jsonwebtoken')
 const { createToken } = require('./utils/jwt')
+const { authenticateToken } = require('./utils/jwt')
 const errorHandler = require('./utils/errorHandler')
 const User = require('./models/User')
 
@@ -33,13 +34,13 @@ app.post('/api/login', async (req, res) => {
   const { email, password } = req.body
   try {
       const user = await User.findOne({ email })
-      // if (!user) return res.status(400).json({message: "User doesn't exist"})
+      if (!user) return res.status(400).json({message: "User doesn't exist"})
       
       const validPassword = await bcrypt.compare(password, user.password)
-      // if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
+      if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
       
       const token = createToken(user._id)
-      res.cookie('user', user, { httpOnly: true })
+      // res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
       console.log('catching error!')
@@ -51,7 +52,7 @@ app.post('/api/login', async (req, res) => {
 // app.get('/api/logout', (req, res) => {
 //   res.status(200).json({ message: 'User logged out.' })
 // })
-app.get('/api/user', (req, res) => {
+app.get('/api/user', authenticateToken,(req, res) => {
   const user = req.cookies['user']
   res.status(200).json({ user: user })
 })
