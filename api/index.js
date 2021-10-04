@@ -40,7 +40,7 @@ app.post('/api/login', async (req, res) => {
       if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
       
       const token = createToken(user._id)
-      // res.cookie('user', user, { httpOnly: true })
+      res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
       console.log('catching error!')
