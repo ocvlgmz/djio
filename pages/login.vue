@@ -40,7 +40,6 @@ export default {
         this.message="Wrong credentials. Please try again."
         this.alert = true
       }
-
     }, 
     async registerUser({ firstname, lastname, email, password }) {
       const user = {firstname,lastname,email,password}
