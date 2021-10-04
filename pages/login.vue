@@ -1,11 +1,13 @@
 <template>
   <v-container fluid>
-    <v-alert
-        :value="alert"
-        dismissible
-        type="success"
-        icon="mdi-information"
-      >Registration successful!</v-alert>
+    <div>
+      <v-alert
+          :value="alert"
+          dismissible
+          type="success"
+          icon="mdi-information"
+        >Registration successful!</v-alert>
+    </div>
     <LoginForm :submitAuth="authUser" />
   </v-container>
 </template>
@@ -49,7 +51,7 @@ export default {
             this.alert = true
             setTimeout(() => {
               this.alert = false
-            }, 3000)
+            }, 6000)
             // this.$router.push("/client")
           })
       } catch (err) {
