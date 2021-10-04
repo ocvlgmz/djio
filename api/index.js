@@ -42,14 +42,15 @@ app.post('/api/login', async (req, res) => {
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
-    console.log('catching error!')
+      console.log('catching error!')
       const errors = errorHandler(err)
       res.status(400).json({ errors })
   }
 })
-app.get('/api/logout', (req, res) => {
-  res.status(200).json({ message: 'User logged out.' })
-})
+// Nuxt Auth not using this route
+// app.get('/api/logout', (req, res) => {
+//   res.status(200).json({ message: 'User logged out.' })
+// })
 app.get('/api/user', (req, res) => {
   const user = req.cookies['user']
   res.status(200).json({ user: user })
