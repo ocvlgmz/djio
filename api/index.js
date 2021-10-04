@@ -41,7 +41,7 @@ app.post('/api/login', async (req, res) => {
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
-      res.status(200).json({ token })
+      res.status(200).json({ message: 'Token saved in cookie.' })
   } catch (err) {
     console.log('catching error!')
       const errors = errorHandler(err)
@@ -49,7 +49,7 @@ app.post('/api/login', async (req, res) => {
   }
 })
 app.get('/api/logout', (req, res) => {
-  res.status(200).json({ status: 'OK' })
+  res.status(200).json({ message: 'User logged out.' })
 })
 app.get('/api/user', (req, res) => {
   const user = req.cookies['user']
@@ -59,9 +59,9 @@ app.get('/api/user', (req, res) => {
 // User crud operations
 app.patch("/api/user/:id", async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, res.body);
+    const user = await User.findOneAndUpdate(req.params.id, req.body);
     await user.save()
-    res.status(200).json({ user })
+    res.status(200).json({ message: 'User updated successfully.' })
   } catch (err) {
     console.log('Update error')
     const errors = errorHandler(err)
@@ -70,9 +70,9 @@ app.patch("/api/user/:id", async (req, res) => {
 })
 app.delete("/api/user/:id", async (req, res) => {
   try {
-    const user = await User.findByIdAndDelete(req.params.id)
-    if (!user) res.status(400).json({message: "No user found"})
-    res.status(200).json({ status: 'OK' })
+    const user = await User.findOneAndRemove(req.params.id)
+    if (!user) res.status(400).json({message: "No user found."})
+    res.status(200).json({ message: 'User deleted successfully.' })
   } catch (err) {
     console.log('Delete error')
     const errors = errorHandler(err)
