@@ -31,8 +31,8 @@ export default {
       const user = { email: loginEmail, password: loginPassword }
       try {
         await this.$axios.post('/login', user)
-          .then((res) => {
-            this.$auth.loginWith('local', { data: user })
+        this.$auth.loginWith('local', { data: user })
+          .then((res) => {  
             this.$router.push("/client")
           })
       } catch (err) {
