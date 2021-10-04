@@ -4,9 +4,9 @@
       <v-alert
           :value="alert"
           dismissible
-          type="success"
+          :type="type"
           icon="mdi-information"
-        >Registration successful!</v-alert>
+        >{{this.message}}</v-alert>
     </div>
     <LoginForm :submitAuth="authUser" />
   </v-container>
@@ -18,7 +18,9 @@ export default {
   layout: "default",
   data() {
     return {
-      alert: false
+      alert: false,
+      type:'success',
+      message:''
     }
   },
   methods: {
@@ -38,7 +40,10 @@ export default {
             this.$router.push("/client")
           })
       } catch (err) {
-        alert('Wrong credentials. Please try again.')
+        this.type = 'warning'
+        this.message="Wrong credentials. Please try again."
+        this.alert = true
+        // alert('Wrong credentials. Please try again.')
       }
     }, 
     async registerUser({ firstname, lastname, email, password }) {
