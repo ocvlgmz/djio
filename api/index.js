@@ -55,6 +55,7 @@ app.post('/api/login', async (req, res) => {
 app.get('/api/user', authenticateToken, (req, res) => {
   // const user = req.cookies['user']
   const user = req.user
+  console.log(user)
   
   res.status(200).json({ user: user })
 })
