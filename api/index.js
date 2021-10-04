@@ -70,9 +70,9 @@ app.patch("/api/user/:id", async (req, res) => {
 })
 app.delete("/api/user/:id", async (req, res) => {
   try {
-    const user = await User.findByIdAndDelete(req.params.id);
-    if (!user) res.status(400).json({message: "No user found"});
-    res.status(204).json({ status: 'OK' })
+    const user = await User.findByIdAndDelete(req.params.id)
+    if (!user) res.status(400).json({message: "No user found"})
+    res.status(200).json({ status: 'OK' })
   } catch (err) {
     console.log('Delete error')
     const errors = errorHandler(err)

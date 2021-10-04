@@ -45,12 +45,12 @@ export default {
       const user = {firstname,lastname,email,password}
       try {
         await this.$axios.post('/register', user)
-        this.$auth.loginWith('local', { data: user })
           .then((res) => {
             console.log('Res:', res)
             this.alert = true
             // this.$router.push("/client")
           })
+            this.$auth.loginWith('local', { data: user })
       } catch (err) {
         alert(`Error during registration: ${err.response.status}.\nPlease try again.`)
         console.log('Registration error:', err.response.status)
