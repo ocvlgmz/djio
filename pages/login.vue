@@ -27,10 +27,11 @@ export default {
       const user = { email: loginEmail, password: loginPassword }
       try {
         await this.$axios.post('/login', user)
+          .then((res) => {
+            console.log(res)  
+              // this.$router.push("/client")
+          })
         await this.$auth.loginWith('local', { data: user })
-          // .then((res) => {  
-          //   this.$router.push("/client")
-          // })
         this.$router.push("/client")
       } catch (err) {
         this.err = true
