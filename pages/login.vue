@@ -28,11 +28,8 @@ export default {
       e.currentTarget.id == "btn-login" ? this.loginUser(userInfo) : this.registerUser(userInfo)
     },
     async loginUser({ loginEmail, loginPassword }) {
-      const user = {
-        email: loginEmail,
-        password: loginPassword
-      }
       try {
+        const user = { email: loginEmail, password: loginPassword }
         await this.$axios.post('/login', user)
         this.$auth.loginWith('local', { data: user })
           .then((res) => {
@@ -43,6 +40,7 @@ export default {
         this.message="Wrong credentials. Please try again."
         this.alert = true
       }
+
     }, 
     async registerUser({ firstname, lastname, email, password }) {
       const user = {firstname,lastname,email,password}
