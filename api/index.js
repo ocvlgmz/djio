@@ -40,7 +40,7 @@ app.post('/api/login', async (req, res) => {
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
-      res.status(200).json({ message: 'User saved in cookie.' })
+      res.status(200).json({ token })
   } catch (err) {
     console.log('catching error!')
       const errors = errorHandler(err)
