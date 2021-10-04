@@ -40,7 +40,7 @@ app.post('/api/login', async (req, res) => {
       if (!validPassword) return res.status(400).json({message: "Invalid email or password"})
       
       const token = createToken(user._id)
-      // res.cookie('user', user, { httpOnly: true })
+      res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
       console.log('catching error!')
@@ -53,8 +53,8 @@ app.post('/api/login', async (req, res) => {
 //   res.status(200).json({ message: 'User logged out.' })
 // })
 app.get('/api/user', authenticateToken, (req, res) => {
-  // const user = req.cookies['user']
-  const user = req.user
+  const user = req.cookies['user']
+  // const user = req.user
   console.log(user)
   
   res.status(200).json({ user: user })
