@@ -14,7 +14,7 @@ function authenticateToken(req, res, next) {
     jwt.verify(token, process.env.ACCESS_TOKEN_1, (err, user) => {
         if (err) return res.sendStatus(403)
         // req.cookies['user'] = user
-        req.user = user
+        // req.user = user
         next()
     })
 }

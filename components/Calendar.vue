@@ -30,21 +30,6 @@
                             scrollable
                             @change="$refs.menu.save(date)"
                         >
-                        <!-- <v-spacer></v-spacer>
-                        <v-btn
-                            text
-                            color="primary"
-                            @click="menu = false"
-                        >
-                            Cancel
-                        </v-btn>
-                        <v-btn
-                            text
-                            color="primary"
-                            @click="$refs.menu.save(date)"
-                        >
-                            OK
-                        </v-btn> -->
                         </v-date-picker>
                     </v-menu>
                 </v-col>
@@ -53,6 +38,8 @@
                         </v-select>
                 </v-col>
             </v-row>
+            <div> {{ username }}
+            </div>
         </v-card-text> 
     </v-card> 
 </template>
@@ -92,29 +79,6 @@
             }
         },
         methods: {
-            // Google Cal functions
-            // evList() {
-            //     let cal = []
-            //     gapi.client.calendar.events.list({ 
-            //             'calendarId': 'primary',
-            //             'timeMin': this.start,
-            //             'timeMax': this.end,
-            //             'showDeleted': false,
-            //             'singleEvents': true,
-            //             'maxResults': 10,
-            //             'orderBy': 'startTime'
-            //         })
-            //         .then(function(response) {
-            //             var events = response.result.items;
-            //             console.log('Events:', events);
-            //             if(events.length){
-            //                 events.map((event,i)=>{
-            //                     cal.push(event)
-            //                 })
-            //             }
-            //         })
-            //         this.cal = cal
-            // },
             calendarList (){
                 gapi.client.calendar.calendarList.list({
                         maxResults: 250,
