@@ -53,9 +53,10 @@ app.post('/api/login', async (req, res) => {
 //   res.status(200).json({ message: 'User logged out.' })
 // })
 app.get('/api/user', authenticateToken, (req, res) => {
-  const user = req.cookies['user']
-  // const user = req.user
-  console.log(user)
+  const userReqCookies = req.cookies['user']
+  // const userReq = req.user
+  console.log('userReqCookies (/api/user):', userReqCookies)
+  console.log('userReq (/api/user):', userReq)
   
   res.status(200).json({ user: user })
 })
