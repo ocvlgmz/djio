@@ -75,13 +75,11 @@ export default {
   
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // '@nuxt/content',
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     [
       'storyblok-nuxt', 
       { accessToken: process.env.NODE_ENV=='production'?STORYBLOK_PUB:STORYBLOK_PREV, cacheProvider: 'memory' }
-      //  
     ],
   ],
 
@@ -90,11 +88,6 @@ export default {
     // baseURL: 'http://localhost:3000/api/',
     baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
     credentials: true
-  },
-
-  // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {
-    nestedProperties: ['author.name']
   },
 
   // Auth config
