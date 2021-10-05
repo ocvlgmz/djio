@@ -79,14 +79,14 @@ export default {
     '@nuxtjs/auth-next',
     [
       'storyblok-nuxt', 
-      { accessToken: process.env == 'production' ? STORYBLOK_PUB : STORYBLOK_PREV, cacheProvider: 'memory' }
+      { accessToken: process.env.NODE_ENV == 'production' ? process.env.STORYBLOK_PUB : process.env.STORYBLOK_PREV, cacheProvider: 'memory' }
     ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://localhost:3000/api/',
-    baseURL: process.env == 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
+    baseURL: process.env.NODE_ENV == 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
     credentials: true
   },
 
