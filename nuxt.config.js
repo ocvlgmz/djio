@@ -75,9 +75,14 @@ export default {
   
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxt/content',
+    // '@nuxt/content',
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    [
+      'storyblok-nuxt', 
+      { accessToken: process.env.NODE_ENV=='production'?STORYBLOK_PUB:STORYBLOK_PREV, cacheProvider: 'memory' }
+      //  
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
