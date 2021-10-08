@@ -48,7 +48,7 @@ export default {
     async registerUser({ firstname, lastname, email, password }) {
       const user = {firstname,lastname,email,password}
       try {
-        await this.$axios.post('/api/register', user)
+        await this.$axios.post('/register', user)
         // ---- TODO ---- 
         // redirect to a page requiring the user to check his email for confirm!!
         // instead of loginWith + push to /dashboard
