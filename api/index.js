@@ -30,7 +30,7 @@ app.post('/api/register', async (req, res) => {
       const user = await User.create({ firstname, lastname, email, password })
       if (user) return res.status(201).json({ user: user._id })
   } catch (err) {
-      // const errors = errorHandler(err)
+      const errors = errorHandler(err)
       res.status(400).json({ errors })
   }
 })
@@ -48,8 +48,8 @@ app.post('/api/login', async (req, res) => {
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
-      console.log('catching error!', err)
-      // const errors = errorHandler(err)
+      // console.log('catching error!', err)
+      const errors = errorHandler(err)
       console.log('errors',errors)
       res.status(400).json({ errors })
   }
