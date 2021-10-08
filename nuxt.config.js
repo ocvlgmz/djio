@@ -76,19 +76,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
-    [
-      'storyblok-nuxt', 
-      { accessToken: process.env.NODE_ENV == 'production' ? process.env.STORYBLOK_PUB : process.env.STORYBLOK_PREV, cacheProvider: 'memory' }
-    ],
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://localhost:3000/api/',
-    baseURL: process.env.NODE_ENV == 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/',
     credentials: true
   },
+
+  // Content module configuration: https://go.nuxtjs.dev/config-content
+  // content: {
+  //   nestedProperties: ['author.name']
+  // },
 
   // Auth config
   auth: {
@@ -96,9 +97,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/login', method: 'post', propertyName: 'token' },
+          login: { url: '/api/login', method: 'post', propertyName: 'token' },
           logout: false,
-          user: { url: '/user', method: 'get', propertyName: 'user' }
+          user: { url: '/api/user', method: 'get', propertyName: 'user' }
         }
       }
     }

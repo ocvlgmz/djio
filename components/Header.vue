@@ -21,7 +21,7 @@
         >Store</v-btn
       >
       <div v-if="isAuthenticated">
-        <v-btn depressed text color="#FABB28" class="mx-1" to="/client"
+        <v-btn depressed text color="#FABB28" class="mx-1" to="/dashboard"
           >My Area</v-btn
         >
         <v-btn outlined color="#FABB28" class="mx-1" @click="logout"
@@ -57,7 +57,7 @@
         ><v-icon small>mdi-cart</v-icon></v-btn
       >
       <div v-if="$auth.loggedIn">
-        <v-btn icon small depressed color="#FABB28" class="mx-1" to="/client"
+        <v-btn icon small depressed color="#FABB28" class="mx-1" to="/dashboard"
           ><v-icon small color="#FABB28"
             >mdi-message-lock-outline</v-icon
           ></v-btn

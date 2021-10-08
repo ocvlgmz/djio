@@ -12,17 +12,20 @@
       </v-chip>
     </v-container>
     <v-row class="ma-4">
-      <v-col sm="6" md="4" lg="3" v-for="post in posts" :key="post.id" class="pa-4">
+      <v-col sm="6" md="4" lg="3" v-for="article of articles" :key="article.slug" class="pa-4">
         <v-hover v-slot="{ hover }">
-              <v-card tile :elevation="hover ? 12 : 2" class="anim fade-in">
-                <BlogPreview 
-                    :id="post.id" 
-                    :title="post.title" 
-                    :summary="post.summary" 
-                    :thumbnail="post.thumbnail"/>
+              <v-card tile :elevation="hover ? 12 : 2" class="anim fade-in hidden">
+                <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+                  <v-img :src="article.img" />
+                  <v-card-text class="dj-blue">
+                    <h2>{{ article.title }}</h2>
+                    <p>by {{ article.author.name }}</p>
+                    <p>{{ article.description }}</p>
+                  </v-card-text>
+                </NuxtLink>
                 <v-card-text>
                   <v-chip-group dark>
-                    <!-- <v-chip v-for="tag in article.tags" :key="tag.id" color="#505050">#{{tag}}</v-chip> -->
+                    <v-chip v-for="tag in article.tags" :key="tag.id" color="#505050">#{{tag}}</v-chip>
                   </v-chip-group>
                 </v-card-text>
               </v-card>
@@ -40,23 +43,12 @@
         articles: []
       }
     },
-    asyncData({app}){
-      return app.$storyapi.get('cdn/stories/', {
-        version: 'draft',
-        starts_with: 'blog/'
-      }).then( res => {
-        return {
-          posts: res.data.stories.map(bp => {
-            return {
-              id: bp.slug,
-              title: bp.content.title,
-              summary: bp.content.summary,
-              content: bp.content.content,
-              thumbnail: bp.content.thumbnail
-            }
-          })
-        }
-      })
+    async asyncData({ $content, params }) {
+      const articles = await $content('articles')
+        .only(['title', 'description', 'img', 'slug', 'author','tags'])
+        .sortBy('createdAt', 'asc')
+        .fetch()
+      return {articles}  
     },
     watch: {
       async searchQuery(searchQuery) {
