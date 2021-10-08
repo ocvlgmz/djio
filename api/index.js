@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_DB_URI)
     .catch((err) => console.log('Database connection error:', err))
 
 // Auth routes
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   const { firstname, lastname, email, password } = req.body
   try {
       const user = await User.create({ firstname, lastname, email, password })
@@ -34,7 +34,7 @@ app.post('/register', async (req, res) => {
       res.status(400).json({ errors })
   }
 })
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { email, password } = req.body
   try {
       const user = await User.findOne({ email })
@@ -60,7 +60,7 @@ app.post('/login', async (req, res) => {
 // })
 
 // User crud operations
-app.get('/user', authenticateToken, (req, res) => {
+app.get('/api/user', authenticateToken, (req, res) => {
   // const {user} = req.cookies['user']
   const {user} = req.cookies
   res.status(200).json({ user })
