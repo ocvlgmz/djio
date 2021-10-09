@@ -46,7 +46,7 @@
       return context.app.$storyapi.get('cdn/stories/home', {
         version: 'draft'
       }).then((res) => {
-        return res.data
+        // return res.data
       }).catch((res) => {
         if (!res.response) {
           console.error(res)

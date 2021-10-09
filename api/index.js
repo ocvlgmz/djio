@@ -30,6 +30,7 @@ app.post('/api/register', async (req, res) => {
       const user = await User.create({ firstname, lastname, email, password })
       if (user) return res.status(201).json({ user: user._id })
   } catch (err) {
+      // console.log('Registration error')
       const errors = errorHandler(err)
       res.status(400).json({ errors })
   }
@@ -41,16 +42,14 @@ app.post('/api/login', async (req, res) => {
       if (!user) {throw new Error("Invalid email")}
       
       const validPassword = await bcrypt.compare(password, user.password)
-      console.log('validpass:',validPassword)
       if (!validPassword) {throw new Error("Invalid password")}
       
       const token = createToken(user._id)
       res.cookie('user', user, { httpOnly: true })
       res.status(200).json({ token })
   } catch (err) {
-      // console.log('catching error!', err)
+      // console.log('Login error')
       const errors = errorHandler(err)
-      console.log('errors',errors)
       res.status(400).json({ errors })
   }
 })

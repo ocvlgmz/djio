@@ -2,7 +2,7 @@
   <v-container>
     <v-snackbar 
       v-model="snackbar.show"
-      :timeout="-1"
+      timeout="3000"
       :color="snackbar.type"
       >
       <v-row justify="space-between">
@@ -60,7 +60,7 @@ export default {
       }
     },
     error(err) {
-      this.snackbar.show = true
+      this.snackbar.show = true,
       this.snackbar.type = 'warning'
       !err.response.data.errors.else == '' ? this.snackbar.message = err.response.data.errors.else : 
       !err.response.data.errors.email == '' ? this.snackbar.message = err.response.data.errors.email : 

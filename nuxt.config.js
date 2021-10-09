@@ -88,15 +88,9 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'http://localhost:3000/api/',
     baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/',
     credentials: true
   },
-
-  // Content module configuration: https://go.nuxtjs.dev/config-content
-  // content: {
-  //   nestedProperties: ['author.name']
-  // },
 
   // Auth config
   auth: {
