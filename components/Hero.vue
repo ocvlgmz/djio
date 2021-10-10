@@ -1,16 +1,31 @@
 <template>
   <v-card flat dark tile :color="bgColor">
     <v-row no-gutters>
-      <v-col>
+      <v-col sm="4" xsm="12">
         <v-card-title class="text-capitalize hero">
-          <h1>{{ this.page }}</h1>
+            <NuxtLink class="" to="/blog" v-if="slug"><h1>{{ slug?'Blog':this.page }}</h1></NuxtLink>
+            <h1 v-else>{{ slug?'Blog':this.page }}</h1>
         </v-card-title>
+      </v-col>
+      <v-col v-if="slug">
+        <!-- TODO :
+        -- Add a search component that allows finding any posts from blog, and redirect to the blog main page for results 
+        -->
+        <v-card-subtitle class="text-capitalize slug d-flex justify-end">
+          <h3>{{ slug }}</h3>
+        </v-card-subtitle>
       </v-col>
     </v-row>
   </v-card>
 </template>
 <script>
 export default {
+  props:{
+    slug: {
+      type: String,
+      require: false
+    },
+  },
   data () {
     return {
       bgColor: '',
@@ -32,7 +47,8 @@ export default {
         this.bgColor = "#607060";
         break;
       default:
-        this.bgColor = "#4c6070";
+        this.bgColor = "#4C6070";
+        // this.bgColor = "#4c6070";
     }
   },
 };
@@ -40,9 +56,22 @@ export default {
 <style scoped>
 .hero {
   font-size: 48px;
-  filter: opacity(50%);
+  /* filter: opacity(50%); */
   font-family: "Geo";
-  color: #d0d0d0;
+  color: #e2e2e2;
   /* font-weight: bold; */
+}
+.slug {
+  font-size: 36px;
+  font-family: "Roboto";
+  color: #FFF;
+  /* font-weight: bold; */
+}
+.nuxt-link-active {
+  color: #e2e2e2;
+}
+.nuxt-link-active:hover {
+  color: #FABB28;
+  filter: opacity(50%);
 }
 </style>
