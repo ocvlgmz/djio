@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueGapi from 'vue-gapi'
+const {publicRuntimeConfig} = require('../nuxt.config')
 
 Vue.use(VueGapi, {
-  apiKey: this.$config.gapiApiKey,
-  clientId: this.$config.gapiClientId,
+  apiKey: publicRuntimeConfig.gapiApiKey,
+  clientId: publicRuntimeConfig.gapiClientId,
   discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
   scope: 'https://www.googleapis.com/auth/calendar',
 })
