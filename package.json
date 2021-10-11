@@ -23,7 +23,7 @@
     "nodemailer": "^6.6.5",
     "nuxt": "^2.15.7",
     "validator": "^13.6.0",
-    "vue-gapi": "^1.1.1",
+    "vue-gapi": "^1.1.0",
     "vue-plyr": "^7.0.0",
     "vuetify": "^2.5.9",
     "xss-filters": "^1.2.7",

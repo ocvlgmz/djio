@@ -42,7 +42,7 @@
         version: 'published',
         starts_with: 'blog/'
       }).then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         return {
           articles : res.data.stories.map(bp =>{
             return {
@@ -55,10 +55,10 @@
         }
       }).catch((res) => {
         if (!res.response) {
-          console.error(res)
+          // console.error(res)
           context.error({ statusCode: 404, message: 'Failed to receive content form api' })
         } else {
-          console.error(res.response.data)
+          // console.error(res.response.data)
           context.error({ statusCode: res.response.status, message: res.response.data })
         }
       })

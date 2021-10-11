@@ -87,5 +87,4 @@ app.delete("/api/user/:id", async (req, res) => {
   }
 })
 
-app.get('api.storyblok.com',)
 module.exports = app

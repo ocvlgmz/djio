@@ -68,12 +68,11 @@
 
 <script>
   export default {
-      props: {
-        name: { type: String },
-        title: { type: String },
-        interest: { type: Array },
-      },
-    // props: ["title"],
+    props: {
+      name: { type: String },
+      title: { type: String },
+      interest: { type: Array },
+    },
     data: () => ({
       dialog: false,
       form: { title: "Marketing", name: "", email: "", job: "", purpose: "" },
@@ -87,7 +86,7 @@
           job: this.form.job,
           purpose: this.form.purpose,
         }
-        fetch("../api/contact", {
+        fetch('../api/mail', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -97,12 +96,12 @@
             inputs,
           }),
         })
-          .then((response) => response.json())
-          .then((response) => {
+          .then((res) => res.json())
+          .then((res) => {
             console.log("Success:", inputs);
           })
-          .catch((error) => {
-            console.error("Error:", error);
+          .catch((err) => {
+            console.error("Error:", err);
           });
       },
     },

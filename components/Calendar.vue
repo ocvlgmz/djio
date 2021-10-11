@@ -201,10 +201,12 @@
         },
         computed: {
             //Google Auth computed data
-            userName() {
+            username() {
                 const user = this.$gapi.getUserData()
                 if (user) {
                     return user.firstName + ' ' + user.lastName 
+                } else {
+                    console.log('username error!')
                 }
             },
             reqDate(){
