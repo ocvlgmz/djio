@@ -105,10 +105,10 @@ export default {
       }
     }
   },
-  // publicRuntimeConfig: {},
-  // privateRuntimeConfig: {
-  //   gapiApiKey: process.env.GAPI_API_KEY,
-  //   gapiSecretKey: process.env.GAPI_SECRET_KEY,
-  //   gapiClientId: process.env.GAPI_CLIENT_ID,
-  // }
+  publicRuntimeConfig: {},
+    gapiClientId: process.env.GAPI_CLIENT_ID,
+  privateRuntimeConfig: {
+    gapiSecretKey: process.env.GAPI_SECRET_KEY,
+    gapiApiKey: process.env.GAPI_API_KEY,
+  }
 }
