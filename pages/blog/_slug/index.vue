@@ -27,7 +27,7 @@
     asyncData (context) {
       return context.app.$storyapi
         .get('cdn/stories/blog/'+context.params.slug, {
-          version: 'draft',
+          version: 'published',
           // starts_with: 'blog/'
         })
         .then((res) => {
