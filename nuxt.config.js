@@ -92,12 +92,18 @@ export default {
     // to http://localhost:3000/api/
     // for testing mail.js
     // ---
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/',
     credentials: true
   },
 
   // Auth config
   auth: {
+    redirect: {
+      // login: '/login',
+      // logout: '/',
+      // callback: '/login',
+      home: '/dashboard'
+    },
     localStorage: false,
     strategies: {
       local: {

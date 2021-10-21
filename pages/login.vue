@@ -39,7 +39,7 @@ export default {
       try {
         await this.$axios.post('/login', user)
         this.$auth.loginWith('local', { data: user })
-        this.$router.push("/dashboard")
+        // this.$router.push("/dashboard")
       } catch (err) {
         this.error(err)
       }
@@ -53,7 +53,7 @@ export default {
         // instead of loginWith + push to /dashboard
          
         this.$auth.loginWith('local', { data: user })
-        this.$router.push("/dashboard")
+        // this.$router.push("/dashboard")
       } catch (err) {
         this.error(err)
       }
