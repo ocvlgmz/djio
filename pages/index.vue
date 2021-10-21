@@ -22,8 +22,8 @@
               </v-card-subtitle>
               <v-card-subtitle>
                 <Contact
-                  title="Schedule Your Call"
-                  name="Call Invitation"
+                  :title="title"
+                  :theme="theme"
                   :interest="interest"
                 >
                   <template v-slot>
@@ -84,13 +84,9 @@
               </v-card-subtitle>
               <v-card-subtitle>
                 <Contact
-                  title="Schedule Your Call"
-                  name="Call Invitation"
-                  :interest="[
-                    'digital transformation',
-                    'customer experience',
-                    'data intelligence',
-                  ]"
+                  :title="title"
+                  :theme="theme"
+                  :interest="interest"
                 >
                   <template v-slot>
                     <Calendar />
@@ -137,8 +133,9 @@
 export default {
   layout: "landing",
   data: () => ({
-    title: "Schedule Call",
-    interest: ["Digitalization", "Customer Experience", "Data Intelligence"],
+    title: "Schedule your Call",
+    theme:"Discovery Call",
+    interest: ["Digital transformation", "Customer Experience", "Data Intelligence"],
     observer: null,
     dialog: false,
     options: {

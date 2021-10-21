@@ -143,6 +143,8 @@
 
 <script>
 export default {
+  props: ["submitAuth"],
+
   mounted() {
     const val = this.validate
     const lb = document
@@ -176,17 +178,17 @@ export default {
       { name: "Login", icon: "mdi-account" },
       { name: "Register", icon: "mdi-account-outline" },
     ],
+    verify: null,
     valid: true,
     userRegInfo: {
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
+      firstname: null,
+      lastname: null,
+      email: null,
+      password: null,
     },
-    verify: "",
     userLogInfo: {
-      loginPassword: "",
-      loginEmail: "",
+      loginPassword: null,
+      loginEmail: null,
     },
     loginEmailRules: [
       (v) => !!v || "Required",
@@ -202,8 +204,7 @@ export default {
       min: (v) => (v && v.length >= 8) || "Min 8 characters",
     },
   }),
-  props: ["submitAuth"],
-};
+}
 </script>
 <style scoped>
 .text-large {

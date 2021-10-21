@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt')
 
 const mongoose = require('mongoose')
-// const User = require('./models/User.js')
+// const User = require('./models/User')
 // const { createToken } = require('./utils/jwt')
 // const { authenticateToken } = require('./utils/jwt')
 // const errorHandler = require('./utils/errorHandler')
@@ -13,6 +13,8 @@ const {User} = require('./models')
 // const { authenticateToken } = require('./utils')
 // const errorHandler = require('./utils')
 const { createToken, authenticateToken, errorHandler } = require('./utils')
+
+const { sendMail } = require('./mail')
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -86,5 +88,11 @@ app.delete("/api/user/:id", async (req, res) => {
     res.status(500).json({ errors })
   }
 })
+
+// In dev mode, axios baseURL ends with /api becase the api files are located under /api folder, 
+// hence need to declare /mail route instead of /api/mail 
+// In prod, vercel.json redirects everything to /api, 
+// hence need to declare /api/mail as a route  
+app.post("/mail", sendMail)
 
 module.exports = app

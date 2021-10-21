@@ -88,7 +88,11 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/',
+    // --- CHANGE
+    // to http://localhost:3000/api/
+    // for testing mail.js
+    // ---
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://www.digitaljam.io/api/' : 'http://localhost:3000/api/',
     credentials: true
   },
 

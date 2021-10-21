@@ -96,37 +96,37 @@
           if (entry.isIntersecting){
             switch(entry.target.classList.contains('anim')) {
               case (entry.target.classList.contains('head-shake')):
-                console.log('case = fil')
+                // console.log('case = fil')
                 entry.target.classList.add('animate__animated', 'animate__headShake', 'animate__delay-1s')
                 entry.target.classList.remove('hidden')
                 observer.unobserve(entry.target)
                 break;
               case (entry.target.classList.contains('fade-in-left')):
-                console.log('case = fil')
+                // console.log('case = fil')
                 entry.target.classList.add('animate__animated', 'animate__fadeInLeft')
                 entry.target.classList.remove('hidden')
                 observer.unobserve(entry.target)
                 break;
               case (entry.target.classList.contains('fade-in-right')):
-                console.log('case = fir')
+                // console.log('case = fir')
                 entry.target.classList.add('animate__animated', 'animate__fadeInRight')
                 entry.target.classList.remove('hidden')
                 observer.unobserve(entry.target)
                 break;
               case (entry.target.classList.contains('fade-in')):
-                console.log('case = fi')
+                // console.log('case = fi')
                 entry.target.classList.add('animate__animated', 'animate__fadeIn')
                 entry.target.classList.remove('hidden')
                 observer.unobserve(entry.target)
                 break;
               case (entry.target.classList.contains('fade-in-up')):
-                console.log('case = fiu')
+                // console.log('case = fiu')
                 entry.target.classList.add('animate__animated', 'animate__fadeInUp')
                 entry.target.classList.remove('hidden')
                 observer.unobserve(entry.target)
                 break;
               case (entry.target.classList.contains('fade-in-down')):
-                console.log('case = fid')
+                // console.log('case = fid')
                 entry.target.classList.add('animate__animated', 'animate__fadeInDown')
                 entry.target.classList.remove('hidden')
                 observer.unobserve(entry.target)
