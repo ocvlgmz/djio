@@ -22,7 +22,7 @@ const sendMail = async (req, res) => {
     return rejectFunctions.hasOwnProperty(key) && !rejectFunctions.value && xssFilters.inHTMLData(value)
   }
   const sanitizedAttributes = attributes.map(n => validateAndSanitize(n, req.body[n]))
-  
+  console.log('sanitizedAttributes: '+ sanitizedAttributes)
   // True if some of the attributes new values are false -> validation failed
   const someInvalid = sanitizedAttributes.some(r => !r)
   if (someInvalid) {
