@@ -93,6 +93,6 @@ app.delete("/api/user/:id", async (req, res) => {
 // hence need to declare /mail route instead of /api/mail 
 // In prod, vercel.json redirects everything to /api, 
 // hence need to declare /api/mail as a route  
-app.post("/mail", sendMail)
+app.post("/api/mail", sendMail)
 
 module.exports = app
