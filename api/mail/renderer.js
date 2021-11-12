@@ -26,6 +26,7 @@ const renderer = require('vue-server-renderer').createRenderer({
 // will return as a string, the full page with app content injected.
 
 const renderHtml = async (req,res, next) => {
+  console.log('renderHtml function..')
   let { sched } = req.body
   let date = new Date(sched).toString()
   // const day = new Date(date).getDate()

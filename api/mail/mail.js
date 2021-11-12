@@ -3,6 +3,8 @@ const validator = require('validator')
 const xssFilters = require('xss-filters')
 
 const sendMail = async (req, res) => {
+  console.log('sendMail function..')
+
   const html = res.locals.string
 
   const { theme, name, email, job, purpose, date, time, link } = req.body
@@ -77,7 +79,7 @@ const sendMail = async (req, res) => {
   const transporter = nodemailer.createTransport(mailSettings)
   // for async, use try/catch part 
   try {
-    // console.log('trying sendMail...')
+    console.log('trying sendMail...')
     await transporter.sendMail(mailOptions)
     res.status(201).json({ 'message': 'Email sent successfully!' })
   } catch (error) {
