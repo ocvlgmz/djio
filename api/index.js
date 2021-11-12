@@ -84,6 +84,6 @@ app.delete(process.env.NODE_ENV === 'production' ? '/api/user:id':'/user:id', as
 // hence need to declare /mail route instead of /api/mail 
 // In prod, vercel.json redirects everything to /api, 
 // hence need to declare /api/mail as a route  
-app.post(process.env.NODE_ENV === 'production' ? '/mail':'/mail', renderHtml, sendMail)
+app.post(process.env.NODE_ENV === 'production' ? '/api/mail' : '/mail', renderHtml, sendMail)
 
 module.exports = app
