@@ -8,7 +8,7 @@ const {User} = require('./models')
 const { createToken, authenticateToken, errorHandler } = require('./utils')
 
 const { renderHtml } = require('./mail/renderer')
-const { sendMail } = require('./mail')
+const { sendMail } = require('./mail/mail')
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
