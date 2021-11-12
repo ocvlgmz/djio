@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Geo');
+* {
+    word-break: keep-all;
+    text-decoration: none;
+}
+/* .wb {
+    word-break: keep-all;
+} */
+.gf-roboto {
+    font-family: 'Roboto';
+    font-weight: 300;
+    /* font-size:12px; */
+  }
+.gf-geo {
+    font-family: 'Geo';
+    font-weight: 300;
+    /* font-size:36px; */
+}
+.dj-blue {
+    color:#4C6070;
+}
+.dj-yellow {
+    color:#FABB28;
+}
+.dj-bg-blue {
+    background-color:#4C6070;
+}
+.dj-bg-yellow {
+    background-color:#FABB28;
+}
+.hidden {
+    opacity:0
+}
+.tmp {
+    border: solid 1px red;
+}

@@ -3,7 +3,10 @@ const validator = require('validator')
 const xssFilters = require('xss-filters')
 
 const sendMail = async (req, res) => {
+  const html = res.locals.string
+
   const { theme, name, email, job, purpose, date, time, link } = req.body
+
   const lead = { name, email, job }
   const call = { theme, purpose, date, time, link }
   // Validate & sanitize
@@ -22,7 +25,7 @@ const sendMail = async (req, res) => {
     return rejectFunctions.hasOwnProperty(key) && !rejectFunctions.value && xssFilters.inHTMLData(value)
   }
   const sanitizedAttributes = attributes.map(n => validateAndSanitize(n, req.body[n]))
-  console.log('sanitizedAttributes: '+ sanitizedAttributes)
+  // console.log('sanitizedAttributes: '+ sanitizedAttributes)
   // True if some of the attributes new values are false -> validation failed
   const someInvalid = sanitizedAttributes.some(r => !r)
   if (someInvalid) {
@@ -41,6 +44,9 @@ const sendMail = async (req, res) => {
     from: `"DigitalJam Team" <${process.env.MAIL_FROM}>`,
     to: sanitizedAttributes[1],
     subject: `Your ${call.theme} [details and instructions]`,
+    
+    html: `${html}`,
+    
     text: `
     Hello ${sanitizedAttributes[0]},
     
@@ -71,6 +77,7 @@ const sendMail = async (req, res) => {
   const transporter = nodemailer.createTransport(mailSettings)
   // for async, use try/catch part 
   try {
+    // console.log('trying sendMail...')
     await transporter.sendMail(mailOptions)
     res.status(201).json({ 'message': 'Email sent successfully!' })
   } catch (error) {

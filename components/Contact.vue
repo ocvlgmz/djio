@@ -138,11 +138,19 @@
           purpose: this.form.purpose,
           date: this.schedule.date,
           time: this.schedule.time,
+          sched: this.schedule.sched,
           link: null
         }
         // Preparing event information
-        const start = this.schedule.date + 'T' + this.schedule.time + ':00+02:00'
+        const madrid = new Date()
+        let diff = new Date(madrid).getTimezoneOffset()
+        let offset = null
+        diff == -60 ? offset=':00+01:00' : offset=':00+02:00'
+
+        const start = this.schedule.date + 'T' + this.schedule.time + offset
+        console.log('start'+start)
         const { st, et } = this.timeFrame(start)
+        inputs.sched = st
         let event = {
             start: {
                 'dateTime': st,
@@ -175,7 +183,7 @@
       async callMailRoute(inputs){
         this.err
         try {
-          await this.$axios.post('/mail', inputs)
+          await this.$axios.post('/api/mail', inputs)
           this.error(this.err)
           this.pageRedirect(this.err,'4000','/blog')
         } catch (error) {

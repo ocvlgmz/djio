@@ -4,16 +4,10 @@ const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt')
 
 const mongoose = require('mongoose')
-// const User = require('./models/User')
-// const { createToken } = require('./utils/jwt')
-// const { authenticateToken } = require('./utils/jwt')
-// const errorHandler = require('./utils/errorHandler')
 const {User} = require('./models')
-// const { createToken } = require('./utils')
-// const { authenticateToken } = require('./utils')
-// const errorHandler = require('./utils')
 const { createToken, authenticateToken, errorHandler } = require('./utils')
 
+const { renderHtml } = require('./mail/renderer')
 const { sendMail } = require('./mail')
 
 app.use(express.urlencoded({extended: true}))
@@ -26,7 +20,7 @@ mongoose.connect(process.env.MONGO_DB_URI)
     .catch((err) => console.log('Database connection error:', err))
 
 // Auth routes
-app.post('/api/register', async (req, res) => {
+app.post(process.env.NODE_ENV === 'production' ? '/api/register' : '/register', async (req, res) => {
   const { firstname, lastname, email, password } = req.body
   try {
       const user = await User.create({ firstname, lastname, email, password })
@@ -37,7 +31,8 @@ app.post('/api/register', async (req, res) => {
       res.status(400).json({ errors })
   }
 })
-app.post('/api/login', async (req, res) => {
+
+app.post(process.env.NODE_ENV === 'production' ? '/api/login' : '/login', async (req, res) => {
   const { email, password } = req.body
   try {
       const user = await User.findOne({ email })
@@ -55,18 +50,14 @@ app.post('/api/login', async (req, res) => {
       res.status(400).json({ errors })
   }
 })
-// Nuxt Auth not using this route
-// app.get('/api/logout', (req, res) => {
-//   res.status(200).json({ message: 'User logged out.' })
-// })
 
 // User crud operations
-app.get('/api/user', authenticateToken, (req, res) => {
+app.get(process.env.NODE_ENV === 'production' ? '/api/user':'/user', authenticateToken, (req, res) => {
   // const {user} = req.cookies['user']
   const {user} = req.cookies
   res.status(200).json({ user })
 })
-app.patch("/api/user/:id", async (req, res) => {
+app.patch(process.env.NODE_ENV === 'production' ? '/api/user:id':'/user:id', async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(req.params.id, req.body);
     await user.save()
@@ -77,7 +68,7 @@ app.patch("/api/user/:id", async (req, res) => {
     res.status(502).json({ errors })
   }
 })
-app.delete("/api/user/:id", async (req, res) => {
+app.delete(process.env.NODE_ENV === 'production' ? '/api/user:id':'/user:id', async (req, res) => {
   try {
     const user = await User.findOneAndRemove(req.params.id)
     if (!user) res.status(400).json({message: "No user found."})
@@ -93,6 +84,6 @@ app.delete("/api/user/:id", async (req, res) => {
 // hence need to declare /mail route instead of /api/mail 
 // In prod, vercel.json redirects everything to /api, 
 // hence need to declare /api/mail as a route  
-app.post("/api/mail", sendMail)
+app.post(process.env.NODE_ENV === 'production' ? '/api/mail':'/mail', renderHtml, sendMail)
 
 module.exports = app

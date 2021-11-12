@@ -36,18 +36,20 @@ export default {
     },
     async loginUser({ loginEmail, loginPassword }) {
       const user = { email: loginEmail, password: loginPassword }
+      console.log('user:'+user)
       try {
         await this.$axios.post('/login', user)
         this.$auth.loginWith('local', { data: user })
         // this.$router.push("/dashboard")
       } catch (err) {
+        console.log('error..')
         this.error(err)
       }
     }, 
     async registerUser({ firstname, lastname, email, password }) {
       const user = {firstname,lastname,email,password}
       try {
-        await this.$axios.post('/register', user)
+        await this.$axios.post(process.env.NODE_ENV === 'production' ? '/register' : '/api/register', user)
         // ---- TODO ---- 
         // redirect to a page requiring the user to check his email for confirm!!
         // instead of loginWith + push to /dashboard

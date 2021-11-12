@@ -108,9 +108,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/login', method: 'post', propertyName: 'token' },
+          login: { url: process.env.NODE_ENV === 'production' ? '/login' : '/api/login', method: 'post', propertyName: 'token' },
           logout: false,
-          user: { url: '/user', method: 'get', propertyName: 'user' }
+          user: { url: process.env.NODE_ENV === 'production' ? '/user' : '/api/user', method: 'get', propertyName: 'user' }
         }
       }
     }
