@@ -183,7 +183,7 @@
       async callMailRoute(inputs){
         this.err
         try {
-          await this.$axios.post('/api/mail', inputs)
+          await this.$axios.post(process.env.NODE_ENV === 'production' ? '/mail' : '/api/mail', inputs)
           this.error(this.err)
           this.pageRedirect(this.err,'4000','/blog')
         } catch (error) {
