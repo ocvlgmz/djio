@@ -49,7 +49,7 @@ Thumbs.db
 *.wmv
 
 # Project folders to ignore
-assets/img/*
+# assets/img/*
 assets/vid/*
 
 # local & backup files

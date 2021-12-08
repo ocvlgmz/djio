@@ -16,7 +16,7 @@
           </v-col>
           <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
               <v-avatar size="254">
-                <v-img :src="require('../assets/img/network.png')"/>
+                <v-img :src="require('@/assets/img/network.png')"/>
               </v-avatar>
           </v-col>
         </v-row>
