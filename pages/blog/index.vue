@@ -1,11 +1,84 @@
 <template>
   <v-container fluid>
-    <v-row align="center" justify="center">
+    <!-- LG display -->
+    <v-row align="center" justify="center" v-show="breakpoint.lg">
       <v-col xs="12" sm="10" md="8">
         <v-row align="center" justify="space-between">
           <v-col cols="9" class="">
             <v-tabs class="align-self-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
-              <v-tab class="overline" v-for="section in sections" :key="section.index">
+              <v-tab class="text-tabs" v-for="section in sections" :key="section.index">
+                {{ section }}
+              </v-tab>
+            </v-tabs>
+          </v-col>
+          <v-col cols="3" class="">
+            <v-text-field rounded background-color="lime lighten-4" color="deep-orange" append-icon="mdi-magnify" placeholder="search"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-tabs-items v-model="tab">
+          <v-tab-item >
+            <v-row class="mt-5">
+              <v-col cols="4" v-for="story in articles" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-5">
+              <v-col cols="4" v-for="story in podcasts" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-5">
+              <v-col cols="4" v-for="post in events" :key="post.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${post.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
+    <!-- SM display -->
+    <v-row align="center" justify="center" v-show="breakpoint.sm">
+      <v-col xs="12" sm="10" md="8">
+        <v-row align="center" justify="space-between" class="d-flex flex-column">
+          <v-col cols="9" class="">
+            <v-tabs class="align-self-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
+              <v-tab class="text-tabs" v-for="section in sections" :key="section.index">
                 {{ section }}
               </v-tab>
             </v-tabs>
@@ -206,6 +279,17 @@
           } 
         })
       }
+    },
+    computed: {
+      breakpoint () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return { xs: true, sm: false, md: false, lg: false, xl: false, name:'xs' }
+          case 'sm': return { xs: false, sm: true, md: false, lg: false, xl: false, name:'sm' }
+          case 'md': return { xs: false, sm: false, md: true, lg: false, xl: false, name:'md' }
+          case 'lg': return { xs: false, sm: false, md: false, lg: true, xl: false, name:'lg' }
+          case 'xl': return { xs: false, sm: false, md: false, lg: false, xl: true, name:'xl' }
+        }
+      }
     }
   }
 </script>
@@ -218,5 +302,9 @@
 .cover {
   display: inline-block;
   background-color: chocolate;
+}
+.text-tabs {
+  font-family: var(--font-roboto);
+  font-size: large;
 }
 </style>
