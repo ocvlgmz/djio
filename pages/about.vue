@@ -537,3 +537,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.font-bot {
+  font-family: var(--font-geo);
+}
+</style>
