@@ -1,13 +1,13 @@
 <template>
   <v-card tile class="mx-10">
     <!-- on Most -->
-    <v-app-bar app elevate-on-scroll color="white" v-if="breakpoint.md || breakpoint.lg">
+    <v-app-bar app elevate-on-scroll color="white" v-show="breakpoint.md || breakpoint.lg">
       <v-btn depressed color="transparent" class="mx-4" to="/">
           <span class="logo-dgt">digital</span>
           <span class="logo-jam"> Jam</span>
       </v-btn>
       <v-spacer></v-spacer>
-      <div class="mx-1 font-text nav-text">
+      <div class="mx-1 font-text">
         <v-btn depressed text color="blue-grey darken-1" to="/about">About</v-btn>
         <v-btn depressed text color="blue-grey darken-1" to="/service">Service</v-btn>
         <v-btn depressed text color="blue-grey darken-1" to="/blog">Blog</v-btn>
@@ -23,7 +23,7 @@
     </v-app-bar>
 
     <!-- on Xs -->
-    <v-app-bar app elevate-on-scroll color="white" v-if="breakpoint.sm">
+    <v-app-bar app elevate-on-scroll color="white" v-show="breakpoint.sm">
       <v-btn depressed color="transparent" class="mx-4" to="/">
         <span class="logo-dgt">digital</span>
         <span class="logo-jam"> Jam</span>
@@ -52,21 +52,25 @@
     </v-app-bar>
 
     <!-- on Drawer -->
-    <v-app-bar app elevate-on-scroll color="white" v-if="breakpoint.xs">
+    <v-app-bar app elevate-on-scroll color="white" v-show="breakpoint.xs">
       <v-btn depressed color="transparent" class="mx-4" to="/">
         <span class="logo-dgt">digital</span>
         <span class="logo-jam"> Jam</span>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn icon color="blue-grey darken-1" class="font-text mr-4" @click.stop="drawer = !drawer">
+      <v-btn icon color="blue-grey darken-1" class="font-text mr-4" @click="drawer = !drawer">
         <v-icon >mdi-menu</v-icon></v-btn>
     </v-app-bar>
-      <v-navigation-drawer v-model="drawer" app bottom temporary>
+      <v-navigation-drawer v-model="drawer" app bottom temporary v-show="breakpoint.xs">
         <v-list class="font-text text-uppercase">
-            <v-list-item ripple color="blue-grey darken-1" nuxt to="/about" ><v-list-item-content class="justify-center">about</v-list-item-content></v-list-item>
-            <v-list-item ripple color="blue-grey darken-1" to="/blog"><v-list-item-content class="justify-center">blog</v-list-item-content></v-list-item>
-            <v-list-item ripple color="blue-grey darken-1" to="/service"><v-list-item-content class="justify-center">service</v-list-item-content></v-list-item>
-            <v-list-item ripple color="blue-grey darken-1" to="/store"><v-list-item-content class="justify-center">store</v-list-item-content></v-list-item>
+            <v-list-item ripple color="blue-grey darken-1" nuxt to="/about" >
+              <v-list-item-content class="justify-center">about</v-list-item-content></v-list-item>
+            <v-list-item ripple color="blue-grey darken-1" to="/service">
+              <v-list-item-content class="justify-center">service</v-list-item-content></v-list-item>
+            <v-list-item ripple color="blue-grey darken-1" to="/blog">
+              <v-list-item-content class="justify-center">blog</v-list-item-content></v-list-item>
+            <!-- <v-list-item ripple color="blue-grey darken-1" to="/store">
+              <v-list-item-content class="justify-center">store</v-list-item-content></v-list-item> -->
         </v-list>
         <v-list class="font-text" v-if="isAuthenticated">
           <v-list-item><v-list-item-content>
@@ -78,7 +82,7 @@
         </v-list>
         <v-list nav class="font-text" v-else>
           <v-list-item><v-list-item-content>
-            <v-btn text color="lime lighten-2" to="/login">Login</v-btn>
+            <v-btn text color="lime darken-4" to="/login">Login</v-btn>
           </v-list-item-content></v-list-item>
         </v-list>
       </v-navigation-drawer>
@@ -107,7 +111,7 @@ export default {
         case 'lg': return { xs: false, sm: false, md: false, lg: true, xl: false }
         case 'xl': return { xs: false, sm: false, md: false, lg: false, xl: true }
       }
-    }
+    },
   },
   methods: {
     async logout() {
@@ -132,7 +136,7 @@ export default {
     font-size: 1.5rem;
     color:var(--color-orange);
 }
-.nav-text {
+/* .nav-text {
   font-size: 0.925 rem;
-}
+} */
 </style>

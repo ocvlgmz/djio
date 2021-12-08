@@ -2,7 +2,7 @@
   <v-container>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn large depressed color="green darken-1" class="ma-2" v-bind="attrs" v-on="on">
+        <v-btn large depressed color="green darken-1" class="mt-2" v-bind="attrs" v-on="on">
           <span class="blue-grey--text text--lighten-4">{{ title }}</span>
         </v-btn>
       </template>

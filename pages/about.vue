@@ -367,14 +367,14 @@
               <p class="anim fade-in hidden">
                 Digital Jam is a network of highly qualified people covering a wide range of skills, experience and background. We function as a non-hierarchical organisation, allowing a very flexible and efficient approach when it comes to engage the right resources for each particular challenge.
               </p>
-              <v-list tile  color="blue-grey darken-4" class="my-5 pa-5 anim fade-in-left hidden">
-                <v-list-item>
+              <v-list tile  color="blue-grey darken-4" class="my-5 pa-4 anim fade-in-right hidden">
+                <v-list-item class="d-flex flex-column">
                   <v-list-item-icon class="align-self-center">
                     <v-icon left color="deep-orange lighten-1">mdi-account-group</v-icon>
                   </v-list-item-icon>
                   <v-list-item-content class="blue-grey--text text--lighten-3">
                     <v-list-item-title class="pa-2 text-h5 text-capitalize font-italic">our mission</v-list-item-title>
-                     <p class="pa-2">
+                     <p class="">
                       Help our clients improve their core value by leveraging data, technology and best practices, and take advantage of the growing number of business opportunities of the digital economy.
                      </p>
                      
@@ -419,16 +419,16 @@
       <!-- SECTION: Contact us -->
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <v-row justify="center" align="center">
-          <v-col cols="12" class="anim fade-in-left hidden">
+          <v-col cols="12" class="anim fade-in-right hidden">
             <v-card class="text-h6 text-grey-dark font-weight-light">
-              <v-list tile  color="blue-grey darken-4" class="my-5 pa-5">
-                <v-list-item>
-                  <v-list-item-icon class="align-self-center">
+              <v-list tile  color="blue-grey darken-4" class="my-2 pa-4">
+                <v-list-item class="d-flex flex-column">
+                  <v-list-item-icon class="pt-2 align-self-center">
                     <v-icon left color="green lighten-1">mdi-handshake</v-icon>
                   </v-list-item-icon>
                   <v-list-item-content class="blue-grey--text text--lighten-3">
                     <v-list-item-title class="pa-2 text-h5 text-capitalize font-italic">Growing together</v-list-item-title>
-                    <p class="pa-2">
+                    <p class="">
                       We are constantly looking to expand our professional network. If our service offer and teamwork approach resonate with you, feel free to send us an email to discuss collaboration or partnership. 
                     </p>
                     <ContactUs :title="'contact us'" :interest="['Collaboration', 'Partnership']"/>
