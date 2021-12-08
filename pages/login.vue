@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-snackbar 
       v-model="snackbar.show"
       timeout="3000"
@@ -17,12 +17,19 @@
         </v-col>
       </v-row>
     </v-snackbar>
-    <LoginForm :submitAuth="authUser" />
+        <LoginForm :submitAuth="authUser" />
+    <!-- <v-row align="center" justify="center">
+      <v-col>
+
+      </v-col>
+    </v-row> -->
   </v-container>
 </template>
 
 <script>
 // No need to register components with Nuxt: it works out of the box!
+import {mapGetters} from 'vuex'
+
 export default {
   layout: "default",
   data() {
@@ -74,3 +81,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.centered {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+</style>

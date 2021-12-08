@@ -71,11 +71,6 @@
             </v-container>
           </v-card-text>
           <v-card-text>
-            <!-- Slot tags 
-            -- This 'Contact' component is declared in the template of index.vue, 
-            -- and it contains its own template tags whose content will end up been displayed between the slot tags here! -->
-            <!-- <slot></slot> -->
-            <!-- getSchedule can be referred without () although the "@getValue" is sent by the component Calendar with the value "slot" -->
             <Calendar @getValue="getSchedule"/>
           </v-card-text>
           <v-card-actions>

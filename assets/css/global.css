@@ -1,37 +1,165 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
-@import url('https://fonts.googleapis.com/css2?family=Geo');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geo:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --font-geo: 'Geo', sans-serif;
+    --font-roboto:'Roboto', sans-serif;
+    --font-manrope:'Manrope', sans-serif;
+
+    --color-blue: #607D8B;
+    --color-orange: #FF5722;
+    --color-red: #F44336;
+    --color-green: #4CAF50;
+    --color-lime: #CDDC39;
+    --color-teal: #009688;
+    --color-indigo: #3F51B5;
+    --color-grey: #9E9E9E;
+    --color-whitish: #FAFAFA;
+    --color-blackish: #212121;
+
+    --color-blue-light:#90A4AE;
+    --color-blue-dark:#455A64;
+    --color-orange-light:#FF8A65;
+    --color-orange-dark:#E64A19;
+    --color-grey-light:#E0E0E0;
+    --color-grey-dark:#616161;
+    --color-purple-light:#9575CD;
+    --color-purple-dark:#512DA8;
+    --color-red-light:#E57373;
+    --color-red-dark:#D32F2F;
+    --color-teal-light:#4DB6AC;
+    --color-teal-dark:#00796B;
+
+    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #e0a659 102.67%);
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #e0a659 99.55%);
+}
+
 * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
     word-break: keep-all;
     text-decoration: none;
+    font-family: var(--font-manrope);
 }
-/* .wb {
-    word-break: keep-all;
-} */
-.gf-roboto {
-    font-family: 'Roboto';
-    font-weight: 300;
-    /* font-size:12px; */
+
+.size-h3 {
+    font-size: 3rem;
+}
+.size-h4 {
+    font-size: 2.125rem;
+}
+.size-h5 {
+    font-size: 1.5rem;
+}
+.font-note {
+    font-family: var(--font-roboto);
   }
-.gf-geo {
-    font-family: 'Geo';
-    font-weight: 300;
-    /* font-size:36px; */
+.font-text {
+    font-family: var(--font-manrope);
+  }
+.font-bot {
+    font-family: var(--font-geo);
 }
-.dj-blue {
-    color:#4C6070;
+
+/* text color classes */
+.text-blue-dark {
+    color:var(--color-blue-dark);
+} 
+.text-blue-light {
+    color:var(--color-blue-light);
 }
-.dj-yellow {
-    color:#FABB28;
+.text-red-dark {
+    color:var(--color-red-dark);
 }
-.dj-bg-blue {
-    background-color:#4C6070;
+.text-red-light {
+    color:var(--color-red-light);
 }
-.dj-bg-yellow {
-    background-color:#FABB28;
+.text-orange-dark {
+    color:var(--color-orange-dark);
 }
+.text-orange-light {
+    color:var(--color-orange-light);
+}
+.text-purple-dark {
+    color:var(--color-purple-dark);
+}
+.text-purple-light {
+    color:var(--color-purple-light);
+}
+.text-teal-dark {
+    color:var(--color-teal-dark);
+}
+.text-teal-light {
+    color:var(--color-teal-light);
+}
+.text-grey-dark {
+    color:var(--color-grey-dark);
+}
+.text-grey-light {
+    color:var(--color-grey-light);
+}
+.text-whitish {
+    color:var(--color-whitish);
+}
+.text-blackish {
+    color:var(--color-blackish);
+}
+
+/* bg color classes */
+.bg-whitish {
+    background-color:var(--color-whitish);
+}
+.bg-blackish {
+    background-color:var(--color-blackish);
+}
+.bg-blue-dark {
+    background-color:var(--color-blue-dark);
+} 
+.bg-blue-light {
+    background-color:var(--color-blue-light);
+}
+.bg-red-dark {
+    background-color:var(--color-red-dark);
+}
+.bg-red-light {
+    background-color:var(--color-red-light);
+}
+.bg-orange-dark {
+    background-color:var(--color-orange-dark);
+}
+.bg-orange-light {
+    background-color:var(--color-orange-light);
+}
+.bg-purple-dark {
+    background-color:var(--color-purple-dark);
+}
+.bg-purple-light {
+    background-color:var(--color-purple-light);
+}
+.bg-teal-dark {
+    background-color:var(--color-teal-dark);
+}
+.bg-teal-light {
+    background-color:var(--color-teal-light);
+}
+.bg-grey-dark {
+    background-color:var(--color-grey-dark);
+}
+.bg-grey-light {
+    background-color:var(--color-grey-light);
+}
+
 .hidden {
     opacity:0
 }
-.tmp {
-    border: solid 1px red;
+
+/* Utils */
+.tmpr {
+    border: dashed 1px red;
+}
+.tmpb {
+    border: dashed 1px blue;
 }

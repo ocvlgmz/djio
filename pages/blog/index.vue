@@ -1,29 +1,74 @@
 <template>
   <v-container fluid>
-    <Hero />
-    <v-container fluid mt-4>
-      <v-chip outlined>
-        <input
-            v-model.lazy="searchQuery"
-            type="search"
-            autocomplete="off"
-            placeholder="Search Articles"
-        />
-      </v-chip>
-    </v-container>
-    <v-row class="ma-4">
-      <v-col sm="6" md="4" lg="3" v-for="article of articles" :key="article.slug" class="pa-4">
-        <v-hover v-slot="{ hover }">
-              <v-card tile :elevation="hover ? 12 : 2" class="anim fade-in">
-                <ArticlePreview 
-                  :key="article.slug"
-                  :title="article.title" 
-                  :summary="article.summary" 
-                  :thumbnail="article.thumbnail"
-                  :slug="article.slug" 
-                />
-              </v-card>
-        </v-hover>
+    <v-row align="center" justify="center">
+      <v-col xs="12" sm="10" md="8">
+        <v-row align="center" justify="space-between">
+          <v-col cols="9" class="">
+            <v-tabs class="align-self-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
+              <v-tab class="overline" v-for="section in sections" :key="section.index">
+                {{ section }}
+              </v-tab>
+            </v-tabs>
+          </v-col>
+          <v-col cols="3" class="">
+            <v-text-field rounded background-color="lime lighten-4" color="deep-orange" append-icon="mdi-magnify" placeholder="search"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-tabs-items v-model="tab">
+          <v-tab-item >
+            <v-row class="mt-5">
+              <v-col cols="4" v-for="story in articles" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-5">
+              <v-col cols="4" v-for="story in podcasts" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-5">
+              <v-col cols="4" v-for="post in events" :key="post.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${post.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+        </v-tabs-items>
       </v-col>
     </v-row>
   </v-container>
@@ -32,27 +77,53 @@
   export default {
     data() {
       return {
-        observer:null,
+        observer: null,
         searchQuery: '',
-        articles: []
+        sections: ['Articles','Podcasts','Events'],
+        tab: null,
       }
     },
     asyncData (context) {
       return context.app.$storyapi.get('cdn/stories', {
         version: 'published',
-        starts_with: 'blog/'
+        // starts_with: 'blog/'
       }).then((res) => {
-        // console.log(res.data)
-        return {
-          articles : res.data.stories.map(bp =>{
-            return {
-              slug: bp.slug,
-              title: bp.content.title,
-              summary: bp.content.summary,
-              thumbnail: bp.content.thumbnail,
-            }
-          })
-        }
+          console.log('stories: ', res.data.stories)
+          return {
+            articles: res.data.stories
+                        .filter( story => /^articles/.test(story.full_slug))
+                        .map( post => {
+                          console.log('articles: ', post)
+                          return {
+                            slug:post.slug,
+                            title: post.content.title,
+                            summary: post.content.summary,
+                            thumbnail: post.content.thumbnail,
+                          }
+                        }),
+            podcasts: res.data.stories
+                        .filter( story => /^pods/.test(story.full_slug))
+                        .map( post => {
+                          console.log('pods: ', post)
+                          return {
+                            slug:post.slug,
+                            title: post.content.title,
+                            summary: post.content.summary,
+                            thumbnail: post.content.image,
+                          }
+                        }),
+            events: res.data.stories
+                        .filter( story => /^events/.test(story.full_slug))
+                        .map( post => {
+                          console.log('events: ', post)
+                          return {
+                            slug:post.slug,
+                            title: post.content.title,
+                            summary: post.content.summary,
+                            thumbnail: post.content.thumbnail,
+                          }
+                        }),
+          }
       }).catch((res) => {
         if (!res.response) {
           // console.error(res)
@@ -139,7 +210,13 @@
   }
 </script>
 <style scoped>
-input {
-  outline: none;
+.bg-post {
+  /* background-image: url('../../assets/img/dummy.png'); */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cover {
+  display: inline-block;
+  background-color: chocolate;
 }
 </style>

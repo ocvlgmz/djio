@@ -1,10 +1,5 @@
 <template>
-  <v-container fluid pa-0>
-    <v-row class="d-flex justify-lg-start" align=center justify=center>
-      <v-col cols="4">
-        <Logo />
-      </v-col>
-    </v-row>
+  <v-container fluid ma-0>
     <v-card flat color="transparent" class="hidden-md-and-down">
       <v-row justify="center" align="center">
         <v-col cols="4" class="animate__animated animate__fadeInLeft">
@@ -131,7 +126,7 @@
 </template>
 <script>
 export default {
-  layout: "landing",
+//   layout: "landing",
   data: () => ({
     title: "Schedule your Call",
     theme:"Discovery Call",

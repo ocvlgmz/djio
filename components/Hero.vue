@@ -1,7 +1,7 @@
 <template>
   <v-card flat dark tile :color="bgColor">
     <v-row no-gutters>
-      <v-col sm="4" xsm="12">
+      <v-col>
         <v-card-title class="text-capitalize hero">
             <NuxtLink class="" to="/blog" v-if="slug"><h1>{{ slug?'Blog':this.page }}</h1></NuxtLink>
             <h1 v-else>{{ slug?'Blog':this.page }}</h1>
@@ -71,7 +71,7 @@ export default {
   color: #e2e2e2;
 }
 .nuxt-link-active:hover {
-  color: #FABB28;
-  filter: opacity(50%);
+  color: var(--color-dj-yellow);
+  filter: opacity(0.8);
 }
 </style>

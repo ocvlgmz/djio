@@ -6,7 +6,6 @@
 .fade-leave-to {
     opacity: 0;
 }
-
 .bounce-enter-active,
 .bounce-leaver-active {
     transition: opacity 0.5s;

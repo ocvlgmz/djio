@@ -1,16 +1,21 @@
 <template>
-  <v-container fluid v-editable="blok">
-    <Hero :slug="title" />
-    <v-row class="ma-4">
-      <v-col class="pa-4">
-        <v-card flat > 
-            <v-img :style="{backgroundImage: `url(${thumbnail})`}" class="thumbnail"></v-img>
-            <v-card-title class="dj-blue">
-                {{title}} 
+<v-container fluid v-editable="posts[0].blok">
+  <!-- <v-container fluid > -->
+     <v-row justify="center">
+       <v-col xs="12" md="3" class="deep-orange tmpb hidden-sm-and-down">
+        <Share :link="posts[0].slug"/>
+       </v-col>
+      <v-col xs="12" sm="8" md="6">
+        <v-card flat >
+            <v-img :src="posts[0].thumbnail"></v-img>
+            <v-card-title class="blue-grey--text">
+                {{posts[0].title}} 
             </v-card-title>
-            <v-card-text class="dj-blue">
-                {{summary}}
+            <v-card-text class="blue-grey--text">
+                {{posts[0].summary}}
             </v-card-text>
+            <audio v-if="posts[0].media" :src="posts[0].media" controls>
+            </audio>
         </v-card>
       </v-col>
     </v-row>
@@ -25,19 +30,24 @@
       }
     },
     asyncData (context) {
-      return context.app.$storyapi
-        .get('cdn/stories/blog/'+context.params.slug, {
-          version: 'published',
-          // starts_with: 'blog/'
-        })
+      console.log('context.params: ', context.params)
+      return context.app.$storyapi.get('cdn/stories', { version: 'published', /*starts_with: 'blog/'*/ })
         .then((res) => {
-          console.log(res.data)
+          console.log('stories: ', res.data.stories)
           return {
-            blok: res.data.story.content,
-            slug: res.data.story.slug,
-            title: res.data.story.content.title,
-            summary: res.data.story.content.summary,
-            thumbnail: res.data.story.content.thumbnail,
+            posts: res.data.stories
+                    .filter( story => story.slug == context.params.slug )
+                    .map( post => {
+                      console.log('post: ',post)
+                      return {
+                            blok: post.content,
+                            title: post.content.title,
+                            summary: post.content.summary,
+                            thumbnail: /^pods/.test(post.full_slug)? post.content.image : post.content.thumbnail,
+                            media: /^pods/.test(post.full_slug)? post.content.file.filename : null,
+                            slug: post.slug
+                      }
+                    }),
           }
         })
         .catch((res) => {

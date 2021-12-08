@@ -1,6 +1,5 @@
 <template>
   <v-container fluid>
-    <Hero />
     <v-card flat class="mx-10">
       <v-card-title class="text-h5 font-weight-light dj-blue">
         {{ greeting }}
@@ -132,5 +131,5 @@ export default {
       return null
     },
   },
-};
+}
 </script>

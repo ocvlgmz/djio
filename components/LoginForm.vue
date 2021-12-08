@@ -1,142 +1,71 @@
 <template>
-  <v-row justify="center">
-    <v-col cols="6" xsm="12">
-      <v-card>
-        <v-tabs
-          v-model="tab"
-          show-arrows
-          background-color="#4C6070"
-          icons-and-text
-          dark
-          grow
-        >
-          <v-tabs-slider color="#FABB28"></v-tabs-slider>
-          <v-tab v-for="tab in tabs" :key="tab.name">
-            <v-card-title class="gf-geo py-1">{{ tab.name }}</v-card-title>
-          </v-tab>
-          <v-tab-item>
-            <v-card class="px-4">
-              <v-card-text>
-                <v-form ref="loginForm" v-model="valid" lazy-validation>
-                  <v-row>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="userLogInfo.loginEmail"
-                        :rules="loginEmailRules"
-                        label="E-mail"
-                        required
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="userLogInfo.loginPassword"
-                        :append-icon="show1 ? 'eye' : 'eye-off'"
-                        :rules="[rules.required, rules.min]"
-                        :type="show1 ? 'text' : 'password'"
-                        name="input-10-1"
-                        label="Password"
-                        hint="At least 8 characters"
-                        counter
-                        @click:append="show1 = !show1"
-                      ></v-text-field>
-                    </v-col>
-                    <v-spacer></v-spacer>
-                    <v-col class="d-flex">
-                      <v-btn
-                        class="gf-geo amber--text text-large"
-                        id="btn-login"
-                        x-large
-                        block
-                        depressed
-                        :disabled="!valid"
-                        @click="validate"
-                      >
-                        Submit
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                </v-form>
-              </v-card-text>
-            </v-card>
-          </v-tab-item>
-          <v-tab-item eager>
-            <v-card class="px-4">
-              <v-card-text>
-                <v-form ref="registerForm" v-model="valid" lazy-validation>
-                  <v-row>
-                    <v-col cols="12" sm="6" xsm="8">
-                      <v-text-field
-                        v-model="userRegInfo.firstname"
-                        :rules="[rules.required]"
-                        label="First Name"
-                        maxlength="20"
-                        required
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="6">
-                      <v-text-field
-                        v-model="userRegInfo.lastname"
-                        :rules="[rules.required]"
-                        label="Last Name"
-                        maxlength="20"
-                        required
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="userRegInfo.email"
-                        :rules="emailRules"
-                        label="E-mail"
-                        required
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="userRegInfo.password"
-                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                        :rules="[rules.required, rules.min]"
-                        :type="show1 ? 'text' : 'password'"
-                        name="input-10-1"
-                        label="Password"
-                        hint="At least 8 characters"
-                        counter
-                        @click:append="show1 = !show1"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        block
-                        v-model="verify"
-                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                        :rules="[rules.required, passwordMatch]"
-                        :type="show1 ? 'text' : 'password'"
-                        name="input-10-1"
-                        label="Confirm Password"
-                        counter
-                        @click:append="show1 = !show1"
-                      ></v-text-field>
-                    </v-col>
-                    <v-spacer></v-spacer>
-                    <v-col class="d-flex">
-                      <v-btn
-                        class="gf-geo amber--text text-large"
-                        id="btn-register"
-                        x-large
-                        depressed
-                        block
-                        :disabled="!valid"
-                        color="grey lighten-4"
-                        @click="validate"
-                        >Submit
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                </v-form>
-              </v-card-text>
-            </v-card>
-          </v-tab-item>
-        </v-tabs>
-      </v-card>
+  <v-row align="center" justify="center">
+    <v-col xs="12" sm="8" md="6" lg="4">
+        <v-card tile class="px-10 pa-10" elevation="10">
+          <!-- SIGN IN -->
+          <v-form class="" ref="loginForm" v-model="valid" lazy-validation v-if="signIn">
+            <v-card-title class="mb-4 justify-center overline text-h4 blue-grey--text font-weight-bold">
+                Sign In
+            <v-card-subtitle class="">
+                No account yet? <a class="deep-orange--text" @click="signIn = !signIn">Sign up</a>
+            </v-card-subtitle>
+            </v-card-title>
+            <v-text-field class=" px-4" required flat solo background-color="lime lighten-4" label="Email"
+              v-model="userLogInfo.loginEmail" :rules="loginEmailRules"></v-text-field>
+            <v-text-field class=" px-4" required counter flat solo background-color="lime lighten-4" label="Password" name="some" hint="At least 8 characters" 
+              v-model="userLogInfo.loginPassword"
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, rules.min]"
+              :type="show ? 'text' : 'password'"
+              @click:append="show = !show"
+            ></v-text-field>
+            <v-card-title class="pa-4">
+              <v-btn class="white--text text-large" id="btn-login" background-color="lime lighten-4"
+                x-large block depressed color="deep-orange" :disabled="!valid" @click="validate"
+              >
+                Submit
+              </v-btn>
+            </v-card-title>
+          </v-form>
+          <!-- SIGN UP -->
+          <v-form class="" ref="loginForm" v-model="valid" lazy-validation v-if="!signIn">
+            <v-card-title class="mb-4 justify-center overline text-h4 blue-grey--text font-weight-bold">
+              Sign Up
+              <v-card-subtitle class="">
+                  Already have an account? <a class="deep-orange--text" @click="signIn = !signIn">Sign in</a>
+              </v-card-subtitle>
+            </v-card-title>
+
+            <v-text-field class=" px-4" required flat solo background-color="lime lighten-4" label="First Name" maxlength="20" 
+              v-model="userRegInfo.firstname" :rules="[rules.required]"></v-text-field>
+            <v-text-field class=" px-4" required flat solo background-color="lime lighten-4" label="Last Name" maxlength="20" 
+              v-model="userRegInfo.lastname" :rules="[rules.required]"></v-text-field>
+            <v-text-field class=" px-4" required flat solo background-color="lime lighten-4" label="Email"
+              v-model="userRegInfo.email" :rules="emailRules"></v-text-field>
+            <v-text-field class=" px-4" required counter flat solo background-color="lime lighten-4" label="Password" name="regPassword" hint="At least 8 characters" 
+              v-model="userRegInfo.password"
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, rules.min]"
+              :type="show ? 'text' : 'password'"
+              @click:append="show = !show"
+            ></v-text-field>
+            <v-text-field class=" px-4" required counter flat solo background-color="lime lighten-4" label="Confirm Password" name="regPassword" hint="At least 8 characters" 
+              v-model="verify"
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, passwordMatch]"
+              :type="show ? 'text' : 'password'"
+              @click:append="show = !show"
+            ></v-text-field>
+            <v-card-title class="pa-4">
+              <v-btn class="white--text text-large" id="btn-login" background-color="lime lighten-4"
+                x-large block depressed color="deep-orange" :disabled="!valid" @click="validate"
+              >
+                Submit
+              </v-btn>
+            </v-card-title>
+          </v-form>
+        </v-card>
+        
     </v-col>
   </v-row>
 </template>
@@ -147,12 +76,12 @@ export default {
 
   mounted() {
     const val = this.validate
-    const lb = document
-      .getElementById("btn-login")
-      .addEventListener("click", (e) => val, { once: true })
-    const rb = document
-      .getElementById("btn-register")
-      .addEventListener("click", (e) => val, { once: true })
+    // const lb = document
+    //   .getElementById("btn-login")
+    //   .addEventListener("click", (e) => val, { once: true })
+    // const rb = document
+    //   .getElementById("btn-register")
+    //   .addEventListener("click", (e) => val, { once: true })
   },
   computed: {
     passwordMatch() {
@@ -173,6 +102,7 @@ export default {
     },
   },
   data: () => ({
+    signIn: true,
     tab: 0,
     tabs: [
       { name: "Login", icon: "mdi-account" },
@@ -192,13 +122,13 @@ export default {
     },
     loginEmailRules: [
       (v) => !!v || "Required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      (v) => /.+@.+\..+/.test(v) || "Email must be valid",
     ],
     emailRules: [
       (v) => !!v || "Required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      (v) => /.+@.+\..+/.test(v) || "Email must be valid",
     ],
-    show1: false,
+    show: false,
     rules: {
       required: (value) => !!value || "Required.",
       min: (v) => (v && v.length >= 8) || "Min 8 characters",
