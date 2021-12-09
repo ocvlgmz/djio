@@ -136,7 +136,4 @@ export default {
     font-size: 1.5rem;
     color:var(--color-orange);
 }
-/* .nav-text {
-  font-size: 0.925 rem;
-} */
 </style>

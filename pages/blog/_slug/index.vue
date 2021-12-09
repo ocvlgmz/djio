@@ -11,7 +11,7 @@
              <v-img :src="posts[0].thumbnail" class="pa-2 tmpr"></v-img>
             </v-col>
             <v-col>
-              <Share :link="posts[0].slug" :title="posts[0].title"/>
+              <Share :slug="posts[0].slug" :title="posts[0].title"/>
             </v-col>
             <v-col>
               <Author handle="ocjlgmz"/>
@@ -38,7 +38,7 @@
           { property: 'og:title', content: this.posts[0].title },
           { property: 'og:image', content: this.posts[0].thumbnail },
           { property: 'og:description', content: this.posts[0].summary },
-          { property: 'og:url', content: this.$route.path }
+          { property: 'og:url', content: 'https://digitaljam.io' + this.$route.path }
         ]
       }// title: this.title
     },
