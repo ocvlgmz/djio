@@ -21,12 +21,21 @@
     </v-snackbar>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="#fabb28" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+        <!-- <v-btn large outlined color="blue-grey lighten-3" >{{ title }} ></v-btn> -->
+        <div v-show="breakpoint.lg || breakpoint.md">
+          <v-btn outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+        </div>
+        <div v-show="breakpoint.sm">
+          <v-btn outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+        </div>
+        <div v-show="breakpoint.xs">
+          <v-btn small outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+        </div>
       </template>
       <form>
-        <v-card tile color="#f1f1f1">
+        <v-card tile color="lime lighten-4">
           <v-card-title>
-            <span class="headline text-h2 dj-blue text-capitalize"
+            <span class="headline text-h2 text-capitalize"
               ><span class="gf-geo">{{ title }}</span></span>
           </v-card-title>
           <v-card-text>
@@ -215,6 +224,17 @@
         this.snackbar.type = 'success'
         this.snackbar.message = 'Done! Your Discovery Call is scheduled.\nYou\'ll receive an email with details and instructions.'
       },
+    },
+    computed: {
+      breakpoint () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return { xs: true, sm: false, md: false, lg: false, xl: false, name:'xs' }
+          case 'sm': return { xs: false, sm: true, md: false, lg: false, xl: false, name:'sm' }
+          case 'md': return { xs: false, sm: false, md: true, lg: false, xl: false, name:'md' }
+          case 'lg': return { xs: false, sm: false, md: false, lg: true, xl: false, name:'lg' }
+          case 'xl': return { xs: false, sm: false, md: false, lg: false, xl: true, name:'xl' }
+        }
+      }
     },
   }
 </script>
