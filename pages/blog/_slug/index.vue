@@ -1,9 +1,8 @@
 <template>
 <v-container fluid v-editable="posts[0].blok">
-  <!-- <v-container fluid > -->
      <!-- LG display -->
-     <v-row justify="center" class="">
-      <v-col lg="6">
+     <v-row justify="center" class="" v-show="breakpoint.lg">
+      <v-col cols="8">
         <v-card flat>
           <v-row align="center" justify="center" class="">
             <v-col>
@@ -14,7 +13,88 @@
             </v-col>
             <!-- <v-spacer></v-spacer> -->
             <v-col class="">
-              <Author handle="ocjlgmz" name="Oliver"/>
+              <Author handle="ocjlgmz" :name="posts[0].author" :date="posts[0].date"/>
+            </v-col>
+          </v-row>
+          <v-card-title class="blue-grey--text text-h4">
+              {{posts[0].title}} 
+          </v-card-title>
+          <v-card-text class="blue-grey--text text-h5">
+              {{posts[0].content}}
+          </v-card-text>
+          <audio v-if="posts[0].media" :src="posts[0].media" controls>
+          </audio>
+        </v-card>
+      </v-col>
+    </v-row>
+     <!-- MD display -->
+     <v-row justify="center" class="" v-show="breakpoint.md">
+      <v-col cols="8">
+        <v-card flat>
+          <v-row align="center" justify="center" class="">
+            <v-col>
+             <v-img :src="posts[0].image" class="pa-2"></v-img>
+            </v-col>
+            <v-col>
+              <Share :slug="posts[0].slug" :title="posts[0].title"/>
+            </v-col>
+            <!-- <v-spacer></v-spacer> -->
+            <v-col class="">
+              <Author handle="ocjlgmz" :name="posts[0].author" :date="posts[0].date"/>
+            </v-col>
+          </v-row>
+          <v-card-title class="blue-grey--text text-h4">
+              {{posts[0].title}} 
+          </v-card-title>
+          <v-card-text class="blue-grey--text text-h5">
+              {{posts[0].content}}
+          </v-card-text>
+          <audio v-if="posts[0].media" :src="posts[0].media" controls>
+          </audio>
+        </v-card>
+      </v-col>
+    </v-row>
+     <!-- SM display -->
+     <v-row justify="center" class="" v-show="breakpoint.sm">
+      <v-col cols="10">
+        <v-card flat>
+          <v-row align="center" justify="center" class="">
+            <v-col>
+             <v-img :src="posts[0].image" class="pa-2"></v-img>
+            </v-col>
+            <v-col>
+              <Share :slug="posts[0].slug" :title="posts[0].title"/>
+            </v-col>
+            <!-- <v-spacer></v-spacer> -->
+            <v-col class="">
+              <Author handle="ocjlgmz" :name="posts[0].author" :date="posts[0].date"/>
+            </v-col>
+          </v-row>
+          <v-card-title class="blue-grey--text text-h4">
+              {{posts[0].title}} 
+          </v-card-title>
+          <v-card-text class="blue-grey--text text-h5">
+              {{posts[0].content}}
+          </v-card-text>
+          <audio v-if="posts[0].media" :src="posts[0].media" controls>
+          </audio>
+        </v-card>
+      </v-col>
+    </v-row>
+     <!-- SM display -->
+     <v-row justify="center" class="" v-show="breakpoint.xs">
+      <v-col cols="12">
+        <v-card flat>
+          <v-row align="center" justify="center" class="">
+            <v-col>
+             <v-img :src="posts[0].image" class="pa-2"></v-img>
+            </v-col>
+            <v-col>
+              <Share :slug="posts[0].slug" :title="posts[0].title"/>
+            </v-col>
+            <!-- <v-spacer></v-spacer> -->
+            <v-col class="">
+              <Author handle="ocjlgmz" :name="posts[0].author" :date="posts[0].date"/>
             </v-col>
           </v-row>
           <v-card-title class="blue-grey--text text-h4">
@@ -63,7 +143,10 @@
                             title: post.content.title,
                             content: post.content.content,
                             image: post.content.image.filename,
-                            thumbnail: /^pods/.test(post.full_slug)? post.content.image : post.content.thumbnail,
+                            date: post.content.date,
+                            author: post.content.author,
+                            thumbnail: post.content.thumbnail,
+                            // thumbnail: /^pods/.test(post.full_slug)? post.content.image : post.content.thumbnail,
                             media: /^pods/.test(post.full_slug)? post.content.file.filename : null,
                             slug: post.slug
                       }
@@ -170,11 +253,17 @@
           } 
         })
       }
+    },
+    computed: {
+      breakpoint () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return { xs: true, sm: false, md: false, lg: false, xl: false, name:'xs' }
+          case 'sm': return { xs: false, sm: true, md: false, lg: false, xl: false, name:'sm' }
+          case 'md': return { xs: false, sm: false, md: true, lg: false, xl: false, name:'md' }
+          case 'lg': return { xs: false, sm: false, md: false, lg: true, xl: false, name:'lg' }
+          case 'xl': return { xs: false, sm: false, md: false, lg: false, xl: true, name:'xl' }
+        }
+      }
     }
   }
 </script>
-<style scoped>
-/* input {
-  outline: none;
-} */
-</style>

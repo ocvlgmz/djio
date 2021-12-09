@@ -1,14 +1,13 @@
 <template>
   <v-row align="center" justify="center" class="" no-gutters>
-    <v-col class="py-1 pr-2 d-flex align-center justify-end">
+    <v-col class="py-1 pr-2 d-flex align-center justify-end caption">
       <span class="blue-grey--text mr-4">
-        Author: {{ name }} 
+        <span>Date: {{ date.substr(0,10) }} / Author: {{ name }}</span>
       </span>
       <a :href="`https://www.twitter.com/${handle}`" target="_blank">
-        <v-avatar size="32">
+        <v-avatar size="24">
           <img src="./../assets/img/oliver.png" alt="Oliver">
         </v-avatar>
-        <!-- <v-icon color="blue-grey" right>mdi-twitter</v-icon> -->
       </a>
     </v-col> 
   </v-row>
@@ -17,6 +16,7 @@
   export default {
     props: {
       name: { type: String, required: true },
+      date: { type: String, required: true },
       handle: { type: String, required: true }
     },
     data() {

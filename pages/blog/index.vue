@@ -18,15 +18,16 @@
         <v-tabs-items v-model="tab">
           <v-tab-item >
             <v-row class="mt-4">
-              <v-col cols="6" v-for="story in articles" :key="story.name">
+              <v-col cols="6" v-for="post in articles" :key="post.name">
                 <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
+                  <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
                         <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
-                          
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -36,14 +37,16 @@
           </v-tab-item>
           <v-tab-item >
             <v-row class="mt-4">
-              <v-col cols="6" v-for="story in podcasts" :key="story.name">
+              <v-col cols="6" v-for="post in podcasts" :key="post.name">
                 <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
+                  <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
                         <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -61,7 +64,8 @@
                           :title="post.title" 
                           :summary="post.summary" 
                           :thumbnail="post.thumbnail"
-                          
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -90,15 +94,16 @@
         <v-tabs-items v-model="tab">
           <v-tab-item >
             <v-row class="mt-4 d-flex " >
-              <v-col cols="6" v-for="story in articles" :key="story.name" class="">
+              <v-col cols="6" v-for="post in articles" :key="post.name" class="">
                 <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
+                  <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  fill-height>
                         <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
-                          
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -108,14 +113,16 @@
           </v-tab-item>
           <v-tab-item >
             <v-row class="mt-4">
-              <v-col cols="6" v-for="story in podcasts" :key="story.name">
+              <v-col cols="6" v-for="post in podcasts" :key="post.name">
                 <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
+                  <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
                         <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -133,7 +140,8 @@
                           :title="post.title" 
                           :summary="post.summary" 
                           :thumbnail="post.thumbnail"
-                          
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -162,42 +170,7 @@
         <v-tabs-items v-model="tab">
           <v-tab-item >
             <v-row class="mt-4">
-              <v-col cols="6" v-for="story in articles" :key="story.name">
-                <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
-                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
-                        <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
-                          
-                        />
-                    </v-card>
-                  </NuxtLink>
-                </v-hover>
-              </v-col>
-            </v-row>
-          </v-tab-item>
-          <v-tab-item >
-            <v-row class="mt-5">
-              <v-col cols="4" v-for="story in podcasts" :key="story.name">
-                <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
-                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
-                        <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
-                        />
-                    </v-card>
-                  </NuxtLink>
-                </v-hover>
-              </v-col>
-            </v-row>
-          </v-tab-item>
-          <v-tab-item >
-            <v-row class="mt-5">
-              <v-col cols="4" v-for="post in events" :key="post.name">
+              <v-col cols="6" v-for="post in articles" :key="post.name">
                 <v-hover v-slot="{ hover }">
                   <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
@@ -205,7 +178,46 @@
                           :title="post.title" 
                           :summary="post.summary" 
                           :thumbnail="post.thumbnail"
-                          
+                          :date="post.date"
+                          :author="post.author"
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="post in podcasts" :key="post.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${post.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="post in events" :key="post.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${post.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -234,15 +246,16 @@
         <v-tabs-items v-model="tab">
           <v-tab-item >
             <v-row class="mt-4">
-              <v-col cols="12" v-for="story in articles" :key="story.name">
+              <v-col cols="12" v-for="post in articles" :key="post.name">
                 <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
+                  <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
                         <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
-                          
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -252,14 +265,16 @@
           </v-tab-item>
           <v-tab-item >
             <v-row class="mt-4">
-              <v-col cols="12" v-for="story in podcasts" :key="story.name">
+              <v-col cols="12" v-for="post in podcasts" :key="post.name">
                 <v-hover v-slot="{ hover }">
-                  <NuxtLink :to="`/blog/${story.slug}`">
+                  <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
                         <BlogPreview
-                          :title="story.title" 
-                          :summary="story.summary" 
-                          :thumbnail="story.thumbnail"
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -277,7 +292,8 @@
                           :title="post.title" 
                           :summary="post.summary" 
                           :thumbnail="post.thumbnail"
-                          
+                          :date="post.date"
+                          :author="post.author"
                         />
                     </v-card>
                   </NuxtLink>
@@ -308,36 +324,42 @@
           console.log('stories: ', res.data.stories)
           return {
             articles: res.data.stories
-                        .filter( story => /^articles/.test(story.full_slug))
+                        .filter( post => /^articles/.test(post.full_slug))
                         .map( post => {
                           console.log('articles: ', post)
                           return {
-                            slug:post.slug,
+                            slug: post.slug,
                             title: post.content.title,
                             summary: post.content.summary,
                             thumbnail: post.content.thumbnail,
+                            date: post.content.date,
+                            author: post.content.author,
                           }
                         }),
             podcasts: res.data.stories
-                        .filter( story => /^pods/.test(story.full_slug))
+                        .filter( post => /^pods/.test(post.full_slug))
                         .map( post => {
                           console.log('pods: ', post)
                           return {
-                            slug:post.slug,
-                            title: post.content.title,
-                            summary: post.content.summary,
-                            thumbnail: post.content.image,
-                          }
-                        }),
-            events: res.data.stories
-                        .filter( story => /^events/.test(story.full_slug))
-                        .map( post => {
-                          console.log('events: ', post)
-                          return {
-                            slug:post.slug,
+                            slug: post.slug,
                             title: post.content.title,
                             summary: post.content.summary,
                             thumbnail: post.content.thumbnail,
+                            date: post.content.date,
+                            author: post.content.author,
+                          }
+                        }),
+            events: res.data.stories
+                        .filter( post => /^events/.test(post.full_slug))
+                        .map( post => {
+                          console.log('events: ', post)
+                          return {
+                            slug: post.slug,
+                            title: post.content.title,
+                            summary: post.content.summary,
+                            thumbnail: post.content.thumbnail,
+                            date: post.content.date,
+                            author: post.content.author,
                           }
                         }),
           }
