@@ -1,22 +1,23 @@
 <template>
-  <v-row align="center" justify="center" no-gutters>
-    <v-col class="pa-1 tmpr">
+  <v-row align="center" justify="center" class="" no-gutters>
+    <v-col class="py-1 pr-2 d-flex align-center justify-end">
+      <span class="blue-grey--text mr-4">
+        Author: {{ name }} 
+      </span>
       <a :href="`https://www.twitter.com/${handle}`" target="_blank">
         <v-avatar size="32">
           <img src="./../assets/img/oliver.png" alt="Oliver">
         </v-avatar>
-        <v-icon color="deep-orange" left>mdi-twitter</v-icon> @{{handle}}
+        <!-- <v-icon color="blue-grey" right>mdi-twitter</v-icon> -->
       </a>
-    </v-col>
+    </v-col> 
   </v-row>
 </template>
 <script>
   export default {
     props: {
-      handle: {
-        type: String,
-        required: true
-      }
+      name: { type: String, required: true },
+      handle: { type: String, required: true }
     },
     data() {
       return {

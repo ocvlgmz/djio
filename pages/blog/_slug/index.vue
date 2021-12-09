@@ -1,30 +1,30 @@
 <template>
 <v-container fluid v-editable="posts[0].blok">
   <!-- <v-container fluid > -->
-     <v-row justify="center">
-       <!-- <v-col sm="2" md="3" class="d-flex justify-self-end tmpr hidden-sm-and-down">
-       </v-col> -->
-      <v-col xs="12" sm="10" md="8" lg="6">
+     <!-- LG display -->
+     <v-row justify="center" class="">
+      <v-col lg="6">
         <v-card flat>
-          <v-row no-gutters>
+          <v-row align="center" justify="center" class="">
             <v-col>
-             <v-img :src="posts[0].thumbnail" class="pa-2 tmpr"></v-img>
+             <v-img :src="posts[0].image" class="pa-2"></v-img>
             </v-col>
             <v-col>
               <Share :slug="posts[0].slug" :title="posts[0].title"/>
             </v-col>
-            <v-col>
-              <Author handle="ocjlgmz"/>
+            <!-- <v-spacer></v-spacer> -->
+            <v-col class="">
+              <Author handle="ocjlgmz" name="Oliver"/>
             </v-col>
           </v-row>
-            <v-card-title class="blue-grey--text">
-                {{posts[0].title}} 
-            </v-card-title>
-            <v-card-text class="blue-grey--text">
-                {{posts[0].summary}}
-            </v-card-text>
-            <audio v-if="posts[0].media" :src="posts[0].media" controls>
-            </audio>
+          <v-card-title class="blue-grey--text text-h4">
+              {{posts[0].title}} 
+          </v-card-title>
+          <v-card-text class="blue-grey--text text-h5">
+              {{posts[0].content}}
+          </v-card-text>
+          <audio v-if="posts[0].media" :src="posts[0].media" controls>
+          </audio>
         </v-card>
       </v-col>
     </v-row>
@@ -61,7 +61,8 @@
                       return {
                             blok: post.content,
                             title: post.content.title,
-                            summary: post.content.summary,
+                            content: post.content.content,
+                            image: post.content.image.filename,
                             thumbnail: /^pods/.test(post.full_slug)? post.content.image : post.content.thumbnail,
                             media: /^pods/.test(post.full_slug)? post.content.file.filename : null,
                             slug: post.slug

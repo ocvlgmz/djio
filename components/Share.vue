@@ -1,6 +1,6 @@
 <template>
-    <v-row class="tmpb" no-gutters>
-        <v-col class="tmpr d-flex align-self-start justify-end">
+    <v-row class="" no-gutters>
+        <v-col class="">
             <!-- <v-btn depressed icon>
                 <a :href="`https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitaljam.io/blog/%2F${link}`" target="_blank"><v-icon color="blue-grey">mdi-linkedin</v-icon></a>
             </v-btn> -->

@@ -2,23 +2,167 @@
   <v-container fluid>
     <!-- LG display -->
     <v-row align="center" justify="center" v-show="breakpoint.lg">
-      <v-col xs="12" sm="10" md="8">
+      <v-col cols="8">
         <v-row align="center" justify="space-between">
-          <v-col cols="9" class="">
+          <v-col cols="6" class="">
             <v-tabs class="align-self-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
-              <v-tab class="text-tabs" v-for="section in sections" :key="section.index">
+              <v-tab class="lg-text-tabs" v-for="section in sections" :key="section.index">
                 {{ section }}
               </v-tab>
             </v-tabs>
           </v-col>
-          <v-col cols="3" class="">
+          <v-col cols="4" class="">
             <v-text-field rounded background-color="lime lighten-4" color="deep-orange" append-icon="mdi-magnify" placeholder="search"></v-text-field>
           </v-col>
         </v-row>
         <v-tabs-items v-model="tab">
           <v-tab-item >
-            <v-row class="mt-5">
-              <v-col cols="4" v-for="story in articles" :key="story.name">
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="story in articles" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="story in podcasts" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="post in events" :key="post.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${post.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
+    <!-- MD display -->
+    <v-row align="center" justify="center" v-show="breakpoint.md">
+      <v-col md="9">
+        <v-row align="center" justify="space-between">
+          <v-col cols="7" class="">
+            <v-tabs class="align-self-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
+              <v-tab class="md-text-tabs" v-for="section in sections" :key="section.index">
+                {{ section }}
+              </v-tab>
+            </v-tabs>
+          </v-col>
+          <v-col cols="5" class="">
+            <v-text-field rounded background-color="lime lighten-4" color="deep-orange" append-icon="mdi-magnify" placeholder="search"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-tabs-items v-model="tab">
+          <v-tab-item >
+            <v-row class="mt-4 d-flex " >
+              <v-col cols="6" v-for="story in articles" :key="story.name" class="">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  fill-height>
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="story in podcasts" :key="story.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${story.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="story.title" 
+                          :summary="story.summary" 
+                          :thumbnail="story.thumbnail"
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="post in events" :key="post.name">
+                <v-hover v-slot="{ hover }">
+                  <NuxtLink :to="`/blog/${post.slug}`">
+                    <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
+                        <BlogPreview
+                          :title="post.title" 
+                          :summary="post.summary" 
+                          :thumbnail="post.thumbnail"
+                          
+                        />
+                    </v-card>
+                  </NuxtLink>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
+    <!-- SM display -->
+    <v-row align="center" justify="center" v-show="breakpoint.sm">
+      <v-col md="10">
+        <v-row align="center" justify="center" class="d-flex flex-column">
+          <v-col cols="12" class="">
+            <v-tabs class="d-flex justify-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
+              <v-tab class="md-text-tabs" v-for="section in sections" :key="section.index">
+                {{ section }}
+              </v-tab>
+            </v-tabs>
+          </v-col>
+          <v-col cols="6" class="">
+            <v-text-field rounded background-color="lime lighten-4" color="deep-orange" append-icon="mdi-magnify" placeholder="search"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-tabs-items v-model="tab">
+          <v-tab-item >
+            <v-row class="mt-4">
+              <v-col cols="6" v-for="story in articles" :key="story.name">
                 <v-hover v-slot="{ hover }">
                   <NuxtLink :to="`/blog/${story.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
@@ -72,25 +216,25 @@
         </v-tabs-items>
       </v-col>
     </v-row>
-    <!-- SM display -->
-    <v-row align="center" justify="center" v-show="breakpoint.sm">
-      <v-col xs="12" sm="10" md="8">
-        <v-row align="center" justify="space-between" class="d-flex flex-column">
-          <v-col cols="9" class="">
-            <v-tabs class="align-self-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
-              <v-tab class="text-tabs" v-for="section in sections" :key="section.index">
+    <!-- XS display -->
+    <v-row align="center" justify="center" v-show="breakpoint.xs">
+      <v-col md="10">
+        <v-row align="center" justify="center" class="d-flex flex-column">
+          <v-col cols="12" class="">
+            <v-tabs class="d-flex justify-center" show-arrows background-color="transparent" color="deep-orange" v-model="tab">
+              <v-tab class="md-text-tabs" v-for="section in sections" :key="section.index">
                 {{ section }}
               </v-tab>
             </v-tabs>
           </v-col>
-          <v-col cols="3" class="">
+          <v-col cols="6" class="">
             <v-text-field rounded background-color="lime lighten-4" color="deep-orange" append-icon="mdi-magnify" placeholder="search"></v-text-field>
           </v-col>
         </v-row>
         <v-tabs-items v-model="tab">
           <v-tab-item >
-            <v-row class="mt-5">
-              <v-col cols="4" v-for="story in articles" :key="story.name">
+            <v-row class="mt-4">
+              <v-col cols="12" v-for="story in articles" :key="story.name">
                 <v-hover v-slot="{ hover }">
                   <NuxtLink :to="`/blog/${story.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
@@ -107,8 +251,8 @@
             </v-row>
           </v-tab-item>
           <v-tab-item >
-            <v-row class="mt-5">
-              <v-col cols="4" v-for="story in podcasts" :key="story.name">
+            <v-row class="mt-4">
+              <v-col cols="12" v-for="story in podcasts" :key="story.name">
                 <v-hover v-slot="{ hover }">
                   <NuxtLink :to="`/blog/${story.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
@@ -124,8 +268,8 @@
             </v-row>
           </v-tab-item>
           <v-tab-item >
-            <v-row class="mt-5">
-              <v-col cols="4" v-for="post in events" :key="post.name">
+            <v-row class="mt-4">
+              <v-col cols="12" v-for="post in events" :key="post.name">
                 <v-hover v-slot="{ hover }">
                   <NuxtLink :to="`/blog/${post.slug}`">
                     <v-card :elevation="hover ? 6 : 0" class="ma-4"  height="auto">
@@ -303,8 +447,16 @@
   display: inline-block;
   background-color: chocolate;
 }
-.text-tabs {
+.lg-text-tabs {
   font-family: var(--font-roboto);
-  font-size: large;
+  font-size: 1.1rem;
+}
+.md-text-tabs {
+  font-family: var(--font-roboto);
+  font-size: 1rem;
+}
+.sm-text-tabs, .xs-text-tabs {
+  font-family: var(--font-roboto);
+  /* font-size: 1rem; */
 }
 </style>
