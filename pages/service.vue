@@ -6,12 +6,12 @@
       <v-card flat tile class="mt-2 mb-8 pa-0">
       <!-- header: strategy-->
         <v-row justify="center" align="center" class="">
-          <v-col cols="4" order="first" class="mx-2 anim fade-in-left hidden">
+          <v-col cols="4" order="first" class="mx-2 obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Let's craft your digital strategy</span>
             </v-card-title>
           </v-col>
-          <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
+          <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/thinking.png')"/>
               </v-avatar>
@@ -19,7 +19,7 @@
         </v-row>
         <!-- top-notch professional services -->
         <v-row justify="center" align="center" class="">
-          <v-col cols="8" class="anim fade-in-left hidden">
+          <v-col cols="8" class="obs fade-in-left hidden">
             <v-card-text class="text-h5 text-grey-dark font-weight-light">
               <p>
                 The digitalization of our economy is accelerating and disrupting almost everything we can think of: from how we operate to what we consume and everything in between.
@@ -68,20 +68,20 @@
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <!-- header: the value-->
         <v-row justify="center" align="center">
-          <v-col cols="4" order="last" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="4" order="last" class="mx-2 obs fade-in-right hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">improve your value proposition</span>
               <!-- alt wording: enhance, supercharge, boost,  -->
             </v-card-title>
           </v-col>
-          <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-left hidden">
+          <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-left hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/value.png')"/>
               </v-avatar>
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="8" class="anim fade-in-left hidden">
+          <v-col cols="8" class="obs fade-in-left hidden">
             <v-card-text class="text-h5 text-grey-dark font-weight-light">
               <p>
                 The digital transformation service we are offering consists in guiding your organisation through the process of <span class="text-orange-dark">adopting current technology trends</span> to stay competitive, <span class="text-orange-dark">offering an up-to-date professional environment</span> to attract valuable resources and partners, and <span class="text-orange-dark">improving your core value</span>, all of which in turn will greatly <span class="text-orange-dark">help your organisation seize new business opportunities</span> which otherwise wouldn't be available.
@@ -113,19 +113,19 @@
       <!-- SECTION: Action Plan -->
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <v-row justify="center" align="center">
-          <v-col cols="4" order="first" class="d-flex justify-center anim fade-in-left hidden">
+          <v-col cols="4" order="first" class="d-flex justify-center obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Our 4 step action plan</span>
             </v-card-title>
           </v-col>
-          <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
+          <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/chess.png')"/>
               </v-avatar>
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="8" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="8" class="mx-2 obs fade-in-right hidden">
             <!-- Tab element -->
             <v-card flat tile color="" class="my-2 px-8 py-4">
               <v-tabs centered fixed-tabs background-color="" color="deep-orange">
@@ -324,13 +324,13 @@
       <!-- SECTION: References -->
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <v-row justify="center" align="center" class="d-flex flex-column">
-          <v-col cols="8" order="first" class="anim fade-in-left hidden">
+          <v-col cols="8" order="first" class="obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Organisations who trusted us</span>
             </v-card-title>
           </v-col>
           <v-col cols="10" class="mx-2">
-            <v-card-text class="anim fade-in-up hidden">
+            <v-card-text class="obs fade-in-up hidden">
               <v-row class=" my-6">
                 <v-col v-for="itm in refs" :key="itm.id" class="mx-6 d-flex align-center ">
                   <v-avatar tile size="128">
@@ -358,12 +358,12 @@
       <v-card flat tile class="mt-2 mb-8 pa-0">
       <!-- header: strategy-->
         <v-row justify="center" align="center" class="">
-          <v-col cols="4" order="first" class="mx-2 anim fade-in-left hidden">
+          <v-col cols="4" order="first" class="mx-2 obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Let's craft your digital strategy</span>
             </v-card-title>
           </v-col>
-          <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
+          <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/thinking.png')"/>
               </v-avatar>
@@ -371,7 +371,7 @@
         </v-row>
         <!-- top-notch professional services -->
         <v-row justify="center" align="center" class="">
-          <v-col cols="8" class="anim fade-in-left hidden">
+          <v-col cols="8" class="obs fade-in-left hidden">
             <v-card-text class="text-h5 text-grey-dark font-weight-light">
               <p>
                 The digitalization of our economy is accelerating and disrupting almost everything we can think of: from how we operate to what we consume and everything in between.
@@ -420,20 +420,20 @@
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <!-- header: the value-->
         <v-row justify="center" align="center">
-          <v-col cols="4" order="last" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="4" order="last" class="mx-2 obs fade-in-right hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">improve your value proposition</span>
               <!-- alt wording: enhance, supercharge, boost,  -->
             </v-card-title>
           </v-col>
-          <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-left hidden">
+          <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-left hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/value.png')"/>
               </v-avatar>
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="8" class="anim fade-in-left hidden">
+          <v-col cols="8" class="obs fade-in-left hidden">
             <v-card-text class="text-h5 text-grey-dark font-weight-light">
               <p>
                 The digital transformation service we are offering consists in guiding your organisation through the process of <span class="text-orange-dark">adopting current technology trends</span> to stay competitive, <span class="text-orange-dark">offering an up-to-date professional environment</span> to attract valuable resources and partners, and <span class="text-orange-dark">improving your core value</span>, all of which in turn will greatly <span class="text-orange-dark">help your organisation seize new business opportunities</span> which otherwise wouldn't be available.
@@ -465,19 +465,19 @@
       <!-- SECTION: Action Plan -->
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <v-row justify="center" align="center">
-          <v-col cols="4" order="first" class="d-flex justify-center anim fade-in-left hidden">
+          <v-col cols="4" order="first" class="d-flex justify-center obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Our 4 step action plan</span>
             </v-card-title>
           </v-col>
-          <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
+          <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/chess.png')"/>
               </v-avatar>
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="8" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="8" class="mx-2 obs fade-in-right hidden">
             <!-- Tab element -->
             <v-card flat tile color="" class="my-2 px-8 py-4">
               <v-tabs centered fixed-tabs background-color="" color="deep-orange">
@@ -676,13 +676,13 @@
       <!-- SECTION: References -->
       <v-card flat tile class="mt-2 mb-8 pa-0">
         <v-row justify="center" align="center" class="d-flex flex-column">
-          <v-col cols="6" order="first" class="anim fade-in-left hidden ">
+          <v-col cols="6" order="first" class="obs fade-in-left hidden ">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Organisations who trusted us</span>
             </v-card-title>
           </v-col>
           <v-col cols="10" class="mx-2 ">
-            <v-card-text class="anim fade-in-up hidden">
+            <v-card-text class="obs fade-in-up hidden">
               <v-row class=" my-6">
                 <v-col v-for="itm in refs" :key="itm.id" class="mx-6 d-flex align-center justify-center ">
                   <v-avatar tile size="128">
@@ -709,12 +709,12 @@
       <v-card flat tile class="mt-1 mb-1 pa-0">
       <!-- header: strategy-->
         <v-row justify="center" align="center" class="">
-          <v-col cols="10" order="first" class="mx-0 anim fade-in-left hidden">
+          <v-col cols="10" order="first" class="mx-0 obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Let's craft your digital strategy</span>
             </v-card-title>
           </v-col>
-          <!-- <v-col cols="4" class=" d-flex justify-center anim fade-in-right hidden">
+          <!-- <v-col cols="4" class=" d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/thinking.png')"/>
               </v-avatar>
@@ -722,7 +722,7 @@
         </v-row>
         <!-- top-notch professional services -->
         <v-row justify="center" align="center" class="">
-          <v-col cols="12" class="anim fade-in-left hidden">
+          <v-col cols="12" class="obs fade-in-left hidden">
             <v-card-text class="text-h6 text-grey-dark font-weight-light">
               <p>
                 The digitalization of our economy is accelerating and disrupting almost everything we can think of: from how we operate to what we consume and everything in between.
@@ -771,13 +771,13 @@
       <v-card flat tile class="mt-1 mb-1 pa-0">
         <!-- header: the value-->
         <v-row justify="center" align="center">
-          <v-col cols="8" order="last" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="8" order="last" class="mx-2 obs fade-in-right hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">improve your value proposition</span>
               <!-- alt wording: enhance, supercharge, boost,  -->
             </v-card-title>
           </v-col>
-          <!-- <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-left hidden">
+          <!-- <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-left hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/value.png')"/>
               </v-avatar>
@@ -816,19 +816,19 @@
       <!-- SECTION: Action Plan -->
       <v-card flat tile class="mt-1 mb-1 pa-0">
         <v-row justify="center" align="center">
-          <v-col cols="8" order="first" class="d-flex justify-center anim fade-in-left hidden">
+          <v-col cols="8" order="first" class="d-flex justify-center obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Our 4 step action plan</span>
             </v-card-title>
           </v-col>
-          <!-- <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
+          <!-- <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/chess.png')"/>
               </v-avatar>
           </v-col> -->
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="12" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="12" class="mx-2 obs fade-in-right hidden">
             <!-- Tab element -->
             <v-card flat tile color="" class="my-0 px-4 py-4">
               <v-tabs centered fixed-tabs background-color="" color="deep-orange">
@@ -1025,13 +1025,13 @@
       <!-- SECTION: References -->
       <v-card flat tile class="mt-1 mb-1 pa-0">
         <v-row justify="center" align="center" class="my-4 d-flex flex-column">
-          <v-col cols="8" order="first" class="anim fade-in-left hidden ">
+          <v-col cols="8" order="first" class="obs fade-in-left hidden ">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Organisations who trusted us</span>
             </v-card-title>
           </v-col>
           <v-col cols="12" class="">
-            <v-card-text class="anim fade-in-up hidden">
+            <v-card-text class="obs fade-in-up hidden">
               <v-row>
                 <v-col v-for="itm in refs" :key="itm.id" class="mx-0 d-flex align-center justify-center ">
                   <v-avatar tile size="128">
@@ -1058,12 +1058,12 @@
       <v-card flat tile class="mt-1 mb-1 pa-0">
       <!-- header: strategy-->
         <v-row justify="center" align="center" class="">
-          <v-col cols="10" order="first" class="mx-0 anim fade-in-left hidden">
+          <v-col cols="10" order="first" class="mx-0 obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Let's craft your digital strategy</span>
             </v-card-title>
           </v-col>
-          <!-- <v-col cols="4" class=" d-flex justify-center anim fade-in-right hidden">
+          <!-- <v-col cols="4" class=" d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/thinking.png')"/>
               </v-avatar>
@@ -1071,7 +1071,7 @@
         </v-row>
         <!-- top-notch professional services -->
         <v-row justify="center" align="center" class="">
-          <v-col cols="12" class="anim fade-in-left hidden">
+          <v-col cols="12" class="obs fade-in-left hidden">
             <v-card-text class="text-h6 text-grey-dark font-weight-light">
               <p>
                 The digitalization of our economy is accelerating and disrupting almost everything we can think of: from how we operate to what we consume and everything in between.
@@ -1120,13 +1120,13 @@
       <v-card flat tile class="mt-1 mb-1 pa-0">
         <!-- header: the value-->
         <v-row justify="center" align="center">
-          <v-col cols="8" order="last" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="8" order="last" class="mx-2 obs fade-in-right hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">improve your value proposition</span>
               <!-- alt wording: enhance, supercharge, boost,  -->
             </v-card-title>
           </v-col>
-          <!-- <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-left hidden">
+          <!-- <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-left hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/value.png')"/>
               </v-avatar>
@@ -1165,19 +1165,19 @@
       <!-- SECTION: Action Plan -->
       <v-card flat tile class="mt-1 mb-1 pa-0">
         <v-row justify="center" align="center">
-          <v-col cols="8" order="first" class="d-flex justify-center anim fade-in-left hidden">
+          <v-col cols="8" order="first" class="d-flex justify-center obs fade-in-left hidden">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Our 4 step action plan</span>
             </v-card-title>
           </v-col>
-          <!-- <v-col cols="4" class="mx-2 d-flex justify-center anim fade-in-right hidden">
+          <!-- <v-col cols="4" class="mx-2 d-flex justify-center obs fade-in-right hidden">
               <v-avatar size="254">
                 <v-img :src="require('../assets/img/chess.png')"/>
               </v-avatar>
           </v-col> -->
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="12" class="mx-2 anim fade-in-right hidden">
+          <v-col cols="12" class="mx-2 obs fade-in-right hidden">
             <!-- Tab element -->
             <v-card flat tile color="" class="my-0 px-4 py-4">
               <v-tabs centered fixed-tabs background-color="" color="deep-orange">
@@ -1374,13 +1374,13 @@
       <!-- SECTION: References -->
       <v-card flat tile class="mt-1 mb-1 pa-0">
         <v-row justify="center" align="center" class="my-4 d-flex flex-column">
-          <v-col cols="8" order="first" class="anim fade-in-left hidden ">
+          <v-col cols="8" order="first" class="obs fade-in-left hidden ">
             <v-card-title class="overline text-h3 text-orange-dark">
               <span class="font-bot">Organisations who trusted us</span>
             </v-card-title>
           </v-col>
           <v-col cols="12" class="">
-            <v-card-text class="anim fade-in-up hidden">
+            <v-card-text class="obs fade-in-up hidden">
               <v-row>
                 <v-col v-for="itm in refs" :key="itm.id" class="mx-0 d-flex align-center justify-center ">
                   <v-avatar tile size="128">
@@ -1508,16 +1508,16 @@ export default {
       root: null,
       rootMargin: "0px 0px 0px 0px",
       threshold: 0,
-    });
-    document.querySelectorAll(".anim").forEach((el) => {
+    })
+    document.querySelectorAll(".obs").forEach((el) => {
       this.observer.observe(el);
-    });
+    })
   },
   methods: {
     onIntersect(entries, observer) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          switch (entry.target.classList.contains("anim")) {
+          switch (entry.target.classList.contains("obs")) {
             case entry.target.classList.contains("head-shake"):
               entry.target.classList.add(
                 "animate__animated",

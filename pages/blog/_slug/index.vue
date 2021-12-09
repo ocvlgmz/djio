@@ -2,12 +2,21 @@
 <v-container fluid v-editable="posts[0].blok">
   <!-- <v-container fluid > -->
      <v-row justify="center">
-       <v-col xs="12" md="3" class="deep-orange tmpb hidden-sm-and-down">
-        <Share :link="posts[0].slug"/>
-       </v-col>
-      <v-col xs="12" sm="8" md="6">
-        <v-card flat >
-            <v-img :src="posts[0].thumbnail"></v-img>
+       <!-- <v-col sm="2" md="3" class="d-flex justify-self-end tmpr hidden-sm-and-down">
+       </v-col> -->
+      <v-col xs="12" sm="10" md="8" lg="6">
+        <v-card flat>
+          <v-row no-gutters>
+            <v-col>
+             <v-img :src="posts[0].thumbnail" class="pa-2 tmpr"></v-img>
+            </v-col>
+            <v-col>
+              <Share :link="posts[0].slug" :title="posts[0].title"/>
+            </v-col>
+            <v-col>
+              <Author handle="ocjlgmz"/>
+            </v-col>
+          </v-row>
             <v-card-title class="blue-grey--text">
                 {{posts[0].title}} 
             </v-card-title>
@@ -23,6 +32,16 @@
 </template>
 <script>
   export default {
+    head () {
+      return {
+        meta: [
+          { property: 'og:title', content: this.posts[0].title },
+          { property: 'og:image', content: this.posts[0].thumbnail },
+          { property: 'og:description', content: this.posts[0].summary },
+          { property: 'og:url', content: this.$route.path }
+        ]
+      }// title: this.title
+    },
     data() {
       return {
         observer:null,
@@ -154,7 +173,7 @@
   }
 </script>
 <style scoped>
-input {
+/* input {
   outline: none;
-}
+} */
 </style>

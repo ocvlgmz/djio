@@ -61,7 +61,7 @@
       <v-btn icon color="blue-grey darken-1" class="font-text mr-4" @click="drawer = !drawer">
         <v-icon >mdi-menu</v-icon></v-btn>
     </v-app-bar>
-      <v-navigation-drawer v-model="drawer" app bottom temporary v-show="breakpoint.xs">
+      <v-navigation-drawer v-model="drawer" app bottom temporary v-if="breakpoint.xs">
         <v-list class="font-text text-uppercase">
             <v-list-item ripple color="blue-grey darken-1" nuxt to="/about" >
               <v-list-item-content class="justify-center">about</v-list-item-content></v-list-item>
