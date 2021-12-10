@@ -80,13 +80,14 @@
         </v-col>
         <v-col cols="6" class="animate__animated animate__fadeInRight">
           <v-card elevation="16" class="ma-2">
-            <vue-plyr ref="plyr" :options="options">
-              <video class="player" width="640" height="520" data-poster="/img/cover.png" >
-                <source size="360" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="720" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="1080" :src="require('../assets/img/cover.png')" type="video/mp4" />
-              </video>
-            </vue-plyr>
+            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe width="640" height="360"
+                :src="video"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+              ></iframe>
+            </div>
           </v-card>
         </v-col>
       </v-row>
@@ -130,13 +131,14 @@
         <!-- VIDEO -->
         <v-col cols="10" class="animate__animated animate__fadeInRight">
           <v-card elevation="16" class="ma-2">
-            <vue-plyr ref="plyr" :options="options">
-              <video class="player" width="640" height="520" data-poster="/img/cover.png" >
-                <source size="360" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="720" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="1080" :src="require('../assets/img/cover.png')" type="video/mp4" />
-              </video>
-            </vue-plyr>
+            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe width="640" height="360"
+                :src="video"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+              ></iframe>
+            </div>
           </v-card>
         </v-col>
       </v-row>
@@ -179,13 +181,14 @@
         <!-- VIDEO -->
         <v-col cols="10" class="animate__animated animate__fadeInRight">
           <v-card elevation="16" class="ma-2">
-            <vue-plyr ref="plyr" :options="options">
-              <video class="player" width="640" height="520" data-poster="/img/cover.png" >
-                <source size="360" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="720" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="1080" :src="require('../assets/img/cover.png')" type="video/mp4" />
-              </video>
-            </vue-plyr>
+            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe width="640" height="360"
+                :src="video"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+              ></iframe>
+            </div>
           </v-card>
         </v-col>
       </v-row>
