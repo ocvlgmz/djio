@@ -21,22 +21,30 @@
                 </p>
               </v-card-subtitle>
               <v-card-subtitle>
-                <Contact :title="title" :theme="theme" :interest="interest" >
-                  <template v-slot><Calendar /></template>
-                </Contact>
+                <Schedule :title="title" :theme="theme" :interest="interest" >
+                  <!-- <template v-slot><Calendar /></template> -->
+                </Schedule>
               </v-card-subtitle>
             </v-col>
           </v-row>
         </v-col>
         <v-col cols="6" class="animate__animated animate__fadeInRight">
           <v-card elevation="16" class="ma-10">
-            <vue-plyr ref="plyr" :options="options">
+            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe width="640" height="360"
+                :src="video"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+              ></iframe>
+            </div>
+            <!-- <vue-plyr ref="plyr" :options="options">
               <video class="player" width="640" height="520" data-poster="/img/cover.png" >
-                <source size="360" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="720" :src="require('../assets/img/cover.png')" type="video/mp4" />
-                <source size="1080" :src="require('../assets/img/cover.png')" type="video/mp4" />
+                <source size="360" :src="video" type="video/mp4" />
+                <source size="720" :src="video" type="video/mp4" />
+                <source size="1080" :src="video" type="video/mp4" />
               </video>
-            </vue-plyr>
+            </vue-plyr> -->
           </v-card>
         </v-col>
       </v-row>
@@ -63,9 +71,9 @@
                 </p>
               </v-card-subtitle>
               <v-card-subtitle>
-                <Contact :title="title" :theme="theme" :interest="interest" >
+                <Schedule :title="title" :theme="theme" :interest="interest" >
                   <template v-slot><Calendar /></template>
-                </Contact>
+                </Schedule>
               </v-card-subtitle>
             </v-col>
           </v-row>
@@ -103,9 +111,9 @@
             </v-col>
             <v-col cols="6">
               <v-card-subtitle>
-                <Contact :title="title" :theme="theme" :interest="interest" >
-                  <template v-slot><Calendar /></template>
-                </Contact>
+                <Schedule :title="title" :theme="theme" :interest="interest" >
+                  <!-- <template v-slot><Calendar /></template> -->
+                </Schedule>
               </v-card-subtitle>
             </v-col>
           </v-row>
@@ -152,9 +160,9 @@
             </v-col>
             <v-col cols="6">
               <v-card-subtitle>
-                <Contact :title="title" :theme="theme" :interest="interest" >
-                  <template v-slot><Calendar /></template>
-                </Contact>
+                <Schedule :title="title" :theme="theme" :interest="interest" >
+                  <!-- <template v-slot><Calendar /></template> -->
+                </Schedule>
               </v-card-subtitle>
             </v-col>
           </v-row>
@@ -189,9 +197,10 @@
 export default {
   layout: "landing",
   data: () => ({
+    video: "https://www.youtube.com/embed/oR6K9o2apsk?rel=0;controls=0;showinfo=0",
     title: "Schedule your Call",
     theme:"Discovery Call",
-    interest: ["Digital transformation", "Customer Experience", "Data Intelligence"],
+    interest: ["Artificial Intelligence", "Cloud Computing", "Data Intelligence", "Blockchain","Internet of Things"],
     observer: null,
     dialog: false,
     options: {

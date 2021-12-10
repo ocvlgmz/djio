@@ -1,5 +1,5 @@
 <template>        
-    <v-card dark color="#4c6070" tile elevation="3">
+    <v-card dark color="blue-grey darken-3" flat>
         <v-card-text>
             <v-row>
                 <v-col cols="12" sm="6">                        
