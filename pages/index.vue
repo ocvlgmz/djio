@@ -3,10 +3,10 @@
     <!-- LG display -->
     <v-card tile flat color="transparent" v-show="breakpoint.lg">
       <v-row class="ma-2 header d-flex">
-        <v-col cols="" class="offset-1 align-self-end"><Logo /></v-col>
+        <v-col cols="" class="offset-2 align-self-end"><Logo /></v-col>
       </v-row>
-      <v-row justify="center" align="center">
-        <v-col cols="4" class="animate__animated animate__fadeInLeft">
+      <v-row justify="center" align="center" class="">
+        <v-col cols="4" class="offset-2 animate__animated animate__fadeInLeft">
           <v-row class="d-flex flex-column align-center justify-start">
             <v-col>
               <v-card-title class="white--text font-weight-bold text-h4 overline">
@@ -29,13 +29,14 @@
           </v-row>
         </v-col>
         <v-col cols="6" class="animate__animated animate__fadeInRight">
-          <v-card elevation="16" class="ma-10">
-            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="640" height="360"
+          <!-- <v-card elevation="16" class="" color="transparent"> -->
+            <div class="plyr__video-embed" id="player" data-poster="/img/cover.png">
+              <iframe width="600" height="340"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
+                class="shadow"
               ></iframe>
             </div>
             <!-- <vue-plyr ref="plyr" :options="options">
@@ -45,20 +46,20 @@
                 <source size="1080" :src="video" type="video/mp4" />
               </video>
             </vue-plyr> -->
-          </v-card>
+          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
 
     <!-- MD display -->
-    <v-card tile flat color="transparent" v-show="breakpoint.md">
+    <v-card tile flat color="transparent" class="card-full tmpr" v-show="breakpoint.md">
       <v-row class="ma-2 header d-flex">
         <v-col cols="" class="offset-1 align-self-end"><Logo /></v-col>
       </v-row>
-      <v-row justify="center" align="center">
-        <v-col cols="4" class="animate__animated animate__fadeInLeft">
-          <v-row class="d-flex flex-column align-center justify-start">
-            <v-col>
+      <v-row justify="center" align="center" class="tmpr">
+        <v-col cols="4" class="tmpb animate__animated animate__fadeInLeft">
+          <v-row class="">
+            <v-col class="">
               <v-card-title class="white--text font-weight-bold text-h5 overline">
                 <p>
                   The <span class="deep-orange--text">#1 thing</span> your business
@@ -78,17 +79,18 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="6" class="animate__animated animate__fadeInRight">
-          <v-card elevation="16" class="ma-2">
+        <v-col cols="6" class="d-flex tmpb animate__animated animate__fadeInRight">
+          <!-- <v-card elevation="16" class="ma-2"> -->
             <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="640" height="360"
+              <iframe width="600" height="340"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
+                class="shadow"
               ></iframe>
             </div>
-          </v-card>
+          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
@@ -98,10 +100,10 @@
       <v-row class="header d-flex">
         <v-col cols="" class="offset-1 align-self-end"><Logo /></v-col>
       </v-row>
-      <v-row justify="center" align="center" class="d-flex flex-column ">
+      <v-row justify="center" align="center" class="d-flex tmpr">
         <!-- CALL TO ACTION -->
-        <v-col cols="10" class="animate__animated animate__fadeInLeft ">
-          <v-row no-gutters class="d-flex align-center  ">
+        <v-col cols="10" class="animate__animated animate__fadeInLeft">
+          <v-row no-gutters class="d-flex align-end">
             <v-col cols="6" class="">
               <v-card-title class="white--text font-weight-bold text-h6 overline">
                 <p>
@@ -129,17 +131,19 @@
           </v-row>
         </v-col>
         <!-- VIDEO -->
-        <v-col cols="10" class="animate__animated animate__fadeInRight">
-          <v-card elevation="16" class="ma-2">
-            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="640" height="360"
+        <v-col cols="9" class=" tmpr align-center justify-center d-flex animate__animated animate__fadeInRight">
+          <!-- <v-card elevation="16" class="ma-2"> -->
+            <div class="card-full tmpr plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe width="600" height="340"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
+                class="shadow"
+                align="center"
               ></iframe>
             </div>
-          </v-card>
+          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
@@ -148,11 +152,11 @@
       <v-row class="header d-flex">
         <v-col cols="" class="offset-1 align-self-end"><Logo /></v-col>
       </v-row>
-      <v-row justify="center" align="center" class="d-flex flex-column ">
+      <v-row justify="center" align="center" class="d-flex">
         <!-- CALL TO ACTION -->
         <v-col cols="10" class="animate__animated animate__fadeInLeft ">
-          <v-row no-gutters class="d-flex align-center  ">
-            <v-col cols="6" class="">
+          <v-row no-gutters class="d-flex flex-column align-center">
+            <v-col cols="12" class="">
               <v-card-title class="white--text font-weight-bold text-h6 overline">
                 <p>
                   The <span class="deep-orange--text">#1 thing</span> your business
@@ -160,7 +164,7 @@
                 </p>
               </v-card-title>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12">
               <v-card-subtitle>
                 <Schedule :title="title" :theme="theme" :interest="interest" >
                   <!-- <template v-slot><Calendar /></template> -->
@@ -180,16 +184,18 @@
         </v-col>
         <!-- VIDEO -->
         <v-col cols="10" class="animate__animated animate__fadeInRight">
-          <v-card elevation="16" class="ma-2">
+          <!-- <v-card elevation="16" class="ma-2"> -->
             <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="640" height="360"
+              <iframe width="480" height="260"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
+                class="shadow"
+                align="center"
               ></iframe>
             </div>
-          </v-card>
+          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
@@ -312,11 +318,17 @@ export default {
   display: block;
   height: 20vh;
 }
+.card-full {
+  width:100%;
+}
 .fullsize {
   /* position: absolute; */
   display: flex;
   height: 110%;
-  /* width: 100%; */
+  width: 100%;
+}
+.fullheight {
+  height: 100%;
 }
 .background {
   background-image: url('./../assets/img/landing.png');
@@ -324,4 +336,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.shadow {
+  box-shadow: 0px 5px 20px #202020;
+} 
 </style>
