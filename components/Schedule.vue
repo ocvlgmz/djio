@@ -23,13 +23,13 @@
       <template v-slot:activator="{ on, attrs }">
         <!-- <v-btn large outlined color="blue-grey lighten-3" >{{ title }} ></v-btn> -->
         <div v-show="breakpoint.lg || breakpoint.md">
-          <v-btn outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+          <v-btn class="mx-0" outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
         </div>
         <div v-show="breakpoint.sm">
-          <v-btn outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+          <v-btn class="mr-10" outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
         </div>
         <div v-show="breakpoint.xs">
-          <v-btn small outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
+          <v-btn outlined color="blue-grey lighten-3" v-bind="attrs" v-on="on">{{ title }}</v-btn>
         </div>
       </template>
       <v-card tile color="blue-grey darken-4">

@@ -7,7 +7,7 @@
       </v-row>
       <v-row justify="center" align="center" class="">
         <v-col cols="4" class="offset-2 animate__animated animate__fadeInLeft">
-          <v-row class="d-flex flex-column align-center justify-start">
+          <v-row class="d-flex flex-column align-center justify-center">
             <v-col>
               <v-card-title class="white--text font-weight-bold text-h4 overline">
                 <p>
@@ -22,7 +22,6 @@
               </v-card-subtitle>
               <v-card-subtitle>
                 <Schedule :title="title" :theme="theme" :interest="interest" >
-                  <!-- <template v-slot><Calendar /></template> -->
                 </Schedule>
               </v-card-subtitle>
             </v-col>
@@ -31,12 +30,12 @@
         <v-col cols="6" class="animate__animated animate__fadeInRight">
           <!-- <v-card elevation="16" class="" color="transparent"> -->
             <div class="plyr__video-embed" id="player" data-poster="/img/cover.png">
-              <iframe width="600" height="340"
+              <iframe :width="breakpoint.w" :height="breakpoint.h"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
-                class="shadow"
+                class=" shadow"
               ></iframe>
             </div>
             <!-- <vue-plyr ref="plyr" :options="options">
@@ -52,12 +51,12 @@
     </v-card>
 
     <!-- MD display -->
-    <v-card tile flat color="transparent" class="card-full tmpr" v-show="breakpoint.md">
-      <v-row class="ma-2 header d-flex">
-        <v-col cols="" class="offset-1 align-self-end"><Logo /></v-col>
-      </v-row>
-      <v-row justify="center" align="center" class="tmpr">
-        <v-col cols="4" class="tmpb animate__animated animate__fadeInLeft">
+    <v-card tile flat color="transparent" class="" v-show="breakpoint.md">
+        <v-row class="mt-10 ml-2 ">
+          <v-col cols="" class="offset-1"><Logo /></v-col>
+        </v-row>
+      <v-row class=" d-flex align-center justify-center">
+        <v-col cols="4" class=" animate__animated animate__fadeInLeft">
           <v-row class="">
             <v-col class="">
               <v-card-title class="white--text font-weight-bold text-h5 overline">
@@ -79,18 +78,16 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="6" class="d-flex tmpb animate__animated animate__fadeInRight">
-          <!-- <v-card elevation="16" class="ma-2"> -->
-            <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="600" height="340"
+        <v-col cols="6" class=" animate__animated animate__fadeInRight">
+            <div class="tmpr d-flex plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe :width="breakpoint.w" :height="breakpoint.h"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
-                class="shadow"
+                class="tmpb shadow iframe"
               ></iframe>
             </div>
-          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
@@ -100,7 +97,7 @@
       <v-row class="header d-flex">
         <v-col cols="" class="offset-1 align-self-end"><Logo /></v-col>
       </v-row>
-      <v-row justify="center" align="center" class="d-flex tmpr">
+      <v-row justify="center" align="center" class="d-flex ">
         <!-- CALL TO ACTION -->
         <v-col cols="10" class="animate__animated animate__fadeInLeft">
           <v-row no-gutters class="d-flex align-end">
@@ -131,16 +128,16 @@
           </v-row>
         </v-col>
         <!-- VIDEO -->
-        <v-col cols="9" class=" tmpr align-center justify-center d-flex animate__animated animate__fadeInRight">
+        <v-col cols="9" class="  align-center justify-center d-flex animate__animated animate__fadeInRight">
           <!-- <v-card elevation="16" class="ma-2"> -->
-            <div class="card-full tmpr plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="600" height="340"
+            <div class="d-flex plyr__video-embed" id="player"  data-poster="/img/cover.png">
+              <iframe :width="breakpoint.w" :height="breakpoint.h"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
                 class="shadow"
-                align="center"
+                align="justify-center"
               ></iframe>
             </div>
           <!-- </v-card> -->
@@ -154,7 +151,7 @@
       </v-row>
       <v-row justify="center" align="center" class="d-flex">
         <!-- CALL TO ACTION -->
-        <v-col cols="10" class="animate__animated animate__fadeInLeft ">
+        <v-col cols="10" class="animate__animated animate__fadeInLeft">
           <v-row no-gutters class="d-flex flex-column align-center">
             <v-col cols="12" class="">
               <v-card-title class="white--text font-weight-bold text-h6 overline">
@@ -172,7 +169,7 @@
               </v-card-subtitle>
             </v-col>
           </v-row>
-          <v-row>
+          <v-row no-gutters>
             <v-col>
               <v-card-subtitle class="text-h6 font-weight-light deep-orange--text overline">
                 <p>
@@ -184,18 +181,15 @@
         </v-col>
         <!-- VIDEO -->
         <v-col cols="10" class="animate__animated animate__fadeInRight">
-          <!-- <v-card elevation="16" class="ma-2"> -->
             <div class="plyr__video-embed" id="player"  data-poster="/img/cover.png">
-              <iframe width="480" height="260"
+              <iframe :width="breakpoint.w" :height="breakpoint.h"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
                 class="shadow"
-                align="center"
               ></iframe>
             </div>
-          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
@@ -297,39 +291,42 @@ export default {
     },
     breakpoint () {
       switch (this.$vuetify.breakpoint.name) {
-        case 'xs': return { xs: true, sm: false, md: false, lg: false, xl: false, name:'xs' }
-        case 'sm': return { xs: false, sm: true, md: false, lg: false, xl: false, name:'sm' }
-        case 'md': return { xs: false, sm: false, md: true, lg: false, xl: false, name:'md' }
-        case 'lg': return { xs: false, sm: false, md: false, lg: true, xl: false, name:'lg' }
-        case 'xl': return { xs: false, sm: false, md: false, lg: false, xl: true, name:'xl' }
+        case 'xs': return { xs: true, sm: false, md: false, lg: false, xl: false, name:'xs', w:'500', h:'282' }
+        case 'sm': return { xs: false, sm: true, md: false, lg: false, xl: false, name:'sm', w:'600', h:'338' }
+        case 'md': return { xs: false, sm: false, md: true, lg: false, xl: false, name:'md', w:'520', h:'320' }
+        case 'lg': return { xs: false, sm: false, md: false, lg: true, xl: false, name:'lg', w:'630', h:'356' }
+        case 'xl': return { xs: false, sm: false, md: false, lg: false, xl: true, name:'xl', w:'665', h:'380' }
       }
     }
   },
 };
 </script>
 <style scoped>
-/* .rwh {
-  height: 50px;
-}
-.space {
-  line-height: 1;
+/* .iframe {
+    display: flex;
+    justify-items: center;
+    margin: 0 auto;
+    max-width: 100%;
+    top: -20px;
+    left:20px;
+    height: auto;
 } */
 .header {
   display: block;
   height: 20vh;
 }
-.card-full {
+/* .card-full {
   width:100%;
-}
+} */
 .fullsize {
   /* position: absolute; */
   display: flex;
-  height: 110%;
+  height: 120%;
   width: 100%;
 }
-.fullheight {
+/* .fullheight {
   height: 100%;
-}
+} */
 .background {
   background-image: url('./../assets/img/landing.png');
   background-position: center;
