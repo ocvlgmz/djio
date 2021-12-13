@@ -201,7 +201,7 @@ export default {
   layout: "landing",
   data: () => ({
     video: "https://www.youtube.com/embed/oR6K9o2apsk?rel=0;controls=0;showinfo=0",
-    title: "Schedule your Call",
+    title: "Discovery Call",
     theme:"Discovery Call",
     interest: ["Artificial Intelligence", "Cloud Computing", "Data Intelligence", "Blockchain","Internet of Things"],
     observer: null,
@@ -302,31 +302,15 @@ export default {
 };
 </script>
 <style scoped>
-/* .iframe {
-    display: flex;
-    justify-items: center;
-    margin: 0 auto;
-    max-width: 100%;
-    top: -20px;
-    left:20px;
-    height: auto;
-} */
 .header {
   display: block;
   height: 20vh;
 }
-/* .card-full {
-  width:100%;
-} */
 .fullsize {
-  /* position: absolute; */
   display: flex;
   height: 120%;
   width: 100%;
 }
-/* .fullheight {
-  height: 100%;
-} */
 .background {
   background-image: url('./../assets/img/landing.png');
   background-position: center;

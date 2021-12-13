@@ -3,14 +3,15 @@ const validator = require('validator')
 const xssFilters = require('xss-filters')
 
 const sendMail = async (req, res) => {
-  console.log('sendMail function..')
+  console.log('sendMail function...')
 
   const html = res.locals.string
+  console.log('html: ',html)
 
-  const { theme, name, email, job, purpose, date, time, link } = req.body
-
+  const { title, name, email, job, purpose, message, date, time, link } = req.body
   const lead = { name, email, job }
-  const call = { theme, purpose, date, time, link }
+  const discoveryCall = { title, purpose, date, time, link } 
+  const growWithUs = { title, purpose, message }
   // Validate & sanitize
   // const attributes = ['title', 'name', 'email', 'job', 'purpose']
   const attributes = Object.keys(lead)
@@ -42,26 +43,27 @@ const sendMail = async (req, res) => {
     secure: false,
     auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PWD }
   }
-  const mailOptions = {
+  // For Discovery Call
+  const discoveryCallOptions = {
     from: `"DigitalJam Team" <${process.env.MAIL_FROM}>`,
     to: sanitizedAttributes[1],
-    subject: `Your ${call.theme} [details and instructions]`,
+    subject: `Your ${discoveryCall.title} [details and instructions]`,
     
     html: `${html}`,
     
     text: `
     Hello ${sanitizedAttributes[0]},
     
-    Thanks for scheduling the ${call.theme}.
+    Thanks for scheduling the ${discoveryCall.title}.
     We'll focus on the particular interest you selected during the registration:
-    ${call.purpose}
+    ${discoveryCall.purpose}
 
     Here are the details of the call:
-    Date: ${call.date}
-    Time: ${call.time}
+    Date: ${discoveryCall.date}
+    Time: ${discoveryCall.time}
     
     To join the call, follow this link:
-    ${call.link}
+    ${discoveryCall.link}
 
     In order to maximize the value of our call, here a list of things you could prepare:
     - The #1 priority for your business
@@ -76,6 +78,28 @@ const sendMail = async (req, res) => {
     DigitalJam.io
     `
   } 
+  // For Grow With Us requests 
+  const growWithUsOptions = {
+    from: `"DigitalJam Team" <${process.env.MAIL_FROM}>`,
+    to: sanitizedAttributes[1],
+    subject: `${growWithUs.purpose} information request`,
+    
+    html: `${html}`,
+    
+    text: `
+    Hello ${sanitizedAttributes[0]},
+    
+    Thanks for your reaching us out. 
+    Let me come back to you asap and discuss the topic you suggested: ${growWithUs.purpose}.
+
+    Best regards, 
+    Oliver
+    DigitalJam.io
+    `
+  } 
+  
+  const mailOptions = discoveryCall.title == 'Discovery Call' ? discoveryCallOptions : growWithUsOptions;
+  console.log('mailOptions: ',mailOptions)
   const transporter = nodemailer.createTransport(mailSettings)
   // for async, use try/catch part 
   try {

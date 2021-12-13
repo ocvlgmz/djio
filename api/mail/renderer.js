@@ -1,5 +1,5 @@
 const Vue = require('vue')
-const { body } = require('./body')
+const { discoveryCallBody, growWithUsBody } = require('./body')
 const mjml2html = require('mjml')
 const renderer = require('vue-server-renderer').createRenderer({
   template: `
@@ -27,19 +27,22 @@ const renderer = require('vue-server-renderer').createRenderer({
 
 const renderHtml = async (req,res, next) => {
   console.log('renderHtml function..')
-  let { sched } = req.body
-  let date = new Date(sched).toString()
-  // const day = new Date(date).getDate()
-  const time = new Date(date).getHours()
-  const hour = date.search(time)
-  const gmt = hour+8
-  const offset = gmt+6
-
-  sched = date.substr(0,hour)+'at '+date.substr(hour,5)+date.substr(gmt,5)+date.substr(offset,1)+' (Central European Time)'
-  
+  let body = null
   let payload = req.body
-  payload.sched = sched
-  // console.log(payload)
+  //if Discovery Call, let's format date of event for freindly email display
+  if(req.body.sched){
+    let { sched } = req.body
+    let date = new Date(sched).toString()
+    const time = new Date(date).getHours()
+    const hour = date.search(time)
+    const gmt = hour+8
+    const offset = gmt+6
+    sched = date.substr(0,hour)+'at '+date.substr(hour,5)+date.substr(gmt,5)+date.substr(offset,1)+' (Central European Time)'
+    payload.sched = sched
+    body = discoveryCallBody
+  } 
+  body = growWithUsBody
+  console.log(payload)
 
   const app = new Vue({
     data: {

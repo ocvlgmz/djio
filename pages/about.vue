@@ -431,7 +431,7 @@
                     <p class="">
                       We are constantly looking to expand our professional network. If our service offer and teamwork approach resonate with you, feel free to send us an email to discuss collaboration or partnership. 
                     </p>
-                    <ContactUs :title="'contact us'" :interest="['Collaboration', 'Partnership']"/>
+                    <ContactUs :title="title" :interest="interest"/>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -453,6 +453,9 @@ export default {
   data: () => ({
     never: null,
     dialog: false,
+    title:'contact us',
+    interest:['Collaboration', 'Partnership']
+
   }),
   mounted() {
     this.observer = new IntersectionObserver(this.onIntersect, {

@@ -25,7 +25,7 @@
                 <v-select v-model="form.purpose" :items="interest" label="Purpose" required flat solo background-color="blue-grey lighten-4"></v-select>
               </v-col>
               <v-col>
-                <v-textarea v-model="form.msg" label="Your message"  required flat solo background-color="blue-grey lighten-4"></v-textarea>
+                <v-textarea v-model="form.message" label="Your message"  required flat solo background-color="blue-grey lighten-4"></v-textarea>
               </v-col>
             </v-row>
           </v-card-title>
@@ -50,7 +50,6 @@
   export default {
     props: {
       title: { type: String },
-      theme: { type: String },
       interest: { type: Array },
     },
     data: () => ({
@@ -60,7 +59,16 @@
       form: { name: null, email: null, job: null, purpose: null, message: null },
     }),
     methods: {
-      async callMailRoute(inputs){
+      async callMailRoute(){
+        let inputs = {
+          title: this.title,
+          name: this.form.name,
+          email: this.form.email,
+          job: this.form.job,
+          purpose: this.form.purpose,
+          message: this.form.message,
+        }
+        console.log('inputs: ',inputs)
         this.err
         try {
           await this.$axios.post(process.env.NODE_ENV === 'production' ? '/mail' : '/api/mail', inputs)

@@ -64,7 +64,7 @@
           </v-card-subtitle>
           <v-spacer></v-spacer>
           <v-card-title>
-            <v-btn class="mr-2" depressed dark color="blue-grey darken-3" type="submit" @click.prevent="callMailRoute">
+            <v-btn class="mr-2" depressed dark color="blue-grey darken-3" type="submit" @click.prevent="scheduleCall">
               Confirm
             </v-btn>
             <v-btn depressed dark color="deep-orange darken-3" @click="dialog = false"> Cancel </v-btn>
@@ -167,19 +167,19 @@
         // redirect to a page requiring the user to check his email for confirm!!
         // instead of loginWith + push to /dashboard
           await this.createEvent()
-        // try {
-        //   // let err = false
-        //   // this.error(err)
-        //   // this.pageRedirect(err,'4000','/blog')
-        // } catch (error) {
-        //   // err = true
-        //   // this.error(err, error)
-        // }
+        try {
+          let err = false
+          this.error(err)
+          this.pageRedirect(err,'4000','/blog')
+        } catch (error) {
+          err = true
+          this.error(err, error)
+        }
       },
       async createEvent(){
         // Inputs required for the email notification
         let inputs = {
-          theme: this.theme,
+          title: this.title,
           name: this.form.name,
           email: this.form.email,
           job: this.form.job,
@@ -189,6 +189,7 @@
           sched: this.schedule.sched,
           link: null
         }
+        console.log(inputs)
         // Preparing event information
         const madrid = new Date()
         let diff = new Date(madrid).getTimezoneOffset()
