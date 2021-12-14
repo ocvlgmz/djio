@@ -291,13 +291,13 @@
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="3" class="mx-2 obs fade-in-up fade-in-up hidden">
+          <v-col cols="6" class="mx-2 obs fade-in-up fade-in-up hidden">
             <Member name="Oliver Carvajal" :role="['Founder','Client Operations']" size="196" shape="50" type="team"/>
           </v-col>
-          <v-col cols="3" class="mx-2 obs fade-in-up hidden">
+          <v-col cols="6" class="mx-2 obs fade-in-up hidden">
             <Member name="Martin Andrews" :role="['Adviser','R&D Operations']" size="196" shape="50" type="team"/>
           </v-col>
-          <v-col cols="3" class="mx-2 obs fade-in-up hidden">
+          <v-col cols="6" class="mx-2 obs fade-in-up hidden">
             <Member name="Maureen Sandoval" :role="['Admin','Human Resources']" size="196" shape="50" type="team"/>
           </v-col>
         </v-row>
@@ -402,13 +402,13 @@
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="3" class="mx-2 obs fade-in-up fade-in-up hidden">
+          <v-col cols="12" class="mx-2 obs fade-in-up fade-in-up hidden">
             <Member name="Oliver Carvajal" :role="['Founder','Client Operations']" size="196" shape="50" type="team"/>
           </v-col>
-          <v-col cols="3" class="mx-2 obs fade-in-up hidden">
+          <v-col cols="12" class="mx-2 obs fade-in-up hidden">
             <Member name="Martin Andrews" :role="['Adviser','R&D Operations']" size="196" shape="50" type="team"/>
           </v-col>
-          <v-col cols="3" class="mx-2 obs fade-in-up hidden">
+          <v-col cols="12" class="mx-2 obs fade-in-up hidden">
             <Member name="Maureen Sandoval" :role="['Admin','Human Resources']" size="196" shape="50" type="team"/>
           </v-col>
         </v-row>
