@@ -79,13 +79,13 @@
           </v-row>
         </v-col>
         <v-col cols="6" class=" animate__animated animate__fadeInRight">
-            <div class="tmpr d-flex plyr__video-embed" id="player"  data-poster="/img/cover.png">
+            <div class=" d-flex plyr__video-embed" id="player"  data-poster="/img/cover.png">
               <iframe :width="breakpoint.w" :height="breakpoint.h"
                 :src="video"
                 allowfullscreen
                 allowtransparency
                 allow="autoplay"
-                class="tmpb shadow iframe"
+                class=" shadow iframe"
               ></iframe>
             </div>
         </v-col>
