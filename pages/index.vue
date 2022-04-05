@@ -39,14 +39,6 @@
                 class=" shadow"
               ></iframe>
             </div>
-            <!-- <vue-plyr ref="plyr" :options="options">
-              <video class="player" width="640" height="520" data-poster="/img/cover.png" >
-                <source size="360" :src="video" type="video/mp4" />
-                <source size="720" :src="video" type="video/mp4" />
-                <source size="1080" :src="video" type="video/mp4" />
-              </video>
-            </vue-plyr> -->
-          <!-- </v-card> -->
         </v-col>
       </v-row>
     </v-card>
