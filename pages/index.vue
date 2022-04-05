@@ -1,5 +1,56 @@
 <template>
   <v-container fluid ma-0 pa-0 class="background fullsize">
+  
+  <!-- XL display -->
+    <v-card tile flat color="transparent" v-show="breakpoint.lg">
+      <v-row class="ma-2 header d-flex">
+        <v-col cols="" class="offset-2 align-self-end"><Logo /></v-col>
+      </v-row>
+      <v-row justify="center" align="center" class="">
+        <v-col cols="4" class="offset-2 animate__animated animate__fadeInLeft">
+          <v-row class="d-flex flex-column align-center justify-center">
+            <v-col>
+              <v-card-title class="white--text font-weight-bold text-h4 overline">
+                <p>
+                  The <span class="deep-orange--text">#1 thing</span> your business
+                  can't afford to ignore anymore!
+                </p>
+              </v-card-title>
+              <v-card-subtitle class="text-h6 font-weight-light deep-orange--text overline">
+                <p>
+                  A short video on how to survive in today's digital economy...
+                </p>
+              </v-card-subtitle>
+              <v-card-subtitle>
+                <Schedule :title="title" :theme="theme" :interest="interest" >
+                </Schedule>
+              </v-card-subtitle>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="6" class="animate__animated animate__fadeInRight">
+          <!-- <v-card elevation="16" class="" color="transparent"> -->
+            <div class="plyr__video-embed" id="player" data-poster="/img/cover.png">
+              <iframe :width="breakpoint.w" :height="breakpoint.h"
+                :src="video"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+                class=" shadow"
+              ></iframe>
+            </div>
+            <!-- <vue-plyr ref="plyr" :options="options">
+              <video class="player" width="640" height="520" data-poster="/img/cover.png" >
+                <source size="360" :src="video" type="video/mp4" />
+                <source size="720" :src="video" type="video/mp4" />
+                <source size="1080" :src="video" type="video/mp4" />
+              </video>
+            </vue-plyr> -->
+          <!-- </v-card> -->
+        </v-col>
+      </v-row>
+    </v-card>
+    
     <!-- LG display -->
     <v-card tile flat color="transparent" v-show="breakpoint.lg">
       <v-row class="ma-2 header d-flex">
