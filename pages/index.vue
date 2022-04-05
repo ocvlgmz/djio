@@ -2,7 +2,7 @@
   <v-container fluid ma-0 pa-0 class="background fullsize">
   
   <!-- XL display -->
-    <v-card tile flat color="transparent" v-show="breakpoint.lg">
+    <v-card tile flat color="transparent" v-show="breakpoint.xl">
       <v-row class="ma-2 header d-flex">
         <v-col cols="" class="offset-2 align-self-end"><Logo /></v-col>
       </v-row>
